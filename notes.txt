@@ -1,0 +1,46 @@
+
+
+
+
+
+Things to work on:
+	
+		FUNCTIONALITY
+	Storing data (has player logged in? Who is the player? settings)
+	Music player
+	Combat Scene
+	Dice roller in combat w/ animations
+	BDiS DM to allow getting into combat + playing scenes
+	Make Combat Scene + Non-Combat Actions Scene
+	Move customs to user:// so as to not have to reset it each time
+	
+	
+		SCENES
+	Freespace - moved Notepad + Whiteboard into here
+	Char Sheet - Make this an ID-looking thing, with pfp instead of full (get full if you click on the pfp), with summary details on front side (with some buttons to expand for more details) and flippable back side with more niche details| displays user's character, including their stats and inventory
+	Crew - shows all characters permanently in party, along with the ship and warframes (ship scene shows ship inventory)
+	** Notepad - notepad with either tab or folder view (or both?), with some other features later like bbcode, color support, or timestamps?
+	
+	!Music player (Song name, length, tags)
+	
+	
+		AESTHETIC
+	Sidebar animation
+	Graphic design/theming (i.e. Karma or Crew.tscn)
+	Dice animation fx (i.e. glow effects on 20 w/ good sfx, and vice versa for nat 1)
+	Shaders?
+	
+
+
+
+
+
+default dir:
+	WIN:    %APPDATA%\Godot\app_userdata\BDiS
+	Linux:  ~/.local/share/godot/app_userdata/BDiS
+
+
+custom dir:
+	WIN:    %APPDATA%\BDiS
+	Linux:  ~/.local/share/BDiS
+

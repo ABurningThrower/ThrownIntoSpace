@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lqawdxjh5tj5"
+path="res://.godot/imported/Nocturne op.9 No.2.mp3-8be4e3d1fdc4ff8cf0c968dd2c025f9f.mp3str"
+
+[deps]
+
+source_file="res://files/system/Audio/Music/Untagged/Nocturne op.9 No.2.mp3"
+dest_files=["res://.godot/imported/Nocturne op.9 No.2.mp3-8be4e3d1fdc4ff8cf0c968dd2c025f9f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

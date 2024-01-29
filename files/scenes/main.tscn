@@ -1,0 +1,160 @@
+[gd_scene load_steps=21 format=3 uid="uid://cenovytyhmy3y"]
+
+[ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_7i8vd"]
+[ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="1_pugcn"]
+[ext_resource type="Texture2D" uid="uid://b71fm15rlg0sn" path="res://files/system/Images/System/menubarHor.png" id="1_xai2x"]
+[ext_resource type="Script" path="res://files/scenes/main.gd" id="2_bn2lk"]
+[ext_resource type="Script" path="res://files/scenes/sidebarButton.gd" id="2_daroh"]
+[ext_resource type="Script" path="res://files/scenes/scene_manager.gd" id="3_nxx0c"]
+[ext_resource type="PackedScene" uid="uid://jb1mh0r1inc4" path="res://files/scenes/music_player.tscn" id="3_vw7as"]
+[ext_resource type="Script" path="res://files/scenes/sidebar.gd" id="5_1gxuy"]
+[ext_resource type="PackedScene" uid="uid://c5mtc0vvmpkwc" path="res://files/scenes/transition_fade.tscn" id="5_g3apu"]
+[ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="9_gxc40"]
+[ext_resource type="Script" path="res://files/scenes/back_btn.gd" id="10_w026h"]
+
+[sub_resource type="Gradient" id="Gradient_fqitm"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.298701)
+colors = PackedColorArray(0.141176, 0.12549, 0.12549, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hxyjf"]
+gradient = SubResource("Gradient_fqitm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kujr6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0627451, 0.741176, 0.694118, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Animation" id="Animation_yonus"]
+resource_name = "slide_in"
+
+[sub_resource type="Animation" id="Animation_7qoto"]
+resource_name = "slide_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly1nb"]
+_data = {
+"slide_in": SubResource("Animation_yonus"),
+"slide_out": SubResource("Animation_7qoto")
+}
+
+[sub_resource type="Animation" id="Animation_rbtrc"]
+resource_name = "close"
+
+[sub_resource type="Animation" id="Animation_4ddff"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2k6t"]
+_data = {
+"close": SubResource("Animation_rbtrc"),
+"open": SubResource("Animation_4ddff")
+}
+
+[node name="Main Window" type="TextureRect"]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("1_7i8vd")
+texture = SubResource("GradientTexture1D_hxyjf")
+script = ExtResource("2_bn2lk")
+metadata/_edit_lock_ = true
+
+[node name="Scenes" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_nxx0c")
+
+[node name="Transition Fade" parent="." instance=ExtResource("5_g3apu")]
+
+[node name="Sidebar" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1028.0
+offset_top = 3.0
+offset_right = 1278.0
+offset_bottom = 717.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kujr6")
+script = ExtResource("5_1gxuy")
+
+[node name="VBox Btn Container" type="VBoxContainer" parent="Sidebar"]
+layout_mode = 2
+
+[node name="Freespace Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Freespace"
+script = ExtResource("1_pugcn")
+scenePath = "res://files/scenes/Main-/freespace.tscn"
+
+[node name="CharSheet Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Character Sheet"
+script = ExtResource("1_pugcn")
+
+[node name="Crew Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Crew"
+script = ExtResource("1_pugcn")
+scenePath = "res://files/scenes/Main-/crew.tscn"
+
+[node name="Music Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Music"
+script = ExtResource("1_pugcn")
+scenePath = "res://files/scenes/Main-/music.tscn"
+
+[node name="Settings Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+script = ExtResource("1_pugcn")
+scenePath = "res://files/scenes/Main-/settings.tscn"
+
+[node name="Elements Anim" type="AnimationPlayer" parent="Sidebar/VBox Btn Container"]
+root_node = NodePath("../../Sidebar Anim")
+libraries = {
+"": SubResource("AnimationLibrary_ly1nb")
+}
+
+[node name="Sidebar Anim" type="AnimationPlayer" parent="Sidebar"]
+libraries = {
+"": SubResource("AnimationLibrary_m2k6t")
+}
+
+[node name="Sidebar Btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1224.0
+offset_top = 10.0
+offset_right = 1266.0
+offset_bottom = 52.0
+icon = ExtResource("1_xai2x")
+icon_alignment = 1
+script = ExtResource("2_daroh")
+
+[node name="Back Btn" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 51.0
+offset_bottom = 52.0
+icon = ExtResource("9_gxc40")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_w026h")
+
+[node name="Music Player" parent="." instance=ExtResource("3_vw7as")]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 522.0
+offset_right = 335.0
+offset_bottom = 713.0
+
+[connection signal="transitioned" from="Transition Fade" to="Scenes" method="_on_transition_fade_transitioned"]

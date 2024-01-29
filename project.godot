@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BDiS"
+run/main_scene="res://files/scenes/main.tscn"
+config/use_custom_user_dir=true
+config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=300
+boot_splash/bg_color=Color(0.0509804, 0.0509804, 0.0509804, 1)
+boot_splash/show_image=false
+config/icon="res://icon.png"
+
+[autoload]
+
+Boot="*res://boot.gd"
+saver_autoload="res://files/scripts/saver.gd"
+
+[debug]
+
+file_logging/max_log_files=3
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+driver/depth_prepass/enable=false
+environment/defaults/default_clear_color=Color(0.0352941, 0.0352941, 0.0352941, 1)

@@ -1,0 +1,17 @@
+populate with:
+
+Karma.tscn
+Sol.tscn
+Maxim.tscn
+
+Ui.tscn
+Anuboid.tscn
+
+
+
+
+
+
+OR
+
+Always use char sheet bp and use data in the files to fill it in (allowing enemies to have sheets too, if that's needed)

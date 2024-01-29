@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4a6qtj0gaxhc"
+path="res://.godot/imported/Whispers in the Dark.mp3-3d60b1ccce2e400f60a9350593bbb6c4.mp3str"
+
+[deps]
+
+source_file="res://files/system/Audio/SFX/Whispers in the Dark.mp3"
+dest_files=["res://.godot/imported/Whispers in the Dark.mp3-3d60b1ccce2e400f60a9350593bbb6c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

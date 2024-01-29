@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnpyybmmna62n"]
+
+[ext_resource type="Script" path="res://files/scenes/loginButton.gd" id="1_coxqm"]
+[ext_resource type="Script" path="res://files/scenes/loginPopup.gd" id="2_c4msp"]
+
+[sub_resource type="Gradient" id="Gradient_urt0g"]
+offsets = PackedFloat32Array(0.227273)
+colors = PackedColorArray(0.00715637, 0.0273438, 0.00936437, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mw0ny"]
+gradient = SubResource("Gradient_urt0g")
+
+[sub_resource type="SystemFont" id="SystemFont_fpvhn"]
+font_names = PackedStringArray("Cursive")
+
+[sub_resource type="LabelSettings" id="LabelSettings_nan0j"]
+font = SubResource("SystemFont_fpvhn")
+font_size = 27
+font_color = Color(0.807843, 0.160784, 0.160784, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1n1y"]
+font_size = 12
+font_color = Color(0.74902, 0.152941, 0.152941, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_7whd8"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_8ehpp"]
+events = [SubResource("InputEventKey_7whd8")]
+
+[node name="Login" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Screen" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_mw0ny")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Balls Label" type="Label" parent="Screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 27.0
+text = "B.A.L.L.S."
+label_settings = SubResource("LabelSettings_nan0j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Balls Sublabel" type="Label" parent="Screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0015625
+anchor_top = 0.0138889
+anchor_right = 0.0015625
+anchor_bottom = 0.0138889
+offset_left = 5.0
+offset_top = 26.0
+offset_right = 178.0
+offset_bottom = 49.0
+text = "You're in ballsy hands."
+label_settings = SubResource("LabelSettings_q1n1y")
+metadata/_edit_use_anchors_ = true
+
+[node name="Username Input" type="LineEdit" parent="Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.504
+offset_top = 270.0
+offset_right = 91.496
+offset_bottom = 302.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../Password Input")
+focus_next = NodePath("../Password Input")
+placeholder_text = "Username"
+context_menu_enabled = false
+caret_blink = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Password Input" type="LineEdit" parent="Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.504
+offset_top = -393.0
+offset_right = 91.496
+offset_bottom = -361.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_top = NodePath("../Username Input")
+focus_neighbor_bottom = NodePath("../Remember Me")
+focus_next = NodePath("../Remember Me")
+focus_previous = NodePath("../Username Input")
+placeholder_text = "Password"
+context_menu_enabled = false
+caret_blink = true
+secret = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Remember Me" type="CheckBox" parent="Screen"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 380.0
+offset_right = 702.0
+offset_bottom = 411.0
+focus_neighbor_top = NodePath("../Password Input")
+focus_neighbor_bottom = NodePath("../Login Button")
+focus_next = NodePath("../Login Button")
+focus_previous = NodePath("../Password Input")
+text = "Remember Me"
+metadata/_edit_use_anchors_ = true
+
+[node name="Login Button" type="Button" parent="Screen" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.527389
+anchor_right = 0.501
+anchor_bottom = 0.528
+offset_left = -47.28
+offset_top = 50.28
+offset_right = 47.72
+offset_bottom = 90.84
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../Remember Me")
+focus_next = NodePath("../Username Input")
+focus_previous = NodePath("../Remember Me")
+shortcut_context = NodePath("..")
+shortcut = SubResource("Shortcut_8ehpp")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Login"
+script = ExtResource("1_coxqm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Popup" type="Popup" parent="."]
+title = "Invalid login."
+initial_position = 2
+size = Vector2i(720, 360)
+script = ExtResource("2_c4msp")
+
+[node name="Message" type="Label" parent="Popup"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Please make sure you're spelling things right, moron."

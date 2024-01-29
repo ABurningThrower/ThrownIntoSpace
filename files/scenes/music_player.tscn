@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://jb1mh0r1inc4"]
+
+[ext_resource type="Script" path="res://files/scenes/music_player.gd" id="1_tkr4g"]
+[ext_resource type="AudioStream" uid="uid://d1053ajew12mn" path="res://files/system/Audio/Music/Untagged/Clair De Lune.mp3" id="2_om0b1"]
+
+[sub_resource type="Gradient" id="Gradient_l3jc2"]
+colors = PackedColorArray(0, 0, 0, 0.501961, 1, 1, 1, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_shcd3"]
+gradient = SubResource("Gradient_l3jc2")
+fill_from = Vector2(0.981651, 0.0458716)
+
+[node name="Music Player" type="TextureRect"]
+offset_right = 300.0
+offset_bottom = 200.0
+texture = SubResource("GradientTexture2D_shcd3")
+script = ExtResource("1_tkr4g")
+
+[node name="Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_om0b1")
+volume_db = -5.0
+autoplay = true

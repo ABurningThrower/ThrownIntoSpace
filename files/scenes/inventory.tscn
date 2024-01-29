@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvb7dj5h0x43h"]
+
+[sub_resource type="Gradient" id="Gradient_eds5j"]
+offsets = PackedFloat32Array(0.227273, 0.850649)
+colors = PackedColorArray(0.00715637, 0.0273438, 0.00936437, 1, 0.350865, 0.351562, 0.262299, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xj2f3"]
+gradient = SubResource("Gradient_eds5j")
+
+[node name="Inventory" type="TextureRect"]
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_xj2f3")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Inventory Grid Container" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 858.0
+offset_bottom = 720.0
+
+[node name="Player Image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 911.0
+offset_top = 75.0
+offset_right = 1276.0
+offset_bottom = 644.0

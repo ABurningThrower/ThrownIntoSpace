@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://0gutfyq1dx3p"]
+
+[ext_resource type="SystemFont" uid="uid://51ehdfjsh1cn" path="res://files/system/Themes/Fonts/btn_font.tres" id="1_f0mbq"]
+[ext_resource type="FontFile" uid="uid://bs11aogmninrw" path="res://files/system/Themes/Fonts/Blue Screen Personal Use.ttf" id="1_m5is5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gugio"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_f0mbq")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0.823529)
+Button/constants/icon_max_width = 173
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_m5is5")
+Button/styles/normal = SubResource("StyleBoxFlat_gugio")
+Fonts/fonts/normal = ExtResource("1_f0mbq")
+Label/constants/outline_size = 3
