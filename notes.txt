@@ -1,18 +1,28 @@
 
 
 
+Current TODO:
+	Inventory + Icons
+	Music Player Icon Pack (make the UI)
+	
+	build settings and 
+	brainstorm what things need to be saved
+
+
+
 
 
 Things to work on:
 	
 		FUNCTIONALITY
+	Inventory
 	Storing data (has player logged in? Who is the player? settings)
+	
 	Music player
-	Combat Scene
 	Dice roller in combat w/ animations
 	BDiS DM to allow getting into combat + playing scenes
-	Make Combat Scene + Non-Combat Actions Scene
-	Move customs to user:// so as to not have to reset it each time
+	Combat Scene + Non-Combat Actions Scene
+	
 	
 	
 		SCENES
@@ -26,7 +36,7 @@ Things to work on:
 	
 		AESTHETIC
 	Sidebar animation
-	Graphic design/theming (i.e. Karma or Crew.tscn)
+	Graphic design/theming (set font in main_theme.tres + overrides/other themes )
 	Dice animation fx (i.e. glow effects on 20 w/ good sfx, and vice versa for nat 1)
 	Shaders?
 	
@@ -40,7 +50,16 @@ default dir:
 	Linux:  ~/.local/share/godot/app_userdata/BDiS
 
 
+
+
+!!! What we're using !!!
 custom dir:
 	WIN:    %APPDATA%\BDiS
 	Linux:  ~/.local/share/BDiS
+
+
+!!! What we're using !!!
+custom dir?:
+	WIN:    %APPDATA%\Balls Deep in a Companion
+	Linux:  ~/.local/share/Balls Deep in a Companion
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmoo03k0rx0m6"]
 
-[ext_resource type="Theme" uid="uid://0gutfyq1dx3p" path="res://files/system/Themes/crew_theme.tres" id="1_d2w2u"]
+[ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_d2w2u"]
 
 [sub_resource type="Gradient" id="Gradient_y1ehn"]
 offsets = PackedFloat32Array(0, 0.74026, 1)
@@ -11,17 +11,14 @@ gradient = SubResource("Gradient_y1ehn")
 fill_from = Vector2(0.495413, 0)
 fill_to = Vector2(1, 1)
 
-[node name="Character Sheet" type="Node2D"]
-metadata/_edit_lock_ = true
-
-[node name="BG" type="TextureRect" parent="."]
+[node name="Character Sheet" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
 theme = ExtResource("1_d2w2u")
 texture = SubResource("GradientTexture2D_s7rxk")
 metadata/_edit_lock_ = true
 
-[node name="Panel Container" type="PanelContainer" parent="BG"]
+[node name="Panel Container" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://dg5xcq81wf7wj"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dg5xcq81wf7wj"]
+
+[ext_resource type="FontFile" uid="uid://bs11aogmninrw" path="res://files/system/Themes/Fonts/Blue Screen Personal Use.ttf" id="1_1j1pc"]
 
 [resource]
+default_font = ExtResource("1_1j1pc")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4

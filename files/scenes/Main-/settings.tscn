@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn1mmu2tlugya"]
+[gd_scene load_steps=6 format=3 uid="uid://cn1mmu2tlugya"]
 
-[ext_resource type="Theme" uid="uid://0gutfyq1dx3p" path="res://files/system/Themes/crew_theme.tres" id="1_qqnuv"]
 [ext_resource type="Script" path="res://files/scripts/saver.gd" id="2_qraw8"]
+
+[sub_resource type="SystemFont" id="SystemFont_ycx2o"]
+
+[sub_resource type="Theme" id="Theme_ki3ae"]
+default_font = SubResource("SystemFont_ycx2o")
 
 [sub_resource type="Gradient" id="Gradient_ho0mo"]
 offsets = PackedFloat32Array(0, 0.74026, 1)
@@ -15,7 +19,7 @@ fill_to = Vector2(1, 1)
 [node name="BG" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme = ExtResource("1_qqnuv")
+theme = SubResource("Theme_ki3ae")
 texture = SubResource("GradientTexture2D_ewln7")
 metadata/_edit_lock_ = true
 
@@ -42,6 +46,7 @@ visible = false
 layout_mode = 2
 
 [node name="Save Buttons" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1099.0
 offset_top = 662.0
 offset_right = 1205.0

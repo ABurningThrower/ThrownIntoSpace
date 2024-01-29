@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://chiydglogvwt7"]
+[gd_scene load_steps=15 format=3 uid="uid://chiydglogvwt7"]
 
-[ext_resource type="Theme" uid="uid://0gutfyq1dx3p" path="res://files/system/Themes/crew_theme.tres" id="1_e3srt"]
+[ext_resource type="FontFile" uid="uid://bs11aogmninrw" path="res://files/system/Themes/Fonts/Blue Screen Personal Use.ttf" id="1_4bfar"]
 [ext_resource type="Texture2D" uid="uid://b005g41c6vpmb" path="res://files/system/Images/Characters/Crew/Pfps/Karma_pfp.png" id="1_qxqfv"]
+[ext_resource type="SystemFont" uid="uid://51ehdfjsh1cn" path="res://files/system/Themes/Fonts/btn_font.tres" id="2_g15jo"]
 [ext_resource type="Texture2D" uid="uid://c8frluilnjmyh" path="res://files/system/Images/Characters/Crew/Pfps/Sol_pfp.png" id="2_tvckb"]
 [ext_resource type="Texture2D" uid="uid://hniqutl21dda" path="res://files/system/Images/Characters/Crew/Pfps/Anuboid_pfp.png" id="3_40l43"]
 [ext_resource type="Texture2D" uid="uid://ceeojywbet0c7" path="res://files/system/Images/Characters/Crew/Pfps/うい_pfp.jpeg" id="3_qhh3u"]
@@ -9,6 +10,21 @@
 [ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="4_txgpd"]
 [ext_resource type="Texture2D" uid="uid://cl4tret3wsvwn" path="res://files/system/Images/wf_lotus.png" id="5_3snwn"]
 [ext_resource type="Texture2D" uid="uid://b8x0n8ejo4gyi" path="res://files/system/Images/skuld.png" id="5_8vmj6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gugio"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_kpyhg"]
+default_font = ExtResource("2_g15jo")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0.823529)
+Button/constants/icon_max_width = 173
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_4bfar")
+Button/styles/normal = SubResource("StyleBoxFlat_gugio")
+Fonts/fonts/normal = ExtResource("2_g15jo")
+Label/constants/outline_size = 3
 
 [sub_resource type="Gradient" id="Gradient_ppkxf"]
 offsets = PackedFloat32Array(0, 0.74026, 1)
@@ -22,7 +38,7 @@ fill_to = Vector2(1, 1)
 [node name="Crew" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme = ExtResource("1_e3srt")
+theme = SubResource("Theme_kpyhg")
 texture = SubResource("GradientTexture2D_4ttkd")
 metadata/_edit_lock_ = true
 
@@ -32,13 +48,11 @@ offset_left = 60.0
 offset_top = 60.0
 offset_right = 829.0
 offset_bottom = 660.0
-theme = ExtResource("1_e3srt")
 
 [node name="Top HBox" type="HBoxContainer" parent="Crew VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-theme = ExtResource("1_e3srt")
 theme_override_constants/separation = 120
 
 [node name="Karma Btn" type="Button" parent="Crew VBox/Top HBox"]
@@ -48,8 +62,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_neighbor_right = NodePath("../Sol Btn")
 focus_neighbor_bottom = NodePath("../../Bottom HBox/Ui Btn")
-focus_next = NodePath("../Sol Btn")
-theme = ExtResource("1_e3srt")
 theme_override_constants/icon_max_width = 173
 text = "
 
@@ -72,9 +84,7 @@ size_flags_vertical = 4
 focus_neighbor_left = NodePath("../Karma Btn")
 focus_neighbor_right = NodePath("../Maxim Btn")
 focus_neighbor_bottom = NodePath("../../Bottom HBox/Ui Btn")
-focus_next = NodePath("../Maxim Btn")
 focus_previous = NodePath("../Karma Btn")
-theme = ExtResource("1_e3srt")
 text = "
 
 
@@ -96,9 +106,7 @@ size_flags_vertical = 4
 focus_neighbor_left = NodePath("../Sol Btn")
 focus_neighbor_right = NodePath("../../../Other VBox/WF Btn")
 focus_neighbor_bottom = NodePath("../../Bottom HBox/Anuboid Btn")
-focus_next = NodePath("../../Bottom HBox/Ui Btn")
 focus_previous = NodePath("../Sol Btn")
-theme = ExtResource("1_e3srt")
 text = "
 
 
@@ -117,7 +125,6 @@ script = ExtResource("4_txgpd")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-theme = ExtResource("1_e3srt")
 theme_override_constants/separation = 141
 
 [node name="Spacer Left" type="Control" parent="Crew VBox/Bottom HBox"]
@@ -130,7 +137,6 @@ focus_neighbor_top = NodePath("../../Top HBox/Maxim Btn")
 focus_neighbor_right = NodePath("../../../Other VBox/Ship Btn")
 focus_next = NodePath("../../../Other VBox/WF Btn")
 focus_previous = NodePath("../Ui Btn")
-theme = ExtResource("1_e3srt")
 
 [node name="Ui Btn" type="Button" parent="Crew VBox/Bottom HBox"]
 unique_name_in_owner = true
@@ -139,9 +145,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 focus_neighbor_top = NodePath("../../Top HBox/Karma Btn")
 focus_neighbor_right = NodePath("../Anuboid Btn")
-focus_next = NodePath("../Anuboid Btn")
 focus_previous = NodePath("../../Top HBox/Maxim Btn")
-theme = ExtResource("1_e3srt")
 text = "
 
 
@@ -162,9 +166,7 @@ size_flags_vertical = 6
 focus_neighbor_left = NodePath("../Ui Btn")
 focus_neighbor_top = NodePath("../../Top HBox/Maxim Btn")
 focus_neighbor_right = NodePath("../../../Other VBox/Ship Btn")
-focus_next = NodePath("../../../Other VBox/WF Btn")
 focus_previous = NodePath("../Ui Btn")
-theme = ExtResource("1_e3srt")
 text = "
 
 
@@ -187,7 +189,6 @@ focus_neighbor_top = NodePath("../../Top HBox/Maxim Btn")
 focus_neighbor_right = NodePath("../../../Other VBox/Ship Btn")
 focus_next = NodePath("../../../Other VBox/WF Btn")
 focus_previous = NodePath("../Ui Btn")
-theme = ExtResource("1_e3srt")
 
 [node name="Other VBox" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -195,7 +196,6 @@ offset_left = 966.0
 offset_top = 60.0
 offset_right = 1136.0
 offset_bottom = 660.0
-theme = ExtResource("1_e3srt")
 
 [node name="WF Btn" type="Button" parent="Other VBox"]
 unique_name_in_owner = true
@@ -204,9 +204,7 @@ size_flags_horizontal = 5
 size_flags_vertical = 5
 focus_neighbor_left = NodePath("../../Crew VBox/Top HBox/Maxim Btn")
 focus_neighbor_bottom = NodePath("../Ship Btn")
-focus_next = NodePath("../Ship Btn")
 focus_previous = NodePath("../../Crew VBox/Bottom HBox/Anuboid Btn")
-theme = ExtResource("1_e3srt")
 text = "
 
 
@@ -231,7 +229,6 @@ focus_neighbor_top = NodePath("../../Top HBox/Maxim Btn")
 focus_neighbor_right = NodePath("../../../Other VBox/Ship Btn")
 focus_next = NodePath("../../../Other VBox/WF Btn")
 focus_previous = NodePath("../Ui Btn")
-theme = ExtResource("1_e3srt")
 
 [node name="Ship Btn" type="Button" parent="Other VBox"]
 unique_name_in_owner = true
@@ -240,9 +237,7 @@ size_flags_horizontal = 5
 size_flags_vertical = 5
 focus_neighbor_left = NodePath("../../Crew VBox/Bottom HBox/Anuboid Btn")
 focus_neighbor_top = NodePath("../WF Btn")
-focus_next = NodePath("../../Crew VBox/Top HBox/Karma Btn")
 focus_previous = NodePath("../WF Btn")
-theme = ExtResource("1_e3srt")
 theme_override_constants/icon_max_width = 173
 text = "
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5jdkexk8t84o"]
 
 [ext_resource type="Texture2D" uid="uid://hniqutl21dda" path="res://files/system/Images/Characters/Crew/Pfps/Anuboid_pfp.png" id="1_85gi3"]
-[ext_resource type="Theme" uid="uid://bwv4npwrctnng" path="res://files/system/Themes/wf_theme.tres" id="1_sfvev"]
+[ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_am6yk"]
 
 [sub_resource type="Gradient" id="Gradient_qwp7d"]
 offsets = PackedFloat32Array(0.0454545)
@@ -13,6 +13,7 @@ gradient = SubResource("Gradient_qwp7d")
 [node name="Warframes" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
+theme = ExtResource("1_am6yk")
 texture = SubResource("GradientTexture1D_08t2b")
 metadata/_edit_lock_ = true
 
@@ -36,7 +37,6 @@ size_flags_vertical = 6
 focus_neighbor_right = NodePath("../Valk Btn")
 focus_neighbor_bottom = NodePath("../Kusuo Btn")
 focus_next = NodePath("../Valk Btn")
-theme = ExtResource("1_sfvev")
 text = "
 
 
@@ -64,9 +64,7 @@ focus_neighbor_left = NodePath("../Ceros Btn")
 focus_neighbor_bottom = NodePath("../Anuboid Btn")
 focus_next = NodePath("../Kusuo Btn")
 focus_previous = NodePath("../Ceros Btn")
-theme = ExtResource("1_sfvev")
 text = "
-
 
 
 
@@ -92,7 +90,6 @@ focus_neighbor_top = NodePath("../Ceros Btn")
 focus_neighbor_right = NodePath("../Anuboid Btn")
 focus_next = NodePath("../Anuboid Btn")
 focus_previous = NodePath("../Valk Btn")
-theme = ExtResource("1_sfvev")
 text = "
 
 
@@ -120,7 +117,6 @@ focus_neighbor_left = NodePath("../Kusuo Btn")
 focus_neighbor_top = NodePath("../Valk Btn")
 focus_next = NodePath("../Ceros Btn")
 focus_previous = NodePath("../Kusuo Btn")
-theme = ExtResource("1_sfvev")
 text = "
 
 

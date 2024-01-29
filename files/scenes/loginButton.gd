@@ -3,7 +3,7 @@ extends Button
 
 
 
-func _pressed():	
+func _pressed() -> void:	
 	var username: String = %"Username Input".text
 	var password: String = %"Password Input".text
 	var os: String = OS.get_name()
@@ -30,8 +30,8 @@ func _pressed():
 		#badLogin()
 
 
-func saveContinue(player):
-	#save data (set player [+ key?] in settings)
+func saveContinue(player) -> void:
+	Saver.updateData("settingsDict", "player", player)
 	get_tree().change_scene_to_file("res://files/scenes/main.tscn")
 
 

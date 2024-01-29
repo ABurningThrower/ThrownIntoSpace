@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cenovytyhmy3y"]
+[gd_scene load_steps=27 format=3 uid="uid://cenovytyhmy3y"]
 
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_7i8vd"]
 [ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="1_pugcn"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5mtc0vvmpkwc" path="res://files/scenes/transition_fade.tscn" id="5_g3apu"]
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="9_gxc40"]
 [ext_resource type="Script" path="res://files/scenes/back_btn.gd" id="10_w026h"]
+[ext_resource type="PackedScene" uid="uid://d2gd3318i1kbu" path="res://files/scenes/sfx_player.tscn" id="12_3rwlw"]
 
 [sub_resource type="Gradient" id="Gradient_fqitm"]
 interpolation_mode = 1
@@ -54,6 +55,23 @@ _data = {
 "close": SubResource("Animation_rbtrc"),
 "open": SubResource("Animation_4ddff")
 }
+
+[sub_resource type="InputEventKey" id="InputEventKey_6jcqm"]
+device = -1
+keycode = 4194306
+
+[sub_resource type="Shortcut" id="Shortcut_i034d"]
+events = [SubResource("InputEventKey_6jcqm")]
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_4jdu5"]
+button_index = 8
+
+[sub_resource type="InputEventKey" id="InputEventKey_mbu08"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_ym4hf"]
+events = [SubResource("InputEventMouseButton_4jdu5"), SubResource("InputEventKey_mbu08")]
 
 [node name="Main Window" type="TextureRect"]
 offset_right = 1280.0
@@ -129,10 +147,11 @@ libraries = {
 
 [node name="Sidebar Btn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1224.0
+offset_left = 1233.0
 offset_top = 10.0
-offset_right = 1266.0
-offset_bottom = 52.0
+offset_right = 1269.0
+offset_bottom = 42.0
+shortcut = SubResource("Shortcut_i034d")
 icon = ExtResource("1_xai2x")
 icon_alignment = 1
 script = ExtResource("2_daroh")
@@ -140,10 +159,11 @@ script = ExtResource("2_daroh")
 [node name="Back Btn" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 9.0
-offset_top = 10.0
-offset_right = 51.0
-offset_bottom = 52.0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 39.0
+offset_bottom = 40.0
+shortcut = SubResource("Shortcut_ym4hf")
 icon = ExtResource("9_gxc40")
 icon_alignment = 1
 expand_icon = true
@@ -156,5 +176,7 @@ offset_left = 11.0
 offset_top = 522.0
 offset_right = 335.0
 offset_bottom = 713.0
+
+[node name="SFX Player" parent="." instance=ExtResource("12_3rwlw")]
 
 [connection signal="transitioned" from="Transition Fade" to="Scenes" method="_on_transition_fade_transitioned"]

@@ -1,7 +1,5 @@
 [gd_scene load_steps=4 format=3 uid="uid://5r8147tr4bmi"]
 
-[ext_resource type="Theme" uid="uid://0gutfyq1dx3p" path="res://files/system/Themes/crew_theme.tres" id="1_8daqy"]
-
 [sub_resource type="Gradient" id="Gradient_7pxao"]
 offsets = PackedFloat32Array(0, 0.74026, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.519481, 0.519481, 0.519481, 1, 0.460938, 0.460938, 0.460938, 1)
@@ -11,10 +9,11 @@ gradient = SubResource("Gradient_7pxao")
 fill_from = Vector2(0.495413, 0)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_nr77e"]
+
 [node name="Freespace" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme = ExtResource("1_8daqy")
 texture = SubResource("GradientTexture2D_6ptp4")
 metadata/_edit_lock_ = true
 
@@ -24,6 +23,7 @@ offset_left = 302.0
 offset_top = 198.0
 offset_right = 685.0
 offset_bottom = 314.0
+theme_override_fonts/font = SubResource("SystemFont_nr77e")
 text = "Whiteboard button? (should be able to draw in-app)
 
 Notepad button? (pop-up?)

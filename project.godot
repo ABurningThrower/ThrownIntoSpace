@@ -13,6 +13,7 @@ config_version=5
 config/name="BDiS"
 run/main_scene="res://files/scenes/main.tscn"
 config/use_custom_user_dir=true
+config/custom_user_dir_name="Balls Deep in a Companion"
 config/features=PackedStringArray("4.2", "Mobile")
 run/max_fps=300
 boot_splash/bg_color=Color(0.0509804, 0.0509804, 0.0509804, 1)
@@ -22,7 +23,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Boot="*res://boot.gd"
-saver_autoload="res://files/scripts/saver.gd"
 
 [debug]
 
@@ -35,6 +35,23 @@ window/size/viewport_height=720
 window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://files/": "gray",
+"res://files/scenes/": "green",
+"res://files/scripts/": "blue",
+"res://files/system/": "purple",
+"res://files/system/Audio/Music/": "pink",
+"res://files/system/Audio/Music/Star/": "yellow",
+"res://files/system/Images/": "yellow",
+"res://files/system/Images/Characters/": "teal",
+"res://files/system/Images/Characters/Enemies/": "red",
+"res://files/system/Images/GIFs/": "gray",
+"res://files/system/Images/System/": "purple",
+"res://files/system/Themes/": "green"
+}
 
 [rendering]
 
