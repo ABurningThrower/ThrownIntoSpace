@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5jdkexk8t84o"]
+[gd_scene load_steps=8 format=3 uid="uid://b5jdkexk8t84o"]
 
 [ext_resource type="Texture2D" uid="uid://hniqutl21dda" path="res://files/system/Images/Characters/Crew/Pfps/Anuboid_pfp.png" id="1_85gi3"]
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_am6yk"]
+[ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="3_34vx3"]
+[ext_resource type="Texture2D" uid="uid://bb4rxlky8m53k" path="res://files/system/Images/Characters/Crew/Pfps/Valk_pfp.png" id="4_ymjqb"]
+[ext_resource type="Texture2D" uid="uid://d3xt1m3lhvycw" path="res://files/system/Images/Characters/Crew/Pfps/Kusuo_pfp.png" id="5_t5r13"]
 
 [sub_resource type="Gradient" id="Gradient_qwp7d"]
 offsets = PackedFloat32Array(0.0454545)
@@ -55,6 +58,8 @@ icon = ExtResource("1_85gi3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("3_34vx3")
+scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
 
 [node name="Valk Btn" type="Button" parent="2x2 Grid"]
 layout_mode = 2
@@ -77,10 +82,12 @@ text = "
 
 
 The Bloodthirsty"
-icon = ExtResource("1_85gi3")
+icon = ExtResource("4_ymjqb")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("3_34vx3")
+scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
 
 [node name="Kusuo Btn" type="Button" parent="2x2 Grid"]
 layout_mode = 2
@@ -104,10 +111,12 @@ text = "
 
 
 The Thoughtful"
-icon = ExtResource("1_85gi3")
+icon = ExtResource("5_t5r13")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("3_34vx3")
+scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
 
 [node name="Anuboid Btn" type="Button" parent="2x2 Grid"]
 layout_mode = 2
@@ -135,3 +144,5 @@ icon = ExtResource("1_85gi3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("3_34vx3")
+scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"

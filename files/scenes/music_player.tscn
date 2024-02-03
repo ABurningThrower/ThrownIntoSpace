@@ -1,43 +1,143 @@
-[gd_scene load_steps=5 format=3 uid="uid://jb1mh0r1inc4"]
+[gd_scene load_steps=12 format=3 uid="uid://jb1mh0r1inc4"]
 
+[ext_resource type="FontFile" uid="uid://csub7ibjj5gfm" path="res://files/system/Themes/Fonts/Calculator.ttf" id="1_2w2wy"]
 [ext_resource type="Script" path="res://files/scenes/music_player.gd" id="1_tkr4g"]
 [ext_resource type="AudioStream" uid="uid://d1053ajew12mn" path="res://files/system/Audio/Music/Untagged/Clair De Lune.mp3" id="2_om0b1"]
+[ext_resource type="Texture2D" uid="uid://8hypimmx6kpn" path="res://files/system/Images/System/Minimize.png" id="3_1o24u"]
+[ext_resource type="Texture2D" uid="uid://dkssj4msndfji" path="res://files/system/Images/System/play.png" id="3_o4ixc"]
+
+[sub_resource type="Theme" id="Theme_eqhal"]
+default_font = ExtResource("1_2w2wy")
+default_font_size = 21
 
 [sub_resource type="Gradient" id="Gradient_l3jc2"]
-colors = PackedColorArray(0, 0, 0, 0.501961, 1, 1, 1, 0.588235)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.501961)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_shcd3"]
 gradient = SubResource("Gradient_l3jc2")
 fill_from = Vector2(0.981651, 0.0458716)
 
-[node name="Music Player" type="TextureRect"]
-offset_right = 300.0
-offset_bottom = 200.0
-texture = SubResource("GradientTexture2D_shcd3")
+[sub_resource type="Gradient" id="Gradient_dpawy"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3r6pg"]
+gradient = SubResource("Gradient_dpawy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgoqs"]
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Music Player" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_tkr4g")
 
-[node name="Player" type="AudioStreamPlayer" parent="."]
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 200.0
+theme = SubResource("Theme_eqhal")
+texture = SubResource("GradientTexture2D_shcd3")
+
+[node name="Player" type="AudioStreamPlayer" parent="BG"]
+unique_name_in_owner = true
 stream = ExtResource("2_om0b1")
 volume_db = -5.0
 autoplay = true
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="Hide Btn" type="Button" parent="BG"]
+unique_name_in_owner = true
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
+layout_mode = 2
+offset_left = 282.0
+offset_right = 300.0
+offset_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.29
+icon = ExtResource("3_1o24u")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Play\\Pause Btn" type="Button" parent="BG"]
+unique_name_in_owner = true
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -36.0
+offset_right = 11.0
+offset_bottom = -12.0
 grow_horizontal = 2
-grow_vertical = 2
-columns = 5
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.12
+icon = ExtResource("3_o4ixc")
+flat = true
+expand_icon = true
 
-[node name="Play\\Pause Btn" type="Button" parent="GridContainer"]
+[node name="Volume Control" type="TextureProgressBar" parent="BG"]
+unique_name_in_owner = true
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
 layout_mode = 2
+offset_left = 197.0
+offset_top = 176.0
+offset_right = 285.0
+offset_bottom = 179.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.45
+nine_patch_stretch = true
+texture_over = SubResource("GradientTexture1D_3r6pg")
 
-[node name="Button2" type="ProgressBar" parent="GridContainer"]
-layout_mode = 2
+[node name="Title" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.0
+offset_top = 24.0
+offset_right = 147.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="GridContainer"]
-layout_mode = 2
+[node name="Subtitle" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.0
+offset_top = 52.0
+offset_right = 147.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "Subtitle"
+label_settings = SubResource("LabelSettings_wgoqs")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button4" type="Button" parent="GridContainer"]
+[node name="Appear Btn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
 layout_mode = 2
+offset_top = 182.0
+offset_right = 18.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.29
+icon = ExtResource("3_1o24u")
+icon_alignment = 1
+expand_icon = true

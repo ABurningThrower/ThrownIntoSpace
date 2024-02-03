@@ -2,6 +2,10 @@
 
 
 Current TODO:
+	
+	Consider switching  transition button presses to be inside of transitionButton.gd instead of Scene Manager (signals? groups?)
+	
+	
 	Inventory + Icons
 	Music Player Icon Pack (make the UI)
 	
@@ -39,6 +43,7 @@ Things to work on:
 	Graphic design/theming (set font in main_theme.tres + overrides/other themes )
 	Dice animation fx (i.e. glow effects on 20 w/ good sfx, and vice versa for nat 1)
 	Shaders?
+	Animation/shader for music player (i.e. chance to static flicker when it shows up?)
 	
 
 

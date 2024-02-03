@@ -1,7 +1,8 @@
 extends Button
 
 
-
+func _ready():
+	$"../Bottom Text".queue_free()
 
 func _pressed() -> void:	
 	var username: String = %"Username Input".text
@@ -21,22 +22,30 @@ func _pressed() -> void:
 		print('Maxim Login')
 		saveContinue("Maxim")
 
+	elif username == "J" && password == $"../Bottom Text".text && os == "Linux":
+		print('Login successful. Welcome back, Overseer.')
+		saveContinue("J")
+
 	elif username == "" && password == "":
-		print('Empty Login')
-		#emptyLogin()
+		loginPopup("fullyEmpty")
+
+	elif username == "":
+		loginPopup("emptyUser")
+
+	elif password == "":
+		loginPopup("emptyPassword")
 
 	else:
-		print('Bad Login')
-		#badLogin()
+		loginPopup("bad")
 
 
 func saveContinue(player) -> void:
-	Saver.updateData("settingsDict", "player", player)
-	get_tree().change_scene_to_file("res://files/scenes/main.tscn")
+	Saver.updateData("userDict", "player", player)
+	if player == "J":
+		get_tree().change_scene_to_file("res://files/scenes/dm_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://files/scenes/main.tscn")
 
 
-func emptyLogin():
-	$"../../Popup".appear("Seriously?")
-
-func badLogin():
-	$"../../Popup".appear("Invalid Login.")
+func loginPopup(message) -> void:
+	$"../../Popup".appear(message)

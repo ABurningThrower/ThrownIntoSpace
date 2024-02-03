@@ -172,10 +172,10 @@ script = ExtResource("10_w026h")
 [node name="Music Player" parent="." instance=ExtResource("3_vw7as")]
 visible = false
 layout_mode = 0
-offset_left = 11.0
-offset_top = 522.0
-offset_right = 335.0
-offset_bottom = 713.0
+offset_left = 9.0
+offset_top = 510.0
+offset_right = 309.0
+offset_bottom = 710.0
 
 [node name="SFX Player" parent="." instance=ExtResource("12_3rwlw")]
 

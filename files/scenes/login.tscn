@@ -1,24 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnpyybmmna62n"]
+[gd_scene load_steps=13 format=3 uid="uid://bnpyybmmna62n"]
 
 [ext_resource type="Script" path="res://files/scenes/loginButton.gd" id="1_coxqm"]
+[ext_resource type="FontFile" uid="uid://y25njomflymu" path="res://files/system/Themes/Fonts/Linebeam.ttf" id="1_y34hr"]
 [ext_resource type="Script" path="res://files/scenes/loginPopup.gd" id="2_c4msp"]
+
+[sub_resource type="Theme" id="Theme_1p5ao"]
+default_font = ExtResource("1_y34hr")
 
 [sub_resource type="Gradient" id="Gradient_urt0g"]
 offsets = PackedFloat32Array(0.227273)
-colors = PackedColorArray(0.00715637, 0.0273438, 0.00936437, 1)
+colors = PackedColorArray(0.00784314, 0.027451, 0.00784314, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mw0ny"]
 gradient = SubResource("Gradient_urt0g")
 
-[sub_resource type="SystemFont" id="SystemFont_fpvhn"]
-font_names = PackedStringArray("Cursive")
-
 [sub_resource type="LabelSettings" id="LabelSettings_nan0j"]
-font = SubResource("SystemFont_fpvhn")
+font = ExtResource("1_y34hr")
 font_size = 27
 font_color = Color(0.807843, 0.160784, 0.160784, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_q1n1y"]
+font = ExtResource("1_y34hr")
 font_size = 12
 font_color = Color(0.74902, 0.152941, 0.152941, 1)
 
@@ -29,10 +31,21 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_8ehpp"]
 events = [SubResource("InputEventKey_7whd8")]
 
-[node name="Login" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_wesdk"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.00784314, 0.027451, 0.00784314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q7kh6"]
+gradient = SubResource("Gradient_wesdk")
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_1p5ao")
 metadata/_edit_lock_ = true
 
 [node name="Screen" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 size_flags_horizontal = 3
@@ -146,13 +159,42 @@ text = "Login"
 script = ExtResource("1_coxqm")
 metadata/_edit_use_anchors_ = true
 
+[node name="Bottom Text" type="Label" parent="Screen"]
+visible = false
+layout_mode = 0
+offset_top = 698.0
+offset_right = 1280.0
+offset_bottom = 721.0
+text = "Lorem Ipsum"
+
 [node name="Popup" type="Popup" parent="."]
 initial_position = 2
 size = Vector2i(720, 360)
+visible = true
+borderless = false
 script = ExtResource("2_c4msp")
 
+[node name="TextureRect" type="TextureRect" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_q7kh6")
+
 [node name="Message" type="Label" parent="Popup"]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -11.5
+offset_right = 250.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Please make sure you're spelling things right, moron."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

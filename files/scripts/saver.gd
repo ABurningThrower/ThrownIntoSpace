@@ -4,7 +4,7 @@ static var savePath : String = "user://save.tres"
 
 static var masterDict:= {
 	userDict = {
-		"character": null,
+		"player": null,
 		"login_key": null
 	},
 	settingsDict = {
@@ -49,9 +49,9 @@ static func load() -> Dictionary:
 	return json.data
 
 
-static func updateData(dict: String, key: String, value):
-	#masterDict.dict.key.value.update()
-	pass
+static func updateData(dict: String, key: String, value) -> void:
+	masterDict[dict][key] = value
+#	print(masterDict[dict][key])
 
 
 

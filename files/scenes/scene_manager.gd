@@ -10,29 +10,17 @@ func _ready():
 	$"../Back Btn".append(defaultScene)
 
 
-func instantiateButtons(node):
-	for button in get_buttons(node):
-		button.pressed.connect(buttonPress.bind(button))
-
-
-func transitionScene(scene = null):
-	$"../Transition Fade".transition(scene)
-#	print($"../Back Btn".lastSceneList.map(func(scene): return scene.get_state().get_node_name(0)))
-
 
 func buttonPress(button):
 	nextScene = load(button.scenePath)
 	transitionScene()
 
 
-func get_buttons(node):
-	var buttons = []
-	for child in node.get_children():
-		if child is TransitionButton:
-			buttons.append(child)
-		buttons.append_array(get_buttons(child))
 
-	return buttons
+func transitionScene(scene = null):
+	$"../Transition Fade".transition(scene)
+#	print($"../Back Btn".lastSceneList.map(func(scene): return scene.get_state().get_node_name(0)))
+
 
 
 func _on_transition_fade_transitioned(scene = null):
@@ -51,3 +39,19 @@ func _on_transition_fade_transitioned(scene = null):
 	$"../Transition Fade".fadein()
 
 
+
+
+
+func instantiateButtons(node) -> void:
+	for button in get_buttons(node):
+		button.pressed.connect(buttonPress.bind(button))
+
+
+func get_buttons(node) -> Array:
+	var buttons:= []
+	for child in node.get_children():
+		if child is TransitionButton:
+			buttons.append(child)
+		buttons.append_array(get_buttons(child))
+
+	return buttons

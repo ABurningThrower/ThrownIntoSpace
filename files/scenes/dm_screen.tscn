@@ -1,0 +1,187 @@
+[gd_scene load_steps=15 format=3 uid="uid://b5gglqptyqsmf"]
+
+[ext_resource type="FontFile" uid="uid://bfn7aw3e6q3ei" path="res://files/system/Themes/Fonts/LEDLIGHT.otf" id="1_j1fg3"]
+[ext_resource type="Script" path="res://files/scenes/dm_screen.gd" id="2_2bgve"]
+[ext_resource type="Texture2D" uid="uid://bmmx16afpnkrj" path="res://files/system/Images/System/meatballVert.png" id="3_myl3h"]
+[ext_resource type="Texture2D" uid="uid://bxho8jtra6sb2" path="res://files/system/Images/System/Search.png" id="4_buduw"]
+[ext_resource type="Texture2D" uid="uid://bnlt3kdw2u5oi" path="res://files/system/Images/System/Wifi.png" id="4_pxpmk"]
+[ext_resource type="Texture2D" uid="uid://c6ugb2pcpbgp" path="res://files/system/Images/System/Image.png" id="5_3mhfr"]
+
+[sub_resource type="Theme" id="Theme_b7pur"]
+default_font = ExtResource("1_j1fg3")
+
+[sub_resource type="Gradient" id="Gradient_cy6v4"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0195312, 0.0193787, 0.0193787, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_57y30"]
+gradient = SubResource("Gradient_cy6v4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br23q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puv2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roycy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld0v8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brou7"]
+
+[node name="DM Screen" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b7pur")
+texture = SubResource("GradientTexture1D_57y30")
+script = ExtResource("2_2bgve")
+metadata/_edit_lock_ = true
+
+[node name="Combat Btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 465.0
+offset_right = 711.0
+offset_bottom = 524.0
+text = "Enter Combat"
+
+[node name="Combat Btn3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 558.0
+offset_right = 737.0
+offset_bottom = 598.0
+text = "Divine Intervention"
+
+[node name="Combat Btn2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = 103.0
+offset_right = 28.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_myl3h")
+icon_alignment = 1
+
+[node name="toScene Btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -29.5
+offset_right = 74.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Direct to Scene"
+
+[node name="toScene Btn2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("4_buduw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="loadModule Btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 67.0
+offset_bottom = 71.0
+icon = ExtResource("3_myl3h")
+icon_alignment = 1
+
+[node name="Music Btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1187.0
+offset_top = 638.0
+offset_right = 1243.0
+offset_bottom = 694.0
+icon = ExtResource("3_myl3h")
+icon_alignment = 1
+
+[node name="Network Btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -48.0
+offset_right = 186.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Network"
+icon = ExtResource("4_pxpmk")
+expand_icon = true
+
+[node name="Image Import Btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -34.0
+offset_right = -155.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxFlat_br23q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_puv2i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_roycy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ld0v8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_brou7")
+icon = ExtResource("5_3mhfr")
+flat = true
+expand_icon = true
+
+[node name="Image Import Btn2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -241.0
+offset_right = -250.0
+offset_bottom = -153.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxFlat_br23q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_puv2i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_roycy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ld0v8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_brou7")
+text = "Viewport"
+icon = ExtResource("4_buduw")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
