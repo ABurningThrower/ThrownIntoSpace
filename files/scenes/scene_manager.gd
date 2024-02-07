@@ -12,8 +12,10 @@ func _ready():
 
 
 func buttonPress(button):
-	nextScene = load(button.scenePath)
-	transitionScene()
+	# Doesn't transition if user is already in the target scene
+	if button.scenePath != get_child(0).scene_file_path:
+		nextScene = load(button.scenePath)
+		transitionScene()
 
 
 

@@ -152,6 +152,7 @@ offset_top = 10.0
 offset_right = 1269.0
 offset_bottom = 42.0
 shortcut = SubResource("Shortcut_i034d")
+shortcut_feedback = false
 icon = ExtResource("1_xai2x")
 icon_alignment = 1
 script = ExtResource("2_daroh")
