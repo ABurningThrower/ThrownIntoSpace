@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cenovytyhmy3y"]
+[gd_scene load_steps=29 format=3 uid="uid://cenovytyhmy3y"]
 
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_7i8vd"]
 [ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="1_pugcn"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="9_gxc40"]
 [ext_resource type="Script" path="res://files/scenes/back_btn.gd" id="10_w026h"]
 [ext_resource type="PackedScene" uid="uid://d2gd3318i1kbu" path="res://files/scenes/sfx_player.tscn" id="12_3rwlw"]
+[ext_resource type="PackedScene" uid="uid://d1le7o12l6nct" path="res://files/scenes/Network/network_ui.tscn" id="13_6d3vb"]
+[ext_resource type="PackedScene" uid="uid://3dj2nyn0qi1j" path="res://files/scenes/Network/network_status.tscn" id="14_0y51g"]
 
 [sub_resource type="Gradient" id="Gradient_fqitm"]
 interpolation_mode = 1
@@ -179,5 +181,15 @@ offset_right = 309.0
 offset_bottom = 710.0
 
 [node name="SFX Player" parent="." instance=ExtResource("12_3rwlw")]
+
+[node name="NetworkUI" parent="." instance=ExtResource("13_6d3vb")]
+layout_mode = 1
+
+[node name="NetworkStatus" parent="." instance=ExtResource("14_0y51g")]
+layout_mode = 1
+offset_left = -81.0
+offset_top = 190.0
+offset_right = -81.0
+offset_bottom = 190.0
 
 [connection signal="transitioned" from="Transition Fade" to="Scenes" method="_on_transition_fade_transitioned"]

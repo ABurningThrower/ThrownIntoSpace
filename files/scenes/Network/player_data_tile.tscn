@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b48pqg4c5s1hq"]
+
+[ext_resource type="Script" path="res://files/scripts/Network/player_data_tile.gd" id="1_bhbyb"]
+
+[node name="PlayerData" type="HBoxContainer"]
+script = ExtResource("1_bhbyb")
+
+[node name="TextName" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "Name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="TextId" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "()"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
