@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://jb1mh0r1inc4"]
+[gd_scene load_steps=16 format=3 uid="uid://jb1mh0r1inc4"]
 
 [ext_resource type="FontFile" uid="uid://csub7ibjj5gfm" path="res://files/system/Themes/Fonts/Calculator.ttf" id="1_2w2wy"]
 [ext_resource type="Script" path="res://files/scenes/music_player.gd" id="1_tkr4g"]
-[ext_resource type="AudioStream" uid="uid://d1053ajew12mn" path="res://files/system/Audio/Music/Untagged/Clair De Lune.mp3" id="2_om0b1"]
 [ext_resource type="Texture2D" uid="uid://8hypimmx6kpn" path="res://files/system/Images/System/Minimize.png" id="3_1o24u"]
+[ext_resource type="AudioStream" uid="uid://dtbe4cbbivcff" path="res://files/system/Audio/Music/Untagged/Gymnopédie No. 1.mp3" id="3_h4gbg"]
 [ext_resource type="Texture2D" uid="uid://dkssj4msndfji" path="res://files/system/Images/System/play.png" id="3_o4ixc"]
+[ext_resource type="Texture2D" uid="uid://dq7nhr5c4ai00" path="res://files/system/Images/System/Music.png" id="6_5bvu4"]
 
 [sub_resource type="Theme" id="Theme_eqhal"]
 default_font = ExtResource("1_2w2wy")
-default_font_size = 21
+default_font_size = 36
 
 [sub_resource type="Gradient" id="Gradient_l3jc2"]
 offsets = PackedFloat32Array(0)
@@ -18,17 +19,30 @@ colors = PackedColorArray(0, 0, 0, 0.501961)
 gradient = SubResource("Gradient_l3jc2")
 fill_from = Vector2(0.981651, 0.0458716)
 
-[sub_resource type="Gradient" id="Gradient_dpawy"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
+[sub_resource type="Image" id="Image_vmycl"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 18, 253, 253, 253, 100, 255, 255, 255, 156, 254, 254, 254, 183, 254, 254, 254, 183, 255, 255, 255, 156, 253, 253, 253, 99, 255, 255, 255, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 65, 254, 254, 254, 183, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 182, 255, 255, 255, 63, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 65, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 255, 255, 255, 63, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 18, 254, 254, 254, 183, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 181, 255, 255, 255, 16, 255, 255, 255, 0, 255, 255, 255, 0, 253, 253, 253, 100, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 156, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 155, 255, 255, 255, 0, 255, 255, 255, 0, 254, 254, 254, 183, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 182, 255, 255, 255, 0, 255, 255, 255, 0, 254, 254, 254, 183, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 181, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 156, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 154, 255, 255, 255, 0, 255, 255, 255, 0, 253, 253, 253, 99, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 253, 253, 253, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 17, 254, 254, 254, 182, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 180, 255, 255, 255, 15, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 63, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 255, 255, 255, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 63, 254, 254, 254, 181, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 191, 254, 254, 254, 180, 255, 255, 255, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 16, 255, 255, 255, 97, 254, 254, 254, 155, 254, 254, 254, 182, 254, 254, 254, 181, 254, 254, 254, 154, 253, 253, 253, 97, 255, 255, 255, 15, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3r6pg"]
-gradient = SubResource("Gradient_dpawy")
+[sub_resource type="ImageTexture" id="ImageTexture_3e5tg"]
+image = SubResource("Image_vmycl")
+
+[sub_resource type="Theme" id="Theme_u2ebw"]
+HSlider/icons/grabber_disabled = SubResource("ImageTexture_3e5tg")
+HSlider/icons/grabber_highlight = SubResource("ImageTexture_3e5tg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvyol"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgoqs"]
-font_size = 12
+font_size = 20
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5yg4"]
 
 [node name="Music Player" type="Control"]
 layout_mode = 3
@@ -38,7 +52,9 @@ offset_bottom = 40.0
 script = ExtResource("1_tkr4g")
 
 [node name="BG" type="TextureRect" parent="."]
-layout_mode = 0
+visible = false
+layout_mode = 1
+anchors_preset = -1
 offset_right = 300.0
 offset_bottom = 200.0
 theme = SubResource("Theme_eqhal")
@@ -46,7 +62,7 @@ texture = SubResource("GradientTexture2D_shcd3")
 
 [node name="Player" type="AudioStreamPlayer" parent="BG"]
 unique_name_in_owner = true
-stream = ExtResource("2_om0b1")
+stream = ExtResource("3_h4gbg")
 volume_db = -5.0
 autoplay = true
 
@@ -85,33 +101,44 @@ icon = ExtResource("3_o4ixc")
 flat = true
 expand_icon = true
 
-[node name="Volume Control" type="TextureProgressBar" parent="BG"]
+[node name="Volume Control" type="HSlider" parent="BG"]
 unique_name_in_owner = true
 modulate = Color(0.74902, 0.74902, 0.74902, 1)
 layout_mode = 2
-offset_left = 197.0
+offset_left = 208.0
 offset_top = 176.0
 offset_right = 285.0
-offset_bottom = 179.0
+offset_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.45
-nine_patch_stretch = true
-texture_over = SubResource("GradientTexture1D_3r6pg")
+theme = SubResource("Theme_u2ebw")
 
-[node name="Title" type="Label" parent="BG"]
+[node name="Title" type="LineEdit" parent="BG"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -147.0
-offset_top = 24.0
-offset_right = 147.0
+offset_left = -146.0
+offset_top = 9.0
+offset_right = 148.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_uneditable_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uvyol")
 text = "Title"
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 1
+max_length = 294
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
 
 [node name="Subtitle" type="Label" parent="BG"]
 layout_mode = 1
@@ -119,18 +146,45 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -147.0
-offset_top = 52.0
+offset_top = 59.0
 offset_right = 147.0
-offset_bottom = 78.0
+offset_bottom = 87.0
 grow_horizontal = 2
-text = "Subtitle"
+text = "[TAG]"
 label_settings = SubResource("LabelSettings_wgoqs")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Flavor Text" type="LineEdit" parent="BG"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.0
+offset_top = 93.0
+offset_right = 148.0
+offset_bottom = 142.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_uneditable_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w5yg4")
+text = "Flavor Text (italics font)"
+alignment = 1
+max_length = 294
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+
 [node name="Appear Btn" type="Button" parent="."]
 unique_name_in_owner = true
-visible = false
 modulate = Color(0.74902, 0.74902, 0.74902, 1)
 layout_mode = 2
 offset_top = 182.0
@@ -138,6 +192,9 @@ offset_right = 18.0
 offset_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.29
-icon = ExtResource("3_1o24u")
+icon = ExtResource("6_5bvu4")
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="focus_entered" from="BG" to="." method="_on_bg_focus_entered"]
+[connection signal="focus_exited" from="BG" to="." method="_on_bg_focus_exited"]

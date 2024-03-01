@@ -10,3 +10,7 @@ func toggle():
 		$"VBox Btn Container/Elements Anim".play("slide_out")
 		$"Sidebar Anim".play("close")
 		self.visible = false
+
+
+func _on_sidebar_btn_pressed():
+	toggle()

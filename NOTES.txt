@@ -39,12 +39,63 @@ Things to work on:
 	
 	
 		AESTHETIC
+	Add some extra details to #warframe_license? (i.e. manufacture date, serial codes, purchase date, etc.)
+	Add page flip texture to texturebutton in #warframe_license
+	make #character_id :sob:
+	make the lines in #settings round circle in center then thin out towards the end? (or something else that actually looks nice; probably also add gradience/fadeout with thickness [i.e. thicker = full opacity, vice versa])
+	
 	Sidebar animation
 	Graphic design/theming (set font in main_theme.tres + overrides/other themes )
 	Dice animation fx (i.e. glow effects on 20 w/ good sfx, and vice versa for nat 1)
+	On hover over buttons in #warframe, start an expanding glow effect after a teensy delay, which fades back out when no longer hovered over.
 	Shaders?
 	Animation/shader for music player (i.e. chance to static flicker when it shows up?)
 	
+	#N/A - can you change the text by the checkbox in a bool @export var? ("On" by default)
+
+
+
+
+
+		=Sprites for items (IDs and licenses)
+		=ID ref pic for charID scene
+		
+
+		#settings - be able to set: default scene, audio, 
+		#warframe_license
+
+
+	To touch on next:
+		#
+		#
+		#
+		*battle_actions + enemy_data - get reference on how this should look (Baldur's Gate); refactor later
+		#
+		#
+		#
+		#
+		#
+		*loginButton - add os mismatch elif
+		#inventory - possible to bold item name in tooltips?
+		#settings - visual improvements?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterResistances" load_steps=2 format=3 uid="uid://b8cfhhsv6dx"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/resistances.gd" id="1_h6vs7"]
+
+[resource]
+script = ExtResource("1_h6vs7")
+Slash = 1.0
+Pierce = 1.0
+Blunt = 1.0
+Heat = 1.0
+Cold = 1.0
+Electricity = 1.0
+Toxin = 1.0
+Plasma = 1.0
+Acid = 1.0
+Radio = 1.0
+Gas = 1.0
+Viral = 1.0
+Spores = 1.0
+Explosive = 1.0

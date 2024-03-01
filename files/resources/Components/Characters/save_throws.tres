@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterSaves" load_steps=2 format=3 uid="uid://d2a8spvewq3a7"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="1_4rkg8"]
+
+[resource]
+script = ExtResource("1_4rkg8")
+STR = 0
+DEX = 0
+CON = 0
+INT = 0
+WIS = 0
+CHR = 0

@@ -104,8 +104,8 @@ func _exit_tree():
 		upnp_thread.wait_to_finish()
 #endregion
 
-func setPersonalDetails(name):
-	personalDetails["name"] = name
+func setPersonalDetails(_name):
+	personalDetails["name"] = _name
 
 func _on_player_connected(id):
 	_share_personal_details.rpc_id(id, personalDetails)
@@ -131,8 +131,10 @@ func _on_connected_ok():
 
 func _on_connected_fail():
 	_uninitEnet()
+	print("Unable to connect. Please check your internet connection.")
 
 
 func _on_server_disconnected():
 	_uninitEnet()
 	server_disconnected.emit()
+	print("The DM is no longer with us. Rest his soul.")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dgkatyrc080hw"]
+
+[ext_resource type="Script" path="res://files/scripts/Inventory/item_data.gd" id="1_k8djq"]
+[ext_resource type="Texture2D" uid="uid://cl4tret3wsvwn" path="res://files/system/Images/wf_lotus.png" id="2_g16sn"]
+
+[resource]
+script = ExtResource("1_k8djq")
+type = 0
+name = "Warframe License"
+consumable = false
+description = "Oi mate, you got a license for that death machine?"
+texture = ExtResource("2_g16sn")

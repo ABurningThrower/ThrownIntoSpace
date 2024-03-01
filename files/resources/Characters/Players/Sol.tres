@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://0m8cuccef066"]
+
+[ext_resource type="Texture2D" uid="uid://c077otxm8uox3" path="res://files/system/Images/Characters/Crew/Sol.png" id="1_lck3n"]
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_lkm5m"]
+[ext_resource type="Texture2D" uid="uid://c8frluilnjmyh" path="res://files/system/Images/Characters/Crew/Pfps/Sol_pfp.png" id="2_nysoq"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_3a3pi"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_uk8tf"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_086x2"]
+
+[sub_resource type="Resource" id="Resource_5y5b0"]
+script = ExtResource("3_3a3pi")
+Athletics = 0
+Gunmanship = 0
+Acrobatics = 7
+Sleight_of_Hand = 7
+Stealth = 7
+Mounting = 4
+Piloting = 4
+Wellbeing = 1
+Perception = 1
+Repairs = 4
+Construction = 1
+Cooking = 1
+Arcana = 1
+Investigation = 1
+Research = 4
+Hacking = 1
+Programming = 4
+Nature = 0
+History = 1
+Insight = 3
+Medicine = 0
+Survival = 0
+Deception = 0
+Intimidation = 0
+_Performance = 0
+Persuasion = 2
+Diplomacy = 0
+Speeches = 0
+Aristry = 0
+Penmanship = 0
+Economics = 0
+Animal_Handling = 0
+Religion = -2
+Zazacrafting = 3
+
+[sub_resource type="Resource" id="Resource_48fq3"]
+script = ExtResource("3_uk8tf")
+STR = 2
+DEX = 2
+CON = 0
+INT = 0
+WIS = 0
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_p5slq"]
+script = ExtResource("6_086x2")
+rSTR = 10
+bSTR = 0
+rDEX = 18
+bDEX = 4
+rCON = 13
+bCON = 1
+rINT = 13
+bINT = 1
+rWIS = 11
+bWIS = 0
+rCHR = 10
+bCHR = 0
+
+[resource]
+script = ExtResource("1_lkm5m")
+faction = 0
+type = 0
+name = "Sol"
+pfp = ExtResource("2_nysoq")
+fullbody = ExtResource("1_lck3n")
+level = 6
+_class = "Ruffian"
+subclass = "Technoblade"
+race = 0
+hp = 41
+max_hp = 41
+shp = 20
+max_shp = 20
+ac = 12
+speed = 30
+initiative = 2
+hit_die = "d8"
+prof_bonus = 3
+alignment = 3
+background = "Technologist"
+languages = Array[int]([0, 4])
+saving_throws = SubResource("Resource_48fq3")
+stats = SubResource("Resource_p5slq")
+profs = SubResource("Resource_5y5b0")
+misc_data = []

@@ -1,55 +1,478 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn1mmu2tlugya"]
+[gd_scene load_steps=19 format=3 uid="uid://cn1mmu2tlugya"]
 
-[ext_resource type="Script" path="res://files/scripts/saver.gd" id="2_qraw8"]
+[ext_resource type="Script" path="res://files/scenes/Main-/settings.gd" id="1_abj0l"]
+[ext_resource type="Texture2D" uid="uid://c6nggimswb3ta" path="res://files/system/Images/System/tinyInfo.png" id="2_ilmgu"]
+[ext_resource type="Script" path="res://files/scripts/info_tooltip.gd" id="3_d16au"]
 
-[sub_resource type="SystemFont" id="SystemFont_ycx2o"]
+[sub_resource type="Gradient" id="Gradient_t6xui"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
 
-[sub_resource type="Theme" id="Theme_ki3ae"]
-default_font = SubResource("SystemFont_ycx2o")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8aj58"]
+gradient = SubResource("Gradient_t6xui")
+width = 16
+height = 16
+fill_to = Vector2(0, 1)
 
-[sub_resource type="Gradient" id="Gradient_ho0mo"]
-offsets = PackedFloat32Array(0, 0.74026, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.519481, 0.519481, 0.519481, 1, 0.460938, 0.460938, 0.460938, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h67ri"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.509804)
+border_blend = true
+corner_detail = 1
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ewln7"]
-gradient = SubResource("Gradient_ho0mo")
-fill_from = Vector2(0.495413, 0)
-fill_to = Vector2(1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycukk"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.352941)
+border_blend = true
+corner_detail = 1
 
-[node name="BG" type="TextureRect"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdr5j"]
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.984314, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(1, 1, 1, 0.54902)
+anti_aliasing = false
+anti_aliasing_size = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47i60"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.556863, 0.556863, 0.556863, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8fpy"]
+content_margin_left = 7.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.556863, 0.556863, 0.556863, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xstt5"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke25m"]
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.984314, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.984314, 0, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(1, 1, 1, 0.54902)
+anti_aliasing_size = 10.0
+
+[sub_resource type="Theme" id="Theme_ydott"]
+CheckBox/icons/unchecked = SubResource("GradientTexture2D_8aj58")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_h67ri")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_h67ri")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_ycukk")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_ycukk")
+ColorPickerButton/styles/focus = SubResource("StyleBoxFlat_bdr5j")
+ColorPickerButton/styles/hover = SubResource("StyleBoxFlat_bdr5j")
+ColorPickerButton/styles/normal = SubResource("StyleBoxFlat_bdr5j")
+ColorPickerButton/styles/pressed = SubResource("StyleBoxFlat_bdr5j")
+MenuButton/styles/normal = SubResource("StyleBoxFlat_47i60")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_k8fpy")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_k8fpy")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_k8fpy")
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 2
+ProgressBar/styles/background = SubResource("StyleBoxFlat_xstt5")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ke25m")
+
+[sub_resource type="Gradient" id="Gradient_eane7"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0117188, 0.0117188, 0.0117188, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gpumd"]
+gradient = SubResource("Gradient_eane7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50roa"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 0.784314)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x6fdh"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86o0r"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Settings" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme = SubResource("Theme_ki3ae")
-texture = SubResource("GradientTexture2D_ewln7")
+theme = SubResource("Theme_ydott")
+texture = SubResource("GradientTexture1D_gpumd")
+script = ExtResource("1_abj0l")
 metadata/_edit_lock_ = true
 
-[node name="Tab Container" type="TabContainer" parent="."]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 8.0
-offset_right = 1241.0
-offset_bottom = 717.0
+[node name="Scrollifier" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 120.0
+offset_top = 45.0
+offset_right = 613.0
+offset_bottom = 661.0
+horizontal_scroll_mode = 0
+metadata/_edit_lock_ = true
 
-[node name="General" type="TextureRect" parent="Tab Container"]
+[node name="Panel Cont" type="PanelContainer" parent="Scrollifier"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_50roa")
+metadata/_edit_lock_ = true
+
+[node name="Marginizer" type="MarginContainer" parent="Scrollifier/Panel Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="~~~CONTENT~~~" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 35
+
+[node name="General" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Tab Container"]
-visible = false
+[node name="Label" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General"]
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="Tab Container"]
-visible = false
+[node name="L Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.22
+text = "  GENERAL  "
+horizontal_alignment = 1
+
+[node name="R Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Options" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General"]
 layout_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="Tab Container"]
-visible = false
+[node name="Default Screen" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/Default Screen"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="Save Buttons" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1099.0
-offset_top = 662.0
-offset_right = 1205.0
-offset_bottom = 705.0
-text = "Save"
-script = ExtResource("2_qraw8")
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/Default Screen/HBox"]
+layout_mode = 2
+text = "Default Screen"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/Default Screen/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+tooltip = "First screen you see when you start up BDiaC."
+
+[node name="OptionBtn" type="OptionButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/Default Screen"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_count = 2
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "Freespace"
+popup/item_0/id = 0
+popup/item_1/text = "Crew"
+popup/item_1/id = 1
+
+[node name="WF License Default Side" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/WF License Default Side"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/WF License Default Side/HBox"]
+layout_mode = 2
+text = "WF License Default Side"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/WF License Default Side/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+tooltip = "Initial side seen when viewing a warframe license. "
+
+[node name="OptionBtn" type="OptionButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/WF License Default Side"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_count = 2
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "Front"
+popup/item_0/id = 0
+popup/item_1/text = "Back"
+popup/item_1/id = 1
+
+[node name="Audio" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio"]
+layout_mode = 2
+
+[node name="L Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.22
+text = "  AUDIO  "
+horizontal_alignment = 1
+
+[node name="R Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Options" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music Volume" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/Music Volume"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Music Volume"
+
+[node name="ProgressBar" type="ProgressBar" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/Music Volume"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_xstt5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ke25m")
+step = 1.0
+value = 40.0
+rounded = true
+
+[node name="SFX Volume" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/SFX Volume"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="ProgressBar" type="ProgressBar" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/SFX Volume"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+step = 1.0
+value = 100.0
+rounded = true
+
+[node name="Combat" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat"]
+layout_mode = 2
+
+[node name="L Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.22
+text = "  COMBAT  "
+horizontal_alignment = 1
+
+[node name="R Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Options" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Auto Turn End" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options/Auto Turn End"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options/Auto Turn End/HBox"]
+layout_mode = 2
+text = "Auto Turn End"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options/Auto Turn End/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+tooltip = "Automatically ends your turn when you get to 0 AP and can't move."
+
+[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options/Auto Turn End"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Misc" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc"]
+layout_mode = 2
+
+[node name="L Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.22
+text = "  MISC  "
+horizontal_alignment = 1
+
+[node name="R Line" type="PanelContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxLine_x6fdh")
+
+[node name="Options" type="VBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Primary Theme Color" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color/HBox"]
+layout_mode = 2
+text = "Option Name"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+tooltip = "Test"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(1, 0.984314, 0, 1)
+
+[node name="Apply Btn" type="Button" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_86o0r")
+text = "APPLY"
+
+[connection signal="color_changed" from="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Apply Btn" to="." method="_on_apply_button_pressed"]

@@ -1,18 +1,26 @@
 extends Node
 
-'''
+
 func _ready():
 
-	var saveData = Saver.load()
-	# check if user has data
+	if not Saver.hasData():
+		Saver.setToDefault()
+		Saver.save()
+
+	# check if user has logged in before
+	Settings.masterDict = Saver.load()
 	
-	# if so go to default scene, checking if user has set it to something else
-	if saveData.userDict.character and saveData.userDict.login_key != null:
+
+	
+func _process(_delta):
+	if Settings.masterDict["userDict"]["player"] != null and Settings.masterDict["userDict"]["login_key"] != null:
 		get_tree().change_scene_to_file("res://files/scenes/main.tscn")
-	# else go to login scene
+#		@warning_ignore("")
 	else:
 		get_tree().change_scene_to_file("res://files/scenes/login.tscn")
+#		@warning_ignore("")
 	
 	
 	queue_free()
-'''
+
+

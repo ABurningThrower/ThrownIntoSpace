@@ -1,0 +1,95 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=9 format=3 uid="uid://bgkqosgc7yyus"]
+
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_cgv6w"]
+[ext_resource type="Texture2D" uid="uid://ceeojywbet0c7" path="res://files/system/Images/Characters/Crew/Pfps/うい_pfp.jpeg" id="1_f5olq"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="2_1fevq"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="2_50g78"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="5_fm642"]
+
+[sub_resource type="Resource" id="Resource_7hidq"]
+script = ExtResource("2_1fevq")
+Athletics = -3
+Gunmanship = -3
+Acrobatics = 2
+Sleight_of_Hand = 3
+Stealth = 3
+Mounting = 1
+Piloting = 1
+Wellbeing = 3
+Perception = 3
+Repairs = 1
+Construction = 1
+Cooking = 1
+Arcana = 3
+Investigation = 3
+Research = 7
+Hacking = 3
+Programming = 3
+Nature = 5
+History = 1
+Insight = 5
+Medicine = 5
+Survival = 3
+Deception = 4
+Intimidation = 1
+_Performance = -6
+Persuasion = 0
+Diplomacy = -6
+Speeches = -6
+Aristry = -3
+Penmanship = -10
+Economics = -2
+Animal_Handling = 2
+Religion = 2
+Zazacrafting = -5
+
+[sub_resource type="Resource" id="Resource_boah2"]
+script = ExtResource("2_50g78")
+STR = 0
+DEX = 1
+CON = 0
+INT = 2
+WIS = 2
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_k10tg"]
+script = ExtResource("5_fm642")
+rSTR = 9
+bSTR = -1
+rDEX = 13
+bDEX = 2
+rCON = 9
+bCON = -1
+rINT = 17
+bINT = 3
+rWIS = 16
+bWIS = 3
+rCHR = 7
+bCHR = -2
+
+[resource]
+script = ExtResource("1_cgv6w")
+faction = 0
+type = 0
+name = "うい"
+pfp = ExtResource("1_f5olq")
+level = 6
+_class = "Chemist"
+subclass = "Biotechnochemist"
+race = 0
+hp = 34
+max_hp = 34
+shp = 15
+max_shp = 5
+ac = 11
+speed = 30
+initiative = 2
+hit_die = "d7"
+prof_bonus = 3
+alignment = 4
+background = "Doctorate Student"
+languages = Array[int]([0])
+saving_throws = SubResource("Resource_boah2")
+stats = SubResource("Resource_k10tg")
+profs = SubResource("Resource_7hidq")
+misc_data = []

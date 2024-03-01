@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://bho4tgli3tqem"]
+
+[ext_resource type="Texture2D" uid="uid://4gq773j01gna" path="res://files/system/Images/Characters/Crew/Karma.png" id="1_6g41j"]
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_v0q6b"]
+[ext_resource type="Texture2D" uid="uid://b005g41c6vpmb" path="res://files/system/Images/Characters/Crew/Pfps/Karma_pfp.png" id="2_ivpxf"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_85tk6"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_pq3s4"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_nl14q"]
+
+[sub_resource type="Resource" id="Resource_up0wd"]
+script = ExtResource("3_85tk6")
+Athletics = -1
+Gunmanship = -1
+Acrobatics = 2
+Sleight_of_Hand = 2
+Stealth = 5
+Mounting = 2
+Piloting = 8
+Wellbeing = 0
+Perception = 3
+Repairs = 0
+Construction = 0
+Cooking = 0
+Arcana = 3
+Investigation = 6
+Research = 3
+Hacking = 9
+Programming = 4
+Nature = 2
+History = 2
+Insight = 2
+Medicine = 2
+Survival = 2
+Deception = 1
+Intimidation = 1
+_Performance = 1
+Persuasion = 1
+Diplomacy = 1
+Speeches = 1
+Aristry = 1
+Penmanship = 1
+Economics = 1
+Animal_Handling = 1
+Religion = -2
+Zazacrafting = -5
+
+[sub_resource type="Resource" id="Resource_3ydn7"]
+script = ExtResource("3_pq3s4")
+STR = 0
+DEX = 2
+CON = 0
+INT = 2
+WIS = 0
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_d3ge0"]
+script = ExtResource("6_nl14q")
+rSTR = 9
+bSTR = -1
+rDEX = 14
+bDEX = 2
+rCON = 10
+bCON = 0
+rINT = 16
+bINT = 3
+rWIS = 12
+bWIS = 2
+rCHR = 12
+bCHR = 1
+
+[resource]
+script = ExtResource("1_v0q6b")
+faction = 0
+type = 0
+name = "Karma"
+pfp = ExtResource("2_ivpxf")
+fullbody = ExtResource("1_6g41j")
+level = 6
+_class = "Netrunner"
+subclass = ""
+race = 0
+hp = 34
+max_hp = 34
+shp = 15
+max_shp = 15
+ac = 13
+speed = 30
+initiative = 0
+hit_die = "d8"
+prof_bonus = 3
+alignment = 7
+background = "ARNist"
+languages = Array[int]([0, 3])
+saving_throws = SubResource("Resource_3ydn7")
+stats = SubResource("Resource_d3ge0")
+profs = SubResource("Resource_up0wd")
+misc_data = ["Implants", "Shield", "Hacks + RAM"]

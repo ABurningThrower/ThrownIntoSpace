@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bistv5krosn8t"
+path="res://.godot/imported/Positive System.otf-b0b6a9f26cfa0c18899d9afee412777e.fontdata"
+
+[deps]
+
+source_file="res://files/system/Themes/Fonts/Positive System.otf"
+dest_files=["res://.godot/imported/Positive System.otf-b0b6a9f26cfa0c18899d9afee412777e.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

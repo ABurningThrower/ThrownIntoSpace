@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=4 format=3 uid="uid://dw0ektfniihpb"]
+
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_3y8gx"]
+[ext_resource type="Texture2D" uid="uid://bro7yubbmmdv" path="res://files/system/Images/Characters/Enemies/Kromer.png" id="1_ufv40"]
+[ext_resource type="Texture2D" uid="uid://b1qdrh6jr2vrq" path="res://files/system/Images/Characters/Enemies/Pfps/Kromer_pfp.png" id="2_rwv4j"]
+
+[resource]
+script = ExtResource("1_3y8gx")
+faction = 1
+type = 2
+name = "Kromer"
+pfp = ExtResource("2_rwv4j")
+fullbody = ExtResource("1_ufv40")
+level = 0
+_class = ""
+subclass = ""
+race = 13
+hp = 0
+max_hp = 0
+shp = 0
+max_shp = 0
+ac = 0
+speed = 0
+initiative = 0
+hit_die = ""
+prof_bonus = 0
+alignment = 4
+background = "???"
+languages = Array[int]([])
+skills = {}
+misc_data = []

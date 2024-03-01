@@ -1,10 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://g7wjqgudhbic"]
+[gd_scene load_steps=12 format=3 uid="uid://g7wjqgudhbic"]
 
-[sub_resource type="Gradient" id="Gradient_6cgpj"]
-colors = PackedColorArray(0.33062, 0.351562, 0.184021, 1, 0.875, 0.758789, 0, 1)
+[ext_resource type="Texture2D" uid="uid://b1qdrh6jr2vrq" path="res://files/system/Images/Characters/Enemies/Pfps/Kromer_pfp.png" id="1_i0lca"]
+[ext_resource type="Script" path="res://files/scripts/Combat/enemy_iconizer.gd" id="2_7s40n"]
+[ext_resource type="Script" path="res://files/scripts/Combat/enemy.gd" id="2_bat8a"]
+[ext_resource type="Texture2D" uid="uid://c3tj476ymp8dt" path="res://files/system/Images/System/Sword.png" id="2_hswma"]
+[ext_resource type="Resource" uid="uid://dw0ektfniihpb" path="res://files/resources/Characters/Enemies/kromer.tres" id="4_srlf3"]
+[ext_resource type="Script" path="res://files/scripts/Combat/battle_action_iconizer.gd" id="4_wj4w5"]
+[ext_resource type="Script" path="res://files/scripts/Combat/battle_action.gd" id="6_hauqp"]
+[ext_resource type="Resource" uid="uid://t702ao7lluuu" path="res://files/resources/Battle Actions/defend.tres" id="8_agdpo"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gi035"]
-gradient = SubResource("Gradient_6cgpj")
+[sub_resource type="Gradient" id="Gradient_dwup5"]
+offsets = PackedFloat32Array(0.0388889, 0.394444, 1)
+colors = PackedColorArray(0.425781, 0, 0, 1, 0.261719, 0.0265808, 0.0265808, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g1v1i"]
+gradient = SubResource("Gradient_dwup5")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxulw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [node name="Combat" type="TextureRect"]
 anchors_preset = 15
@@ -14,4 +32,152 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource("GradientTexture1D_gi035")
+texture = SubResource("GradientTexture2D_g1v1i")
+
+[node name="Marginizer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -298.0
+offset_right = 520.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBox" type="VBoxContainer" parent="Marginizer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Enemies" type="HBoxContainer" parent="Marginizer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Enemy 1" type="PanelContainer" parent="Marginizer/VBox/Enemies"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_7s40n")
+
+[node name="pfp" type="TextureRect" parent="Marginizer/VBox/Enemies/Enemy 1"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+script = ExtResource("2_bat8a")
+data = ExtResource("4_srlf3")
+
+[node name="Enemy 2" type="PanelContainer" parent="Marginizer/VBox/Enemies"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_7s40n")
+
+[node name="pfp" type="TextureRect" parent="Marginizer/VBox/Enemies/Enemy 2"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_i0lca")
+expand_mode = 1
+script = ExtResource("2_bat8a")
+data = ExtResource("4_srlf3")
+
+[node name="Enemy 3" type="PanelContainer" parent="Marginizer/VBox/Enemies"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_7s40n")
+
+[node name="pfp" type="TextureRect" parent="Marginizer/VBox/Enemies/Enemy 3"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_i0lca")
+expand_mode = 1
+script = ExtResource("2_bat8a")
+data = ExtResource("4_srlf3")
+
+[node name="Enemy 4" type="PanelContainer" parent="Marginizer/VBox/Enemies"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fxulw")
+script = ExtResource("2_7s40n")
+
+[node name="pfp" type="TextureRect" parent="Marginizer/VBox/Enemies/Enemy 4"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_i0lca")
+expand_mode = 1
+script = ExtResource("2_bat8a")
+data = ExtResource("4_srlf3")
+
+[node name="Actions" type="HBoxContainer" parent="Marginizer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Attack" type="PanelContainer" parent="Marginizer/VBox/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_wj4w5")
+
+[node name="Icon" type="TextureRect" parent="Marginizer/VBox/Actions/Attack"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hswma")
+expand_mode = 1
+script = ExtResource("6_hauqp")
+data = ExtResource("8_agdpo")
+
+[node name="Defend" type="PanelContainer" parent="Marginizer/VBox/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_wj4w5")
+
+[node name="Icon" type="TextureRect" parent="Marginizer/VBox/Actions/Defend"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hswma")
+expand_mode = 1
+script = ExtResource("6_hauqp")
+data = ExtResource("8_agdpo")
+
+[node name="Action 3" type="PanelContainer" parent="Marginizer/VBox/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_wj4w5")
+
+[node name="Icon" type="TextureRect" parent="Marginizer/VBox/Actions/Action 3"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hswma")
+expand_mode = 1
+script = ExtResource("6_hauqp")
+data = ExtResource("8_agdpo")
+
+[node name="Move" type="PanelContainer" parent="Marginizer/VBox/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fxulw")
+script = ExtResource("4_wj4w5")
+
+[node name="Icon" type="TextureRect" parent="Marginizer/VBox/Actions/Move"]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hswma")
+expand_mode = 1
+script = ExtResource("6_hauqp")
+data = ExtResource("8_agdpo")

@@ -1,18 +1,36 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5gglqptyqsmf"]
+[gd_scene load_steps=26 format=3 uid="uid://b5gglqptyqsmf"]
 
 [ext_resource type="FontFile" uid="uid://bfn7aw3e6q3ei" path="res://files/system/Themes/Fonts/LEDLIGHT.otf" id="1_j1fg3"]
 [ext_resource type="Script" path="res://files/scenes/dm_screen.gd" id="2_2bgve"]
 [ext_resource type="Texture2D" uid="uid://bmmx16afpnkrj" path="res://files/system/Images/System/meatballVert.png" id="3_myl3h"]
-[ext_resource type="Texture2D" uid="uid://bxho8jtra6sb2" path="res://files/system/Images/System/Search.png" id="4_buduw"]
+[ext_resource type="Texture2D" uid="uid://c3tj476ymp8dt" path="res://files/system/Images/System/Sword.png" id="3_rglpr"]
+[ext_resource type="Texture2D" uid="uid://c087byfqsnu8j" path="res://files/system/Images/System/Search.png" id="4_buduw"]
 [ext_resource type="Texture2D" uid="uid://bnlt3kdw2u5oi" path="res://files/system/Images/System/Wifi.png" id="4_pxpmk"]
 [ext_resource type="Texture2D" uid="uid://c6ugb2pcpbgp" path="res://files/system/Images/System/Image.png" id="5_3mhfr"]
+[ext_resource type="Texture2D" uid="uid://dq7nhr5c4ai00" path="res://files/system/Images/System/Music.png" id="6_u1j06"]
+[ext_resource type="PackedScene" uid="uid://d1le7o12l6nct" path="res://files/scenes/Network/network_ui.tscn" id="7_dsdue"]
+[ext_resource type="Texture2D" uid="uid://0i0rtnm1vavl" path="res://files/system/Images/System/close.png" id="8_8qypr"]
+[ext_resource type="PackedScene" uid="uid://3dj2nyn0qi1j" path="res://files/scenes/Network/network_status.tscn" id="9_ixemw"]
+[ext_resource type="PackedScene" uid="uid://jb1mh0r1inc4" path="res://files/scenes/music_player.tscn" id="12_c3pco"]
+[ext_resource type="Texture2D" uid="uid://8hypimmx6kpn" path="res://files/system/Images/System/Minimize.png" id="13_8ie7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3q8x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gij0"]
+bg_color = Color(0.0823529, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="Theme" id="Theme_b7pur"]
 default_font = ExtResource("1_j1fg3")
+Button/styles/focus = SubResource("StyleBoxEmpty_i3q8x")
+Button/styles/normal = SubResource("StyleBoxFlat_1gij0")
 
 [sub_resource type="Gradient" id="Gradient_cy6v4"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.0195312, 0.0193787, 0.0193787, 1)
+colors = PackedColorArray(0.0196078, 0.0196078, 0.0196078, 0.352941)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_57y30"]
 gradient = SubResource("Gradient_cy6v4")
@@ -27,26 +45,83 @@ gradient = SubResource("Gradient_cy6v4")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brou7"]
 
-[node name="DM Screen" type="TextureRect"]
+[sub_resource type="Gradient" id="Gradient_sek7m"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0509804, 0.0313726, 0.0666667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jfccn"]
+gradient = SubResource("Gradient_sek7m")
+
+[node name="DM Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_b7pur")
+script = ExtResource("2_2bgve")
+
+[node name="ToggleVis Btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1238.0
+offset_top = 9.0
+offset_right = 1270.0
+offset_bottom = 41.0
+icon = ExtResource("13_8ie7d")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1240.0
+offset_bottom = 680.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_b7pur")
 texture = SubResource("GradientTexture1D_57y30")
-script = ExtResource("2_2bgve")
 metadata/_edit_lock_ = true
 
-[node name="Combat Btn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 571.0
-offset_top = 465.0
-offset_right = 711.0
-offset_bottom = 524.0
-text = "Enter Combat"
+[node name="Music Player" parent="BG" instance=ExtResource("12_c3pco")]
+offset_left = 9.0
+offset_top = 510.0
+offset_right = 309.0
+offset_bottom = 711.0
 
-[node name="Combat Btn3" type="Button" parent="."]
+[node name="Buttons" type="Control" parent="BG"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="toScene Btn" type="Button" parent="BG/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 517.0
+offset_top = 311.0
+offset_right = 723.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Direct to Scene"
+icon = ExtResource("4_buduw")
+expand_icon = true
+
+[node name="Combat Btn" type="Button" parent="BG/Buttons"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 454.0
+offset_right = 736.0
+offset_bottom = 513.0
+text = "Enter Combat"
+icon = ExtResource("3_rglpr")
+expand_icon = true
+
+[node name="DI Btn" type="Button" parent="BG/Buttons"]
 layout_mode = 0
 offset_left = 549.0
 offset_top = 558.0
@@ -54,100 +129,53 @@ offset_right = 737.0
 offset_bottom = 598.0
 text = "Divine Intervention"
 
-[node name="Combat Btn2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = 103.0
-offset_right = 28.0
-offset_bottom = 159.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="loadModule Btn" type="Button" parent="BG/Buttons"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 62.0
+offset_bottom = 61.0
 icon = ExtResource("3_myl3h")
 icon_alignment = 1
 
-[node name="toScene Btn" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -74.5
-offset_top = -29.5
-offset_right = 74.5
-offset_bottom = 29.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Direct to Scene"
-
-[node name="toScene Btn2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -28.0
-offset_right = 28.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-icon = ExtResource("4_buduw")
+[node name="Music Btn" type="Button" parent="BG/Buttons"]
+layout_mode = 0
+offset_left = 1208.0
+offset_top = 656.0
+offset_right = 1267.0
+offset_bottom = 707.0
+icon = ExtResource("6_u1j06")
 icon_alignment = 1
 expand_icon = true
 
-[node name="loadModule Btn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 15.0
-offset_right = 67.0
-offset_bottom = 71.0
-icon = ExtResource("3_myl3h")
-icon_alignment = 1
-
-[node name="Music Btn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1187.0
-offset_top = 638.0
-offset_right = 1243.0
-offset_bottom = 694.0
-icon = ExtResource("3_myl3h")
-icon_alignment = 1
-
-[node name="Network Btn" type="Button" parent="."]
+[node name="Network Btn" type="Button" parent="BG/Buttons"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -203.0
-offset_top = -48.0
-offset_right = 186.0
-offset_bottom = -22.0
+offset_left = 417.0
+offset_top = 632.0
+offset_right = 806.0
+offset_bottom = 658.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Network"
 icon = ExtResource("4_pxpmk")
 expand_icon = true
 
-[node name="Image Import Btn" type="Button" parent="."]
+[node name="Image Import Btn" type="Button" parent="BG/Buttons"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -224.0
-offset_top = -34.0
-offset_right = -155.0
-offset_bottom = 35.0
+offset_left = 1016.0
+offset_top = 306.0
+offset_right = 1085.0
+offset_bottom = 375.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_type_variation = &"FlatButton"
@@ -160,17 +188,17 @@ icon = ExtResource("5_3mhfr")
 flat = true
 expand_icon = true
 
-[node name="Image Import Btn2" type="Button" parent="."]
+[node name="Viewport Btn" type="Button" parent="BG/Buttons"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -336.0
-offset_top = -241.0
-offset_right = -250.0
-offset_bottom = -153.0
+offset_left = 904.0
+offset_top = 99.0
+offset_right = 990.0
+offset_bottom = 187.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_type_variation = &"FlatButton"
@@ -185,3 +213,142 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+
+[node name="Panels" type="Control" parent="BG"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="Network Panel" type="Panel" parent="BG/Panels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 220.0
+offset_top = -10.0
+offset_right = 1020.0
+offset_bottom = 690.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Host Btn" parent="BG/Panels/Network Panel" instance=ExtResource("7_dsdue")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="NetClose Btn" type="Button" parent="BG/Panels/Network Panel"]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 4.0
+offset_right = 795.0
+offset_bottom = 36.0
+icon = ExtResource("8_8qypr")
+expand_icon = true
+
+[node name="NetworkStatus" parent="BG/Panels/Network Panel" instance=ExtResource("9_ixemw")]
+layout_mode = 1
+offset_left = -233.0
+offset_top = 6.0
+offset_right = 225.0
+offset_bottom = 596.0
+
+[node name="Viewport Panel" type="Panel" parent="BG/Panels"]
+visible = false
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 719.0
+metadata/_edit_lock_ = true
+
+[node name="Grid Cont" type="GridContainer" parent="BG/Panels/Viewport Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Music Panel" type="Panel" parent="BG/Panels"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 1251.0
+offset_bottom = 691.0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="BG/Panels/Music Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_jfccn")
+
+[node name="MusClose Btn" type="Button" parent="BG/Panels/Music Panel"]
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 9.0
+offset_right = 1216.0
+offset_bottom = 41.0
+icon = ExtResource("8_8qypr")
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/Panels/Music Panel"]
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 661.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/Panels/Music Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="Button" type="Button" parent="BG/Panels/Music Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tagged"
+
+[node name="Button2" type="Button" parent="BG/Panels/Music Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Untagged"
+
+[node name="Button3" type="Button" parent="BG/Panels/Music Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Starred"
+
+[node name="Button4" type="Button" parent="BG/Panels/Music Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SFX"
+
+[node name="Music Preview" type="AudioStreamPlayer" parent="BG/Panels/Music Panel"]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="ToggleVis Btn" to="." method="_on_toggle_vis_btn_pressed"]
+[connection signal="focus_entered" from="BG/Music Player" to="BG" method="_on_music_player_focus_entered"]
+[connection signal="focus_exited" from="BG/Music Player" to="BG" method="_on_music_player_focus_exited"]
+[connection signal="pressed" from="BG/Buttons/toScene Btn" to="." method="_on_to_scene_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/Combat Btn" to="." method="_on_combat_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/DI Btn" to="." method="_on_di_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/loadModule Btn" to="." method="_on_load_module_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/Music Btn" to="." method="_on_music_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/Network Btn" to="." method="_on_network_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/Image Import Btn" to="." method="_on_image_import_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/Viewport Btn" to="." method="_on_viewport_btn_pressed"]
+[connection signal="pressed" from="BG/Panels/Network Panel/NetClose Btn" to="." method="_on_net_close_btn_pressed"]
+[connection signal="pressed" from="BG/Panels/Music Panel/MusClose Btn" to="." method="_on_mus_close_btn_pressed"]

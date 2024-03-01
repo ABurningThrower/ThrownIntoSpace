@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dh3njg8a1updk"]
+
+[node name="Inventory Tooltip" type="VBoxContainer"]
+custom_minimum_size = Vector2(150, 35)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "WF License"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "Oi mate, you got a license for that death machine?"
+fit_content = true
+autowrap_mode = 2

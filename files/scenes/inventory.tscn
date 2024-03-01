@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvb7dj5h0x43h"]
+[gd_scene load_steps=7 format=3 uid="uid://bvb7dj5h0x43h"]
+
+[ext_resource type="Texture2D" uid="uid://4gq773j01gna" path="res://files/system/Images/Characters/Crew/Karma.png" id="1_dtv56"]
+[ext_resource type="Script" path="res://files/scripts/Inventory/inventory_grid.gd" id="1_sw8nr"]
+[ext_resource type="Script" path="res://files/scripts/transitionButton.gd" id="3_nnexk"]
 
 [sub_resource type="Gradient" id="Gradient_eds5j"]
-offsets = PackedFloat32Array(0.227273, 0.850649)
-colors = PackedColorArray(0.00715637, 0.0273438, 0.00936437, 1, 0.350865, 0.351562, 0.262299, 1)
+offsets = PackedFloat32Array(0.227273)
+colors = PackedColorArray(0.0544372, 0.0546875, 0.0514832, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_xj2f3"]
 gradient = SubResource("Gradient_eds5j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_st6xh"]
+bg_color = Color(0.027451, 0.027451, 0.027451, 0.666667)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="Inventory" type="TextureRect"]
 offset_right = 1280.0
@@ -16,14 +27,72 @@ texture = SubResource("GradientTexture1D_xj2f3")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="Inventory Grid Container" type="GridContainer" parent="."]
+[node name="Inv Panel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 858.0
-offset_bottom = 720.0
+offset_left = 55.0
+offset_top = 89.0
+offset_right = 708.0
+offset_bottom = 625.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_st6xh")
+
+[node name="Marginizer" type="MarginContainer" parent="Inv Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="Scrollifier" type="ScrollContainer" parent="Inv Panel/Marginizer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Inventory Grid" type="GridContainer" parent="Inv Panel/Marginizer/Scrollifier"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 8
+script = ExtResource("1_sw8nr")
 
 [node name="Player Image" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 849.0
+offset_top = 126.0
+offset_right = 1244.47
+offset_bottom = 588.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+texture = ExtResource("1_dtv56")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Player Image2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 849.0
+offset_top = 642.0
+offset_right = 1244.0
+offset_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+text = "/]: 58297¥"
+
+[node name="Player Image3" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1138.0
+offset_top = 642.0
+offset_right = 1244.0
+offset_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+text = "[==]
+Wallet"
+
+[node name="toShipInv Btn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 911.0
-offset_top = 75.0
-offset_right = 1276.0
-offset_bottom = 644.0
+offset_left = 297.0
+offset_top = 642.0
+offset_right = 467.0
+offset_bottom = 691.0
+text = "TO SHIP INVENTORY"
+script = ExtResource("3_nnexk")
+scenePath = "res://files/scenes/Main-/Crew-/ship.tscn"

@@ -1,38 +1,295 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7r6ji6q302px"]
+[gd_scene load_steps=13 format=3 uid="uid://b7r6ji6q302px"]
+
+[ext_resource type="FontFile" uid="uid://bmqncstfid8gg" path="res://files/system/Themes/Fonts/nasalization-rg.otf" id="1_5qkhq"]
+[ext_resource type="Script" path="res://files/scenes/Main-/CharSheet-/warframe_license.gd" id="1_52b86"]
+[ext_resource type="Texture2D" uid="uid://u36pw3msas8r" path="res://files/system/Images/Characters/Crew/Ceros.png" id="1_dniih"]
+[ext_resource type="Texture2D" uid="uid://br60evce1q0w0" path="res://files/system/Images/Characters/Crew/Pfps/Ceros_pfp.png" id="3_5oqv8"]
+[ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="4_tpl22"]
+
+[sub_resource type="Theme" id="Theme_wekxu"]
+default_font = ExtResource("1_5qkhq")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 3
 
 [sub_resource type="Gradient" id="Gradient_3mj0k"]
 offsets = PackedFloat32Array(0.227273)
-colors = PackedColorArray(0.046875, 0.0454102, 0.0454102, 1)
+colors = PackedColorArray(0.0470588, 0.0470588, 0.0470588, 0.878431)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_krx88"]
 gradient = SubResource("Gradient_3mj0k")
 
-[sub_resource type="Gradient" id="Gradient_tm0x2"]
-offsets = PackedFloat32Array(0.415584)
-colors = PackedColorArray(0.22316, 0.240214, 0.253906, 1)
+[sub_resource type="Gradient" id="Gradient_hcmtx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.163971, 0.164705, 0.210938, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sbemq"]
-gradient = SubResource("Gradient_tm0x2")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_opecp"]
+gradient = SubResource("Gradient_hcmtx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjc8v"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1w6y"]
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Warframe License" type="TextureRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = SubResource("Theme_wekxu")
 texture = SubResource("GradientTexture2D_krx88")
+script = ExtResource("1_52b86")
+metadata/_edit_lock_ = true
 
-[node name="License Container" type="TextureRect" parent="."]
+[node name="Panel Cont" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -284.5
-offset_top = -332.0
-offset_right = 284.5
-offset_bottom = 332.0
+offset_left = -291.0
+offset_top = -347.0
+offset_right = 292.0
+offset_bottom = 347.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_sbemq")
+metadata/_edit_lock_ = true
+
+[node name="License BG" type="TextureRect" parent="Panel Cont"]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_opecp")
+
+[node name="Marginizer" type="MarginContainer" parent="Panel Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+metadata/_edit_lock_ = true
+
+[node name="Front VBox" type="VBoxContainer" parent="Panel Cont/Marginizer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="WF Name" type="Label" parent="Panel Cont/Marginizer/Front VBox"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.18
+text = "CEROS"
+label_settings = SubResource("LabelSettings_wjc8v")
+horizontal_alignment = 1
+
+[node name="WF Image" type="TextureRect" parent="Panel Cont/Marginizer/Front VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("1_dniih")
+expand_mode = 3
+
+[node name="Back VBox" type="VBoxContainer" parent="Panel Cont/Marginizer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="WF Name" type="Label" parent="Panel Cont/Marginizer/Back VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.07
+text = "CEROS"
+label_settings = SubResource("LabelSettings_h1w6y")
+horizontal_alignment = 1
+
+[node name="Header HBox" type="HBoxContainer" parent="Panel Cont/Marginizer/Back VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.31
+theme_override_constants/separation = 22
+
+[node name="Pfp" type="TextureRect" parent="Panel Cont/Marginizer/Back VBox/Header HBox"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_5oqv8")
+expand_mode = 2
+
+[node name="Summary" type="RichTextLabel" parent="Panel Cont/Marginizer/Back VBox/Header HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Level: 6
+Tier: I
+Class: Cyberpunk, Immovable Force
+Role: Tool of Destruction"
+
+[node name="Scrollifier" type="ScrollContainer" parent="Panel Cont/Marginizer/Back VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="Panel Cont/Marginizer/Back VBox/Scrollifier"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Info" type="RichTextLabel" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[h]Main[/h]
+
+HP: 44/80
+SHP: 23/23
+AC: 14
+17 STR +4
+16 CON +4
+15 DEX +3
+8 INT -1
+8 WIS -1
+5 CHR -3
+
+[h]Sub[/h]
+
+Speed: 25ft
+Initiative: +3
+Hit Die: d10+2
+Prof Bonus: +3
+
+[h]Resistances[/h]
+
+Saving Throws: CON, STR
+Weaknesses: Mental dmg
+Resistances: Fear, Charm, Deafness (can still use comms if op.'d), Sinking, Hope (these two are applied directly to the operator instead), Blunt dmg (-1dlvl total damage at the end of the turn, still min 1), Internal dmg, Grappled, Proned (these two have disadvantage when being inflicted on Ceros, and attacks that automatically inflict this must instead roll against CON save), indirect Necrotic dmg (can only harm op, not warframe), Spasms, Paralysis
+
+Immunities: Possession (disincluding op. control), Blindness (min 3ft visible), Poison+, Exhaustion, Bleed, Burn, Afterburn   while inactive: anything that tries to control the warframe (i.e. charm, fear, etc.)  (disincluding op. control), Mental dmg, Necrotic dmg, Sinking, Hope
+
+
+[h]Proficiencies[/h]
+
+Languages: That which op. knows; can only speak through speaker (comms if op.'d)
+
+Proficiency: Weapons, Fists (expert)
+Tools: 
+Skills: (see below)        (seems to be a good learner in terms of Gunmanship)
+Deprof: (see below)
+
+
+[h]Profile[/h]
+
+Profile: 
+• 5'10
+• 1000+lbs (HEAVY!!!!)
+• Metallic beast of black-painted metal with red lights and highlights
+
+
+Personality:
+• (roar)
+
+
+
+[h]Stat Profs[/h]
+
+STR
+ Athletics +6
+ Gunmanship +4
+
+DEX
+ Acrobatics +3
+ Sleight of Hand -1
+ Stealth +1
+ Mounting +2
+ Piloting -5*
+
+CON
+ Wellbeing +6
+ Perception +3
+ Repairs +2* (depends)
+ Construction +2* (depends)
+ Cooking +0*
+
+INT
+ Arcana -3* (depends)
+ Investigation -1
+ Research -3*
+ Hacking -1*
+ Programming -3*
+
+WIS
+ Nature -3*
+ History -1*
+ Insight +1
+ Medicine -1*
+ Survival +1*
+
+CHR
+ Deception -3* (difficult)
+ Intimidation +4
+ Performance -3*
+ Persuasion -3* (difficult)
+ Diplomacy -5* (slightly difficult)
+ Speeches -3*
+ Artistry -5* (difficult)
+ Penmanship -5* (difficult)
+ Economics -5*
+ Animal Handling -4  (soft creatures, for rough/violent creatures, +3 instead)
+
+UNAFF.
+ Religion -2*
+ Zazacrafting +3 (equal to user's)
+
+Note: When making an active ability check, stats with an * cannot be higher than the user's, and are instead replaced by the user's if so. If user's stats are higher, they can use that stat instead if they act it out properly and effectively. If the check is instead a passive check/save, the stats shown are used. In other words, * is a ceiling.
+
+
+
+[h]Abilities[/h]
+
+Active Weapon: Fists
+
+
+Misc Abilities and Perks:
+• High Jump - up to (5+DEX)ft vertically at full strength. Makes a rough crack/dent in any surface it lands on - never enough to break the surface (unless fragile), but always enough to get complaints. If lands on an entity, it deals 3d3 blunt damage and causes 2d3:1d2 crushing and inflicts STRd2 [4d2] tremor. +(DEX~prof) to hit.
+• Darkvision - 25/25ft
+
+
+
+Ceros' Fists - STRd3 blunt damage, inflict 1+1dSTR crushing (+1d3 on crit) and (2dSTR+1) tremor (+1d4 and burst on crit); up to 3 (-1 per bDEX below 3; min 1) hits (min 1). On crit, gain ({1d2}*25):(1d2) Blunt Strengthen (up to once per turn). If you make 3 or more attacks in a turn, you cannot move. Otherwise, you can move 5ft per unspent attack. 2ft range. +5 to hit. 
+
+Ceros Charge - charge up for 2-6s, then start moving at an accelerating pace up to 60ft/s; you cannot stop moving until you hit something/get hit (besides a weak projectile, like arrows or bullets). Deals 2d(0.25*spd) blunt damage (+ {STRd2}); you accelerate at 5ft/s^2. When you impact someone, you send them flying back for (0.25* speed)ft. If it impacts a wall, deal an extra (STR)d(lvl) blunt damage and half that in SHP (RU). +1/2/3 to hit if moving at 15+/30+/45+ ft/s. If it impacts another entity, the target is hurt for an extra 1dSTR blunt damage and 1d2 SHP damage, and the entit(ies) struck take 2d(0.2*speed) blunt damage and half that in SHP damage (RU; min 6/9/12). After crashing, your movespeed is cut in half for the turn.   (30 global CD after the end of the charge)
+
+Stonewall Ceros - if at the beginning of your turn, you have not taken SHP damage since your last turn, you recover (CON/2) [RU] SHP (min 1). 
+
+
+Boltor - 2d4 piercing damage, up to 3 hits per turn. 30ft eff. range. +2 to hit in eff. range. -1 to hit per 10ft after. Mag of 12, reload of 4.5s.
+
+
+
+
+
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel Cont"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = -5
+
+[node name="Flip Btn" type="TextureButton" parent="Panel Cont/MarginContainer"]
+custom_minimum_size = Vector2(25, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.81
+texture_normal = ExtResource("4_tpl22")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[connection signal="pressed" from="Panel Cont/MarginContainer/Flip Btn" to="." method="_on_flip_btn_pressed"]

@@ -1,12 +1,14 @@
 extends TextureRect
 
+@onready var musicPlayer:= $"Music Player"
+
 
 func _ready() -> void:
-	# initialize default scene based on settings
-	Saver.save()
+
+#	var prefData = loadSaveData()
+	musicPlayer.loadPref()
 	
-	var prefData = loadSaveData()
-	$"Music Player".loadPref(prefData)
+	$NetworkUI.show_connect()
 
 func loadSaveData() -> Dictionary:
 	var saveData:= Saver.load()

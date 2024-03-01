@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BattleActionData" load_steps=3 format=3 uid="uid://t702ao7lluuu"]
+
+[ext_resource type="Texture2D" uid="uid://cyj3ct2yn7ucq" path="res://files/system/Images/System/menubarVert.png" id="1_wkm5e"]
+[ext_resource type="Script" path="res://files/scripts/Combat/battle_action_data.gd" id="2_s2816"]
+
+[resource]
+script = ExtResource("2_s2816")
+name = "Defend"
+icon = ExtResource("1_wkm5e")

@@ -6,17 +6,11 @@ extends Control
 var tilesById = {}
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	NetworkManager.upnp_completed.connect(_onUPNPCompletion)
 	NetworkManager.player_connected.connect(_onPlayerConnected)
 	NetworkManager.player_disconnected.connect(_onPlayerDisconnected)
 	NetworkManager.network_status_changed.connect(_onStatusChanged)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _onUPNPCompletion(upnpStatus):

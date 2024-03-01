@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://7jm5uqqkcfge"]
+
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_a6met"]
+[ext_resource type="Texture2D" uid="uid://d0w23k285nrpk" path="res://files/system/Images/Characters/Crew/Valk.png" id="1_chwj2"]
+[ext_resource type="Texture2D" uid="uid://bb4rxlky8m53k" path="res://files/system/Images/Characters/Crew/Pfps/Valk_pfp.png" id="2_k8iwj"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_218m3"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_jaaml"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_5uimh"]
+
+[sub_resource type="Resource" id="Resource_f40vy"]
+script = ExtResource("3_jaaml")
+Athletics = 3
+Gunmanship = 2
+Acrobatics = 5
+Sleight_of_Hand = 2
+Stealth = 3
+Mounting = 1
+Piloting = -4
+Wellbeing = -2
+Perception = 2
+Repairs = -2
+Construction = -2
+Cooking = -2
+Arcana = -5
+Investigation = -1
+Research = -4
+Hacking = -4
+Programming = -6
+Nature = 3
+History = -2
+Insight = -1
+Medicine = -3
+Survival = 4
+Deception = -3
+Intimidation = 3
+_Performance = -3
+Persuasion = -5
+Diplomacy = -5
+Speeches = -4
+Aristry = -5
+Penmanship = -3
+Economics = -5
+Animal_Handling = -6
+Religion = -5
+Zazacrafting = -4
+
+[sub_resource type="Resource" id="Resource_wlnlo"]
+script = ExtResource("3_218m3")
+STR = 1
+DEX = 2
+CON = 2
+INT = 0
+WIS = 0
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_attj4"]
+script = ExtResource("6_5uimh")
+rSTR = 15
+bSTR = 3
+rDEX = 15
+bDEX = 3
+rCON = 13
+bCON = 1
+rINT = 8
+bINT = -2
+rWIS = 11
+bWIS = 1
+rCHR = 4
+bCHR = -4
+
+[resource]
+script = ExtResource("1_a6met")
+faction = 0
+type = 0
+name = "Valk"
+pfp = ExtResource("2_k8iwj")
+fullbody = ExtResource("1_chwj2")
+level = 6
+_class = "Cyberpunk"
+subclass = "Goreophile"
+race = 5
+hp = 48
+max_hp = 60
+shp = 20
+max_shp = 20
+ac = 13
+speed = 35
+initiative = 3
+hit_die = "d9"
+prof_bonus = 3
+alignment = 4
+background = "WF"
+languages = Array[int]([0])
+saving_throws = SubResource("Resource_wlnlo")
+stats = SubResource("Resource_attj4")
+profs = SubResource("Resource_f40vy")
+misc_data = []

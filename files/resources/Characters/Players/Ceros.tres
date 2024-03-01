@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://ba3stxkedia0b"]
+
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_5lpvj"]
+[ext_resource type="Texture2D" uid="uid://u36pw3msas8r" path="res://files/system/Images/Characters/Crew/Ceros.png" id="1_hmj5h"]
+[ext_resource type="Texture2D" uid="uid://br60evce1q0w0" path="res://files/system/Images/Characters/Crew/Pfps/Ceros_pfp.png" id="2_82um1"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_2x5o5"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_wtkxw"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_rdss0"]
+
+[sub_resource type="Resource" id="Resource_ctwx7"]
+script = ExtResource("3_2x5o5")
+Athletics = 6
+Gunmanship = 4
+Acrobatics = 3
+Sleight_of_Hand = -1
+Stealth = 1
+Mounting = 2
+Piloting = -5
+Wellbeing = 5
+Perception = 2
+Repairs = 2
+Construction = 2
+Cooking = -2
+Arcana = -3
+Investigation = -1
+Research = -3
+Hacking = -1
+Programming = -3
+Nature = -3
+History = -1
+Insight = 1
+Medicine = -1
+Survival = 1
+Deception = -3
+Intimidation = 4
+_Performance = -3
+Persuasion = -3
+Diplomacy = -5
+Speeches = -3
+Aristry = -5
+Penmanship = -5
+Economics = -5
+Animal_Handling = -4
+Religion = -2
+Zazacrafting = 3
+
+[sub_resource type="Resource" id="Resource_e7tbf"]
+script = ExtResource("3_wtkxw")
+STR = 2
+DEX = 0
+CON = 2
+INT = 0
+WIS = 0
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_u38pg"]
+script = ExtResource("6_rdss0")
+rSTR = 17
+bSTR = 4
+rDEX = 15
+bDEX = 4
+rCON = 16
+bCON = 3
+rINT = 8
+bINT = -1
+rWIS = 8
+bWIS = -1
+rCHR = 5
+bCHR = -3
+
+[resource]
+script = ExtResource("1_5lpvj")
+faction = 0
+type = 0
+name = "Ceros"
+pfp = ExtResource("2_82um1")
+fullbody = ExtResource("1_hmj5h")
+level = 6
+_class = "Cyberpunk"
+subclass = "Immovable Force"
+race = 5
+hp = 44
+max_hp = 80
+shp = 23
+max_shp = 23
+ac = 14
+speed = 25
+initiative = 3
+hit_die = "d9+2"
+prof_bonus = 3
+alignment = 4
+background = "WF"
+languages = Array[int]([])
+saving_throws = SubResource("Resource_e7tbf")
+stats = SubResource("Resource_u38pg")
+profs = SubResource("Resource_ctwx7")
+skills = []
+misc_data = []

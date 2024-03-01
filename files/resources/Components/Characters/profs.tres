@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CharacterProfs" load_steps=2 format=3 uid="uid://botcuna0sjomw"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="1_mok2q"]
+
+[resource]
+script = ExtResource("1_mok2q")
+Athletics = 0
+Gunmanship = 0
+Acrobatics = 0
+Sleight_of_Hand = 0
+Stealth = 0
+Mounting = 0
+Piloting = 0
+Wellbeing = 0
+Perception = 0
+Repairs = 0
+Construction = 0
+Cooking = 0
+Arcana = 0
+Investigation = 0
+Research = 0
+Hacking = 0
+Programming = 0
+Nature = 0
+History = 0
+Insight = 0
+Medicine = 0
+Survival = 0
+Deception = 0
+Intimidation = 0
+_Performance = 0
+Persuasion = 0
+Diplomacy = 0
+Speeches = 0
+Aristry = 0
+Penmanship = 0
+Economics = 0
+Animal_Handling = 0
+Religion = 0
+Zazacrafting = 0

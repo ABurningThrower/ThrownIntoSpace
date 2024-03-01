@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c75vgek0piq1f"]
+
+[ext_resource type="Script" path="res://files/scripts/Inventory/item_data.gd" id="1_rp1at"]
+[ext_resource type="Texture2D" uid="uid://dix6r3hpg1ksp" path="res://files/system/Images/deadass.jpg" id="2_yi8ug"]
+
+[resource]
+script = ExtResource("1_rp1at")
+type = 0
+name = "ID"
+consumable = false
+description = "This is an ID.
+
+Deadass?"
+texture = ExtResource("2_yi8ug")

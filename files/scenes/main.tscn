@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://cenovytyhmy3y"]
+[gd_scene load_steps=28 format=3 uid="uid://cenovytyhmy3y"]
 
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_7i8vd"]
-[ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="1_pugcn"]
+[ext_resource type="Script" path="res://files/scripts/transitionButton.gd" id="1_pugcn"]
 [ext_resource type="Texture2D" uid="uid://b71fm15rlg0sn" path="res://files/system/Images/System/menubarHor.png" id="1_xai2x"]
 [ext_resource type="Script" path="res://files/scenes/main.gd" id="2_bn2lk"]
-[ext_resource type="Script" path="res://files/scenes/sidebarButton.gd" id="2_daroh"]
 [ext_resource type="Script" path="res://files/scenes/scene_manager.gd" id="3_nxx0c"]
 [ext_resource type="PackedScene" uid="uid://jb1mh0r1inc4" path="res://files/scenes/music_player.tscn" id="3_vw7as"]
 [ext_resource type="Script" path="res://files/scenes/sidebar.gd" id="5_1gxuy"]
@@ -28,7 +27,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.0627451, 0.741176, 0.694118, 1)
+bg_color = Color(0.063, 0.741, 0.694, 0.65)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -65,15 +64,15 @@ keycode = 4194306
 [sub_resource type="Shortcut" id="Shortcut_i034d"]
 events = [SubResource("InputEventKey_6jcqm")]
 
-[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_4jdu5"]
-button_index = 8
-
 [sub_resource type="InputEventKey" id="InputEventKey_mbu08"]
 device = -1
 keycode = 4194305
 
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_4jdu5"]
+button_index = 8
+
 [sub_resource type="Shortcut" id="Shortcut_ym4hf"]
-events = [SubResource("InputEventMouseButton_4jdu5"), SubResource("InputEventKey_mbu08")]
+events = [SubResource("InputEventKey_mbu08"), SubResource("InputEventMouseButton_4jdu5")]
 
 [node name="Main Window" type="TextureRect"]
 offset_right = 1280.0
@@ -114,6 +113,14 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Character Sheet"
 script = ExtResource("1_pugcn")
+scenePath = "res://files/scenes/Main-/CharSheet-/character_id.tscn"
+
+[node name="Inventory Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Inventory"
+script = ExtResource("1_pugcn")
+scenePath = "res://files/scenes/inventory.tscn"
 
 [node name="Crew Btn" type="Button" parent="Sidebar/VBox Btn Container"]
 layout_mode = 2
@@ -121,13 +128,6 @@ size_flags_vertical = 3
 text = "Crew"
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/crew.tscn"
-
-[node name="Music Btn" type="Button" parent="Sidebar/VBox Btn Container"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Music"
-script = ExtResource("1_pugcn")
-scenePath = "res://files/scenes/Main-/music.tscn"
 
 [node name="Settings Btn" type="Button" parent="Sidebar/VBox Btn Container"]
 layout_mode = 2
@@ -157,7 +157,6 @@ shortcut = SubResource("Shortcut_i034d")
 shortcut_feedback = false
 icon = ExtResource("1_xai2x")
 icon_alignment = 1
-script = ExtResource("2_daroh")
 
 [node name="Back Btn" type="Button" parent="."]
 visible = false
@@ -173,23 +172,25 @@ expand_icon = true
 script = ExtResource("10_w026h")
 
 [node name="Music Player" parent="." instance=ExtResource("3_vw7as")]
-visible = false
 layout_mode = 0
-offset_left = 9.0
-offset_top = 510.0
-offset_right = 309.0
-offset_bottom = 710.0
+offset_left = 6.0
+offset_top = 514.0
+offset_right = 306.0
+offset_bottom = 714.0
 
 [node name="SFX Player" parent="." instance=ExtResource("12_3rwlw")]
 
 [node name="NetworkUI" parent="." instance=ExtResource("13_6d3vb")]
+visible = false
 layout_mode = 1
 
 [node name="NetworkStatus" parent="." instance=ExtResource("14_0y51g")]
+visible = false
 layout_mode = 1
-offset_left = -81.0
-offset_top = 190.0
-offset_right = -81.0
-offset_bottom = 190.0
+offset_left = 474.0
+offset_top = 699.0
+offset_right = 474.0
+offset_bottom = 699.0
 
 [connection signal="transitioned" from="Transition Fade" to="Scenes" method="_on_transition_fade_transitioned"]
+[connection signal="pressed" from="Sidebar Btn" to="Sidebar" method="_on_sidebar_btn_pressed"]

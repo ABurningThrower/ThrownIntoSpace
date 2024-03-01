@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dxkrbgapqd5id"]
+
+[ext_resource type="Script" path="res://files/scripts/Inventory/item_data.gd" id="1_4kyw1"]
+[ext_resource type="Texture2D" uid="uid://c6ugb2pcpbgp" path="res://files/system/Images/System/Image.png" id="2_yr6w6"]
+
+[resource]
+script = ExtResource("1_4kyw1")
+type = 0
+name = "Fallback Item"
+consumable = false
+description = "What a whoopsie!
+Somebody did a fuckie wuckie and now here we are!
+Was it you? Me?
+I don't care. Let me know how you got here."
+texture = ExtResource("2_yr6w6")

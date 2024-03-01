@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://ui027p2o50lw"]
+
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_on5fx"]
+[ext_resource type="Texture2D" uid="uid://rubbgobw23nv" path="res://files/system/Images/Characters/Crew/Anuboid.png" id="1_t53qe"]
+[ext_resource type="Texture2D" uid="uid://hniqutl21dda" path="res://files/system/Images/Characters/Crew/Pfps/Anuboid_pfp.png" id="2_mli3r"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_ear2j"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="4_v4wi1"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_ny84i"]
+
+[sub_resource type="Resource" id="Resource_hpcl5"]
+script = ExtResource("3_ear2j")
+Athletics = 2
+Gunmanship = 2
+Acrobatics = 5
+Sleight_of_Hand = 1
+Stealth = 3
+Mounting = 1
+Piloting = 1
+Wellbeing = 2
+Perception = 5
+Repairs = 5
+Construction = 5
+Cooking = 2
+Arcana = 1
+Investigation = 1
+Research = 1
+Hacking = 2
+Programming = 1
+Nature = 1
+History = 7
+Insight = 1
+Medicine = 1
+Survival = 1
+Deception = -1
+Intimidation = 0
+_Performance = 0
+Persuasion = 0
+Diplomacy = 0
+Speeches = 0
+Aristry = 0
+Penmanship = 0
+Economics = 0
+Animal_Handling = 0
+Religion = 1
+Zazacrafting = 0
+
+[sub_resource type="Resource" id="Resource_avrkd"]
+script = ExtResource("4_v4wi1")
+STR = 1
+DEX = 2
+CON = 2
+INT = 0
+WIS = 0
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_pu0lo"]
+script = ExtResource("6_ny84i")
+rSTR = 14
+bSTR = 2
+rDEX = 16
+bDEX = 3
+rCON = 14
+bCON = 2
+rINT = 13
+bINT = 1
+rWIS = 13
+bWIS = 1
+rCHR = 10
+bCHR = 0
+
+[resource]
+script = ExtResource("1_on5fx")
+faction = 0
+type = 0
+name = "Anuboid"
+pfp = ExtResource("2_mli3r")
+fullbody = ExtResource("1_t53qe")
+level = 6
+_class = "Engineer"
+subclass = "Electrician"
+race = 5
+hp = 48
+max_hp = 55
+shp = 21
+max_shp = 21
+ac = 13
+speed = 30
+initiative = 4
+hit_die = "d10"
+prof_bonus = 3
+alignment = 4
+background = "???"
+languages = Array[int]([0])
+saving_throws = SubResource("Resource_avrkd")
+stats = SubResource("Resource_pu0lo")
+profs = SubResource("Resource_hpcl5")
+misc_data = []

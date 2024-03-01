@@ -1,23 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5jdkexk8t84o"]
+[gd_scene load_steps=14 format=3 uid="uid://b5jdkexk8t84o"]
 
 [ext_resource type="Texture2D" uid="uid://hniqutl21dda" path="res://files/system/Images/Characters/Crew/Pfps/Anuboid_pfp.png" id="1_85gi3"]
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_am6yk"]
-[ext_resource type="Script" path="res://files/scenes/Main-/transitionButton.gd" id="3_34vx3"]
+[ext_resource type="Texture2D" uid="uid://br60evce1q0w0" path="res://files/system/Images/Characters/Crew/Pfps/Ceros_pfp.png" id="2_fmavo"]
+[ext_resource type="Script" path="res://files/scripts/transitionButton.gd" id="3_34vx3"]
 [ext_resource type="Texture2D" uid="uid://bb4rxlky8m53k" path="res://files/system/Images/Characters/Crew/Pfps/Valk_pfp.png" id="4_ymjqb"]
 [ext_resource type="Texture2D" uid="uid://d3xt1m3lhvycw" path="res://files/system/Images/Characters/Crew/Pfps/Kusuo_pfp.png" id="5_t5r13"]
 
-[sub_resource type="Gradient" id="Gradient_qwp7d"]
-offsets = PackedFloat32Array(0.0454545)
-colors = PackedColorArray(0.348633, 0.356461, 0.375, 1)
+[sub_resource type="Gradient" id="Gradient_ppkxf"]
+colors = PackedColorArray(0.0117188, 0.0117188, 0.0117188, 1, 0.0625, 0.0595703, 0.0595703, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_08t2b"]
-gradient = SubResource("Gradient_qwp7d")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_54nmk"]
+gradient = SubResource("Gradient_ppkxf")
+fill_from = Vector2(0.495413, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m43s5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqtd0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq106"]
+bg_color = Color(0.211765, 0, 0, 0.392157)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn0ut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vx03f"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+corner_radius_top_left = 1
+corner_detail = 2
+shadow_color = Color(1, 0, 0, 0.356863)
+shadow_size = 150
+shadow_offset = Vector2(0, 10)
 
 [node name="Warframes" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
 theme = ExtResource("1_am6yk")
-texture = SubResource("GradientTexture1D_08t2b")
+texture = SubResource("GradientTexture2D_54nmk")
 metadata/_edit_lock_ = true
 
 [node name="2x2 Grid" type="GridContainer" parent="."]
@@ -40,6 +64,7 @@ size_flags_vertical = 6
 focus_neighbor_right = NodePath("../Valk Btn")
 focus_neighbor_bottom = NodePath("../Kusuo Btn")
 focus_next = NodePath("../Valk Btn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m43s5")
 text = "
 
 
@@ -54,12 +79,13 @@ text = "
 
 
 The Destroyer"
-icon = ExtResource("1_85gi3")
+icon = ExtResource("2_fmavo")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
+data = ["Ceros"]
 
 [node name="Valk Btn" type="Button" parent="2x2 Grid"]
 layout_mode = 2
@@ -69,7 +95,13 @@ focus_neighbor_left = NodePath("../Ceros Btn")
 focus_neighbor_bottom = NodePath("../Anuboid Btn")
 focus_next = NodePath("../Kusuo Btn")
 focus_previous = NodePath("../Ceros Btn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wqtd0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qq106")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wqtd0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wqtd0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wqtd0")
 text = "
+
 
 
 
@@ -83,11 +115,30 @@ text = "
 
 The Bloodthirsty"
 icon = ExtResource("4_ymjqb")
-flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
+data = ["Valk"]
+
+[node name="Glow" type="PanelContainer" parent="2x2 Grid/Valk Btn"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_dn0ut")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vx03f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="2x2 Grid/Valk Btn"]
 
 [node name="Kusuo Btn" type="Button" parent="2x2 Grid"]
 layout_mode = 2
@@ -97,6 +148,7 @@ focus_neighbor_top = NodePath("../Ceros Btn")
 focus_neighbor_right = NodePath("../Anuboid Btn")
 focus_next = NodePath("../Anuboid Btn")
 focus_previous = NodePath("../Valk Btn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m43s5")
 text = "
 
 
@@ -117,6 +169,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
+data = ["Kusuo"]
 
 [node name="Anuboid Btn" type="Button" parent="2x2 Grid"]
 layout_mode = 2
@@ -126,6 +179,7 @@ focus_neighbor_left = NodePath("../Kusuo Btn")
 focus_neighbor_top = NodePath("../Valk Btn")
 focus_next = NodePath("../Ceros Btn")
 focus_previous = NodePath("../Kusuo Btn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m43s5")
 text = "
 
 
@@ -145,4 +199,5 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_34vx3")
-scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
+scenePath = "res://files/scenes/Main-/CharSheet-/character_id.tscn"
+data = ["Anuboid"]

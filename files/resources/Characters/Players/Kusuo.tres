@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://s64jnrr57ysm"]
+
+[ext_resource type="Texture2D" uid="uid://ck8jib5g2vvx6" path="res://files/system/Images/Characters/Crew/Kusuo.png" id="1_hpinn"]
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_q22fa"]
+[ext_resource type="Texture2D" uid="uid://d3xt1m3lhvycw" path="res://files/system/Images/Characters/Crew/Pfps/Kusuo_pfp.png" id="2_6wv80"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_it43h"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_jr2ru"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_8sfqg"]
+
+[sub_resource type="Resource" id="Resource_v2cjg"]
+script = ExtResource("3_jr2ru")
+Athletics = 3
+Gunmanship = 2
+Acrobatics = 3
+Sleight_of_Hand = 1
+Stealth = 1
+Mounting = 0
+Piloting = 0
+Wellbeing = 2
+Perception = 4
+Repairs = 1
+Construction = 1
+Cooking = 0
+Arcana = 2
+Investigation = 2
+Research = -1
+Hacking = -1
+Programming = -3
+Nature = 0
+History = 3
+Insight = 4
+Medicine = 0
+Survival = 0
+Deception = 1
+Intimidation = 0
+_Performance = 0
+Persuasion = 2
+Diplomacy = 0
+Speeches = 0
+Aristry = 1
+Penmanship = 1
+Economics = -1
+Animal_Handling = 0
+Religion = -2
+Zazacrafting = -5
+
+[sub_resource type="Resource" id="Resource_bi23l"]
+script = ExtResource("3_it43h")
+STR = 0
+DEX = 0
+CON = 0
+INT = 2
+WIS = 2
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_q4tac"]
+script = ExtResource("6_8sfqg")
+rSTR = 11
+bSTR = 1
+rDEX = 13
+bDEX = 2
+rCON = 11
+bCON = 1
+rINT = 16
+bINT = 3
+rWIS = 14
+bWIS = 2
+rCHR = 10
+bCHR = 0
+
+[resource]
+script = ExtResource("1_q22fa")
+faction = 0
+type = 0
+name = "S. Kusuo"
+pfp = ExtResource("2_6wv80")
+fullbody = ExtResource("1_hpinn")
+level = 6
+_class = "Scientist"
+subclass = "Energist (Psychic)"
+race = 5
+hp = 50
+max_hp = 50
+shp = 21
+max_shp = 21
+ac = 13
+speed = 30
+initiative = 4
+hit_die = "d7+1"
+prof_bonus = 3
+alignment = 4
+background = "WF"
+languages = Array[int]([])
+saving_throws = SubResource("Resource_bi23l")
+stats = SubResource("Resource_q4tac")
+profs = SubResource("Resource_v2cjg")
+misc_data = []

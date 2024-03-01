@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal transitioned
 
-var cScene
+var cScene: PackedScene
 
 
 func _init() -> void:

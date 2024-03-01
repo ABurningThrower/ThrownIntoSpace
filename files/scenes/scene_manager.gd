@@ -1,8 +1,10 @@
 extends Node
 
 var nextScene: PackedScene
-var defaultScene: PackedScene = preload("res://files/scenes/Main-/crew.tscn")
+var btnData: Array
+@onready var defaultScene: PackedScene = load(Settings.masterDict["settingsDict"]["default_scene"])
 
+signal dataReady(data)
 
 func _ready():
 	add_child(defaultScene.instantiate())
@@ -10,12 +12,16 @@ func _ready():
 	$"../Back Btn".append(defaultScene)
 
 
-
 func buttonPress(button):
+	# if button has data, keeps it here to transfer to next scene
+	btnData = button.data
+	
 	# Doesn't transition if user is already in the target scene
 	if button.scenePath != get_child(0).scene_file_path:
 		nextScene = load(button.scenePath)
-		transitionScene()
+		transitionScene(null)
+	
+	
 
 
 
@@ -26,7 +32,6 @@ func transitionScene(scene = null):
 
 
 func _on_transition_fade_transitioned(scene = null):
-#	print(scene)
 	# when transitioning forward, the back button gets an extra
 	if scene == null:
 		$"../Back Btn".append(nextScene)
@@ -36,8 +41,13 @@ func _on_transition_fade_transitioned(scene = null):
 	if get_children().size() > 0:
 		get_child(0).queue_free()
 	var nodeScene = nextScene.instantiate()
+	if nodeScene.has_method("initData"):
+		nodeScene.initData(btnData)
 	add_child(nodeScene)
 	instantiateButtons(nodeScene)
+#	emit_signal("dataReady", btnData)
+	$"../Sidebar".visible = false
+	$"../Music Player".disappear()
 	$"../Transition Fade".fadein()
 
 

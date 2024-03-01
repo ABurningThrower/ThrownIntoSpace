@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://dbirn0137upp0"]
+
+[ext_resource type="Texture2D" uid="uid://1vohn4knojsu" path="res://files/system/Images/Characters/Crew/Maxim.png" id="1_abaoy"]
+[ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_mn85c"]
+[ext_resource type="Texture2D" uid="uid://bv3ehfrdcasp4" path="res://files/system/Images/Characters/Crew/Pfps/Maxim_pfp.png" id="2_sd4e1"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_msda4"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_p1yvu"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_dhqn2"]
+
+[sub_resource type="Resource" id="Resource_fe76c"]
+script = ExtResource("3_p1yvu")
+Athletics = 2
+Gunmanship = 2
+Acrobatics = 5
+Sleight_of_Hand = 2
+Stealth = 2
+Mounting = 2
+Piloting = 2
+Wellbeing = 1
+Perception = 4
+Repairs = 1
+Construction = 1
+Cooking = 1
+Arcana = 0
+Investigation = 0
+Research = 0
+Hacking = 0
+Programming = 0
+Nature = -1
+History = -1
+Insight = -1
+Medicine = -1
+Survival = 2
+Deception = 0
+Intimidation = 0
+_Performance = 0
+Persuasion = 0
+Diplomacy = 0
+Speeches = 0
+Aristry = 0
+Penmanship = 0
+Economics = 0
+Animal_Handling = 0
+Religion = -2
+Zazacrafting = -5
+
+[sub_resource type="Resource" id="Resource_wmy25"]
+script = ExtResource("3_msda4")
+STR = 0
+DEX = 2
+CON = 0
+INT = 2
+WIS = 0
+CHR = 0
+
+[sub_resource type="Resource" id="Resource_new8p"]
+script = ExtResource("6_dhqn2")
+rSTR = 9
+bSTR = -1
+rDEX = 14
+bDEX = 2
+rCON = 12
+bCON = 1
+rINT = 11
+bINT = 0
+rWIS = 9
+bWIS = -1
+rCHR = 10
+bCHR = 0
+
+[resource]
+script = ExtResource("1_mn85c")
+faction = 0
+type = 0
+name = "Maxim"
+pfp = ExtResource("2_sd4e1")
+fullbody = ExtResource("1_abaoy")
+level = 6
+_class = "Hunter"
+subclass = "Gunslinger"
+race = 1
+hp = 41
+max_hp = 41
+shp = 14
+max_shp = 14
+ac = 12
+speed = 30
+initiative = 0
+hit_die = "d8"
+prof_bonus = 3
+alignment = 8
+background = "Ghostrunner Past"
+languages = Array[int]([0])
+saving_throws = SubResource("Resource_wmy25")
+stats = SubResource("Resource_new8p")
+profs = SubResource("Resource_fe76c")
+misc_data = []
