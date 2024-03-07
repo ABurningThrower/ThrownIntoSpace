@@ -164,3 +164,13 @@ enum Languages {
 
 ## Unique Character Data
 @export var misc_data: Array
+
+
+
+
+
+## Returns an Array[String] with imbuement data, in the following order:
+## [Tier, Notation, Formula]
+#func _get(Character: StringName) -> Array[String]:
+#	var char = Character
+#	return char

@@ -109,11 +109,13 @@ script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/freespace.tscn"
 
 [node name="CharSheet Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Character Sheet"
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/CharSheet-/character_id.tscn"
+data = ["TRANSITION_OVERRIDE"]
 
 [node name="Inventory Btn" type="Button" parent="Sidebar/VBox Btn Container"]
 layout_mode = 2

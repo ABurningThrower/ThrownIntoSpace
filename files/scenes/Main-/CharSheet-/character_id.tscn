@@ -32,16 +32,18 @@ offset_bottom = 720.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-size_flags_stretch_ratio = 0.76
+size_flags_stretch_ratio = 0.7
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 
 [node name="Headshot" type="TextureRect" parent="Full HBox/Marginizer"]
+custom_minimum_size = Vector2(382, 382)
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("2_1bg6c")
-stretch_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Info Panel" type="PanelContainer" parent="Full HBox"]
 layout_mode = 2

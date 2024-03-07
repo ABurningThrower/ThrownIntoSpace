@@ -27,5 +27,4 @@ prof_bonus = 0
 alignment = 4
 background = "???"
 languages = Array[int]([])
-skills = {}
 misc_data = []

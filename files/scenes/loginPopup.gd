@@ -3,7 +3,7 @@ extends Popup
 
 
 func appear(_title: String) -> void:
-	self.visible = true
+	show()
 	self.title = ""
 #	var fadeTween:= get_tree().create_tween()
 #	fadeTween.tween_property(self, "modulate:a", 1.0, 1.5).from(0.0).set_trans(Tween.TRANS_QUINT)
@@ -18,11 +18,3 @@ func appear(_title: String) -> void:
 		$Message.text = "You think I'm fucking stupid or something?\n\nMaybe those 1337 h4x0r skills of yours worked in elementary school, but you must have rockpox in your brain to think that would run with me."
 	else:							  # badLogin
 		$Message.text = "Please make sure you're spelling things right, moron."
-
-
-func disappear() -> void:
-#	var fadeTween:= get_tree().create_tween()
-#	fadeTween.tween_property(self, "modulate:a", 0.0, 1.5).from(1.0).set_trans(Tween.TRANS_QUINT)
-	self.visible = false
-
-# title should change if empty login to "Seriously?"

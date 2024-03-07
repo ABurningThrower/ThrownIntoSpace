@@ -16,8 +16,8 @@ func buttonPress(button):
 	# if button has data, keeps it here to transfer to next scene
 	btnData = button.data
 	
-	# Doesn't transition if user is already in the target scene
-	if button.scenePath != get_child(0).scene_file_path:
+	# Doesn't transition if user is already in the target scene	
+	if button.scenePath != get_child(0).scene_file_path or btnData.has("TRANSITION_OVERRIDE") == true:
 		nextScene = load(button.scenePath)
 		transitionScene(null)
 	
@@ -35,7 +35,7 @@ func _on_transition_fade_transitioned(scene = null):
 	# when transitioning forward, the back button gets an extra
 	if scene == null:
 		$"../Back Btn".append(nextScene)
-		$"../Back Btn".appear()
+		$"../Back Btn".show()
 	else:
 		nextScene = scene
 	if get_children().size() > 0:

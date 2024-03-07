@@ -11,59 +11,64 @@ func _ready() -> void:
 #region  Button Bindings
 
 func _on_toggle_vis_btn_pressed():
-	pass # Replace with function body.
+	pass
 
 
 
 func _on_network_btn_pressed() -> void:
-	$"BG/Buttons/Network Btn".visible = false
-	$"BG/Panels/Network Panel".visible = true
+	$"BG/Buttons/Network Btn".hide()
+	$"BG/Panels/Network Panel".show()
 
 
 func _on_net_close_btn_pressed() -> void:
-	$"BG/Panels/Network Panel".visible = false
-	$"BG/Buttons/Network Btn".visible = true
+	$"BG/Panels/Network Panel".hide()
+	$"BG/Buttons/Network Btn".show()
 
 
 
 func _on_music_btn_pressed() -> void:
-	$"BG/Panels/Music Panel".visible = true
-	$BG/Buttons.visible = false
-	$"ToggleVis Btn".visible = false
+	$"BG/Panels/Music Panel".show()
+	$BG/Buttons.hide()
+	$"ToggleVis Btn".hide()
 
 
 func _on_mus_close_btn_pressed() -> void:
-	$"BG/Panels/Music Panel".visible = false
-	$BG/Buttons.visible = true
-	$"ToggleVis Btn".visible = true
+	$"BG/Panels/Music Panel".hide()
+	$BG/Buttons.show()
+	$"ToggleVis Btn".show()
 
 
 func _on_to_scene_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _on_combat_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _on_di_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 
 
 func _on_load_module_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 
 
 func _on_image_import_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 
 
 func _on_viewport_btn_pressed() -> void:
-	$"BG/Panels/Viewport Panel".visible = true
-	$BG/Buttons.visible = false
+	$"BG/Panels/Viewport Panel".show()
+	$BG/Buttons.hide()
+
+
+
+func _on_sandbox_btn_pressed():
+	get_tree().change_scene_to_file("res://files/scenes/sandbox.tscn")
 
 
 
@@ -93,6 +98,7 @@ func _on_viewport_btn_pressed() -> void:
 
 
 #endregion
+
 
 
 

@@ -1,30 +1,20 @@
 extends TextureRect
 
 
-func initData(btnData):
+
+func initData(btnData) -> void:
 	
 	var name = btnData[0]
 	
-	match name:
-		"Ceros": 
-			print("hi guys my name is Ceros")
-		"Valk":
-			pass
-		"Kusuo":
-			pass
-		"Anuboid":
-			pass
+	var char = load("res://files/resources/Characters/Players/" + name + ".tres")
+	setDetails(char)
 
-
-
-
-
-
-func _on_flip_btn_pressed():
+#region  Flips
+func _on_flip_btn_pressed() -> void:
 	toggleFlip()
 
 
-func toggleFlip():
+func toggleFlip() -> void:
 	# flip to back
 	if %"Front VBox".visible == true:
 		%"Front VBox".visible = false
@@ -36,6 +26,27 @@ func toggleFlip():
 		%"Front VBox".visible = true
 		%"Back VBox".visible = false
 		#SFX_Player._play("pageFlip")
+#endregion
+
+
+
+
+func setDetails(char) -> void:
+	## Front
+	$"Panel Cont/Marginizer/Front VBox/WF Name".text = char.name
+	$"Panel Cont/Marginizer/Front VBox/WF Image".texture = char.fullbody
+	
+	## Back
+	$"Panel Cont/Marginizer/Back VBox/WF Name".text = char.name
+	$"Panel Cont/Marginizer/Back VBox/Header HBox/Pfp".texture = char.pfp
+	
+	
+	
+
+
+
+
+
 
 
 

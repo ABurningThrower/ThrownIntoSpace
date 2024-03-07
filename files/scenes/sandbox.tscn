@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=3 uid="uid://bacfckcevnyq7"]
+
+[ext_resource type="Script" path="res://files/scenes/sandbox.gd" id="1_xartk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjvkh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfmox"]
+bg_color = Color(0.105882, 0.270588, 0.188235, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcrsd"]
+bg_color = Color(0.0784314, 0.176471, 0.129412, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xynxq"]
+bg_color = Color(0.0980392, 0.34902, 0.223529, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Theme" id="Theme_lnbya"]
+Button/styles/focus = SubResource("StyleBoxEmpty_rjvkh")
+Button/styles/hover = SubResource("StyleBoxFlat_mfmox")
+Button/styles/normal = SubResource("StyleBoxFlat_hcrsd")
+Button/styles/pressed = SubResource("StyleBoxFlat_xynxq")
+
+[sub_resource type="Gradient" id="Gradient_abhq6"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1g27p"]
+gradient = SubResource("Gradient_abhq6")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ixetn"]
+colors = PackedColorArray(0.0273438, 0.0273438, 0.0273438, 1, 0.09375, 0.0933838, 0.0933838, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3kvrb"]
+gradient = SubResource("Gradient_ixetn")
+fill_to = Vector2(0, 1)
+
+[node name="Sandbox" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_lnbya")
+texture = SubResource("GradientTexture2D_1g27p")
+script = ExtResource("1_xartk")
+metadata/_edit_lock_ = true
+
+[node name="Popup" type="Popup" parent="."]
+initial_position = 1
+size = Vector2i(400, 600)
+visible = true
+content_scale_mode = 1
+content_scale_aspect = 1
+
+[node name="BG" type="TextureRect" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_3kvrb")
+
+[node name="VBox" type="VBoxContainer" parent="Popup/BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Popup/BG/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+text = "What would you like to work on today?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Marginizer" type="MarginContainer" parent="Popup/BG/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Scrollifier" type="ScrollContainer" parent="Popup/BG/VBox/Marginizer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Popup/BG/VBox/Marginizer/Scrollifier"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Relics Btn" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Relics"
+
+[node name="Implants Btn" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+text = "Implants"
+
+[node name="Button3" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+text = "Effects"
+
+[node name="Button4" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+text = "Something"
+
+[node name="Button5" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+text = "Something"
+
+[node name="Button6" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+text = "Something"
+
+[node name="Button7" type="Button" parent="Popup/BG/VBox/Marginizer/Scrollifier/VBox"]
+custom_minimum_size = Vector2(320, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+text = "Something"

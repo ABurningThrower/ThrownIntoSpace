@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterSkills" load_steps=2 format=3 uid="uid://cgtm8w61h5te8"]
-
-[ext_resource type="Script" path="res://files/resources/Components/Characters/skills.gd" id="1_vv66a"]
-
-[resource]
-script = ExtResource("1_vv66a")
-attacks = Array[int]([0])
-nondamage = Array[int]([])
-misc = Array[int]([0, 1, 2, 3, 4])

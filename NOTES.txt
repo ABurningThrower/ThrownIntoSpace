@@ -19,10 +19,7 @@ Current TODO:
 Things to work on:
 	
 		FUNCTIONALITY
-	Inventory
-	Storing data (has player logged in? Who is the player? settings)
-	
-	Music player
+
 	Dice roller in combat w/ animations
 	BDiS DM to allow getting into combat + playing scenes
 	Combat Scene + Non-Combat Actions Scene
@@ -66,7 +63,8 @@ Things to work on:
 
 
 	To touch on next:
-		#
+		#character_id - button data is not retained when using back button
+		*character_implants - is there a way to specify type? Array[Implant.Type.OCULAR] doesn't work, for example
 		#
 		#
 		*battle_actions + enemy_data - get reference on how this should look (Baldur's Gate); refactor later
@@ -78,9 +76,6 @@ Things to work on:
 		*loginButton - add os mismatch elif
 		#inventory - possible to bold item name in tooltips?
 		#settings - visual improvements?
-
-
-
 
 
 

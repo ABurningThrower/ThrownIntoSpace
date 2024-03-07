@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5gglqptyqsmf"]
+[gd_scene load_steps=28 format=3 uid="uid://b5gglqptyqsmf"]
 
 [ext_resource type="FontFile" uid="uid://bfn7aw3e6q3ei" path="res://files/system/Themes/Fonts/LEDLIGHT.otf" id="1_j1fg3"]
 [ext_resource type="Script" path="res://files/scenes/dm_screen.gd" id="2_2bgve"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d1le7o12l6nct" path="res://files/scenes/Network/network_ui.tscn" id="7_dsdue"]
 [ext_resource type="Texture2D" uid="uid://0i0rtnm1vavl" path="res://files/system/Images/System/close.png" id="8_8qypr"]
 [ext_resource type="PackedScene" uid="uid://3dj2nyn0qi1j" path="res://files/scenes/Network/network_status.tscn" id="9_ixemw"]
+[ext_resource type="Texture2D" uid="uid://b71fm15rlg0sn" path="res://files/system/Images/System/menubarHor.png" id="11_3m0r4"]
 [ext_resource type="PackedScene" uid="uid://jb1mh0r1inc4" path="res://files/scenes/music_player.tscn" id="12_c3pco"]
 [ext_resource type="Texture2D" uid="uid://8hypimmx6kpn" path="res://files/system/Images/System/Minimize.png" id="13_8ie7d"]
 
@@ -26,7 +27,9 @@ corner_radius_bottom_left = 16
 [sub_resource type="Theme" id="Theme_b7pur"]
 default_font = ExtResource("1_j1fg3")
 Button/styles/focus = SubResource("StyleBoxEmpty_i3q8x")
+Button/styles/hover = SubResource("StyleBoxFlat_1gij0")
 Button/styles/normal = SubResource("StyleBoxFlat_1gij0")
+Button/styles/pressed = SubResource("StyleBoxFlat_1gij0")
 
 [sub_resource type="Gradient" id="Gradient_cy6v4"]
 offsets = PackedFloat32Array(0)
@@ -44,6 +47,10 @@ gradient = SubResource("Gradient_cy6v4")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld0v8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brou7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phwex"]
+content_margin_left = 8.0
+content_margin_right = 8.0
 
 [sub_resource type="Gradient" id="Gradient_sek7m"]
 offsets = PackedFloat32Array(0)
@@ -214,6 +221,16 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="Sandbox Btn" type="Button" parent="BG/Buttons"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 99.0
+offset_right = 125.0
+offset_bottom = 149.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_phwex")
+text = "  Sandbox"
+icon = ExtResource("11_3m0r4")
+
 [node name="Panels" type="Control" parent="BG"]
 anchors_preset = 0
 offset_right = 40.0
@@ -350,5 +367,6 @@ unique_name_in_owner = true
 [connection signal="pressed" from="BG/Buttons/Network Btn" to="." method="_on_network_btn_pressed"]
 [connection signal="pressed" from="BG/Buttons/Image Import Btn" to="." method="_on_image_import_btn_pressed"]
 [connection signal="pressed" from="BG/Buttons/Viewport Btn" to="." method="_on_viewport_btn_pressed"]
+[connection signal="pressed" from="BG/Buttons/Sandbox Btn" to="." method="_on_sandbox_btn_pressed"]
 [connection signal="pressed" from="BG/Panels/Network Panel/NetClose Btn" to="." method="_on_net_close_btn_pressed"]
 [connection signal="pressed" from="BG/Panels/Music Panel/MusClose Btn" to="." method="_on_mus_close_btn_pressed"]

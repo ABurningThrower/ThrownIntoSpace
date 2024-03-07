@@ -4,12 +4,6 @@ var lastSceneList: Array[PackedScene]
 
 
 
-func appear():
-	self.visible = true
-
-func disappear():
-	self.visible = false
-
 
 func append(scene):
 	lastSceneList.append(scene)
@@ -26,9 +20,9 @@ func _pressed():
 	lastSceneList.pop_back()
 	var scene: PackedScene = lastSceneList.back()
 	if lastSceneList.size() == 1 or 0:
-		disappear()
+		hide()
 	else:
-		appear()
+		show()
 #aa	print(scene.get_state().get_node_name(0))
 	$"../Scenes".transitionScene(scene)
 	

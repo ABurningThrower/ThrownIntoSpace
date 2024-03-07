@@ -7,6 +7,3 @@ extends Button
 @export var data: Array
 
 
-func _ready():
-	pass
-#	$"../Player Image"

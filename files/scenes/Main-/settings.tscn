@@ -447,7 +447,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color/HBox"]
 layout_mode = 2
-text = "Option Name"
+text = "Primary Theme Color"
 
 [node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color/HBox"]
 custom_minimum_size = Vector2(12, 12)
@@ -457,7 +457,7 @@ size_flags_vertical = 4
 texture = ExtResource("2_ilmgu")
 expand_mode = 1
 script = ExtResource("3_d16au")
-tooltip = "Test"
+tooltip = "Primary accent color used in the UI, sometimes glowing."
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color"]
 unique_name_in_owner = true
@@ -467,11 +467,13 @@ size_flags_horizontal = 6
 color = Color(1, 0.984314, 0, 1)
 
 [node name="Apply Btn" type="Button" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_86o0r")
+disabled = true
 text = "APPLY"
 
 [connection signal="color_changed" from="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]

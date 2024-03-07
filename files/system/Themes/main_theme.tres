@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://dg5xcq81wf7wj"]
 
-[ext_resource type="FontFile" uid="uid://uvwd47ndq2j5" path="res://files/system/Themes/Fonts/intodotmatrix.ttf" id="1_o4yqs"]
+[ext_resource type="FontFile" uid="uid://bistv5krosn8t" path="res://files/system/Themes/Fonts/Positive System.otf" id="1_8ut0c"]
 [ext_resource type="FontFile" uid="uid://bmqncstfid8gg" path="res://files/system/Themes/Fonts/nasalization-rg.otf" id="1_s2hsh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2mxw"]
@@ -20,4 +20,4 @@ Button/styles/focus = SubResource("StyleBoxEmpty_v2mxw")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 4
 MenuButton/styles/normal = SubResource("StyleBoxFlat_opuis")
-RichTextLabel/fonts/bold_font = ExtResource("1_o4yqs")
+RichTextLabel/fonts/bold_font = ExtResource("1_8ut0c")

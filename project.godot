@@ -28,6 +28,9 @@ NetworkManager="*res://files/scripts/Network/network_manager.gd"
 [debug]
 
 file_logging/max_log_files=3
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/shadowed_variable_base_class=0
+gdscript/warnings/shadowed_global_identifier=0
 
 [display]
 
