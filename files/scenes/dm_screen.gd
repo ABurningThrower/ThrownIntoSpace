@@ -10,7 +10,7 @@ func _ready() -> void:
 
 #region  Button Bindings
 
-func _on_toggle_vis_btn_pressed():
+func _on_toggle_vis_btn_pressed() -> void:
 	pass
 
 
@@ -67,7 +67,7 @@ func _on_viewport_btn_pressed() -> void:
 
 
 
-func _on_sandbox_btn_pressed():
+func _on_sandbox_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://files/scenes/sandbox.tscn")
 
 

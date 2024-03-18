@@ -162,7 +162,11 @@ enum Languages {
 @export var skills: CharacterSkills
 
 
-## Unique Character Data
+## Character's list of currencies.
+@export var wallet: Wallet
+
+
+## Unique Character Data.
 @export var misc_data: Array
 
 

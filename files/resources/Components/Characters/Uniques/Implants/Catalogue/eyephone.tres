@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Implant" load_steps=2 format=3 uid="uid://cow11vbu8rpiv"]
+[gd_resource type="Resource" script_class="ImplantOcular" load_steps=2 format=3 uid="uid://cow11vbu8rpiv"]
 
-[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Implants/implant.gd" id="1_cqy2b"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Implants/Types/imp_OCULAR.gd" id="1_einq4"]
 
 [resource]
-script = ExtResource("1_cqy2b")
+script = ExtResource("1_einq4")
 name = "Eyephone"
 type = 2
+effects = ""

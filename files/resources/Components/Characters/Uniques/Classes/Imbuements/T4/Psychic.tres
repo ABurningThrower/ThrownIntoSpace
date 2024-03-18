@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://cw3x7hefkeg11"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_w7jnr"]
+
+[resource]
+script = ExtResource("1_w7jnr")
+tier = 3
+abreviation = "Psy"
+formula = "Ifc+L"

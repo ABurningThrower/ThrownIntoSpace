@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Relic" load_steps=2 format=3 uid="uid://cxd507you88od"]
+[gd_resource type="Resource" script_class="Relic" load_steps=2 format=3 uid="uid://d31d25w18gs5g"]
 
 [ext_resource type="Script" path="res://files/resources/Items/Relics/relic.gd" id="1_dxcj6"]
 
@@ -6,6 +6,6 @@
 script = ExtResource("1_dxcj6")
 type = 1
 radiance = 0
-bronze = Array[Resource("res://files/resources/Items/Relics/Prime Parts/prime_part.gd")]([])
-silver = Array[Resource("res://files/resources/Items/Relics/Prime Parts/prime_part.gd")]([])
-gold = Array[Resource("res://files/resources/Items/Relics/Prime Parts/prime_part.gd")]([])
+bronze = Array[Resource("res://files/resources/Items/Relics/Loot/PrimeParts/prime_part.gd")]([])
+silver = Array[Resource("res://files/resources/Items/Relics/Loot/PrimeParts/prime_part.gd")]([])
+gold = Array[Resource("res://files/resources/Items/Relics/Loot/PrimeParts/prime_part.gd")]([])

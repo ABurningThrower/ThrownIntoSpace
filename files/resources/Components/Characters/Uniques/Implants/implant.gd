@@ -21,7 +21,13 @@ enum Type {
 
 
 @export var name: String
-@export var type: Type
+var type: Type
 @export var icon: Texture2D = get("res://files/system/Images/System/Image.png")
 @export var effects: String  #effects.gd?
 
+
+static func getLimit(char, type) -> int:  # take in char as parameter
+	print(char)
+	print(type)
+	var limit = 0 # char.characterImplants[OCULAR].slots
+	return limit

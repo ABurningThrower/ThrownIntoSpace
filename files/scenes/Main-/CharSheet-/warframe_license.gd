@@ -1,6 +1,20 @@
 extends TextureRect
 
+#@onready var info_tree: Tree = $"Panel Cont/Marginizer/Back VBox/Tree"
 
+signal item_selected()
+
+'''
+func _ready() -> void:
+	var _root = info_tree.create_item()
+	var main = info_tree.create_item()
+	main.set_text(0, "Main")
+	var sub = info_tree.create_item()
+	sub.set_text(0, "Sub")
+	var resistances = info_tree.create_item()
+	resistances.set_text(0, "Resistances")
+'''
+	
 
 func initData(btnData) -> void:
 	
@@ -46,6 +60,9 @@ func setDetails(char) -> void:
 
 
 
+func on_item_selected() -> void:
+	print("Clicked on column #")
+
 
 
 
@@ -59,3 +76,10 @@ func setDetails(char) -> void:
 	# it may be better to switch the Info RTL to a scroll container and then
 	# shove a whole bunch of nodes into there, though that could get messy.
 	# maybe that's a sacrifice that must be made.
+
+
+
+
+
+func _on_item_list_item_clicked(index, at_position, mouse_button_index) -> void:
+	$"Panel Cont/Marginizer/Back VBox/Scrollifier/ItemList/VBoxContainer".add_child(RichTextLabel.new())

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://drbtqasrgt8q2"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_vn1oj"]
+
+[resource]
+script = ExtResource("1_vn1oj")
+tier = 5
+abreviation = "GG"
+formula = "Ifst+Ifst"
+metadata/Note = "T6. Please don't ever make this or it really will be GG."

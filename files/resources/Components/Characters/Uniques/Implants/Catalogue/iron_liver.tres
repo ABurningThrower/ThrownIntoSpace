@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Implant" load_steps=2 format=3 uid="uid://dmd7v3fk4ifml"]
+[gd_resource type="Resource" script_class="Imp_Digestive" load_steps=2 format=3 uid="uid://dmd7v3fk4ifml"]
 
-[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Implants/implant.gd" id="1_0robi"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Implants/Types/imp_DIGESTIVE.gd" id="1_3oqcx"]
 
 [resource]
-script = ExtResource("1_0robi")
+script = ExtResource("1_3oqcx")
 name = "Iron Liver"
-type = 7
 effects = ""

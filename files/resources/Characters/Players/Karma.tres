@@ -1,11 +1,33 @@
-[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://bho4tgli3tqem"]
+[gd_resource type="Resource" script_class="CharData" load_steps=16 format=3 uid="uid://bho4tgli3tqem"]
 
 [ext_resource type="Texture2D" uid="uid://4gq773j01gna" path="res://files/system/Images/Characters/Crew/Karma.png" id="1_6g41j"]
 [ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_v0q6b"]
+[ext_resource type="Resource" uid="uid://dmd7v3fk4ifml" path="res://files/resources/Components/Characters/Uniques/Implants/Catalogue/iron_liver.tres" id="2_1kund"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/wallet.gd" id="2_1q87b"]
 [ext_resource type="Texture2D" uid="uid://b005g41c6vpmb" path="res://files/system/Images/Characters/Crew/Pfps/Karma_pfp.png" id="2_ivpxf"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Implants/character_implants.gd" id="2_pfmwo"]
+[ext_resource type="Resource" uid="uid://cow11vbu8rpiv" path="res://files/resources/Components/Characters/Uniques/Implants/Catalogue/eyephone.tres" id="3_8lkx0"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_85tk6"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_pq3s4"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_nl14q"]
+
+[sub_resource type="Resource" id="Resource_y1mqg"]
+script = ExtResource("2_pfmwo")
+facial = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+frontal_cortex = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+ocular = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([ExtResource("3_8lkx0")])
+circulatory = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+respiratory = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+immune = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+nervous = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+digestive = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([ExtResource("2_1kund")])
+integumentary = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+os = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+skeletal = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+hands = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+arms = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+legs = Array[Resource("res://files/resources/Components/Characters/Uniques/Implants/implant.gd")]([])
+capacity = {}
 
 [sub_resource type="Resource" id="Resource_up0wd"]
 script = ExtResource("3_85tk6")
@@ -68,6 +90,15 @@ bWIS = 2
 rCHR = 12
 bCHR = 1
 
+[sub_resource type="Resource" id="Resource_87jae"]
+script = ExtResource("2_1q87b")
+credits = 58297
+platinum = 50
+nanites = 0
+corpsium = 70
+kfc = 200
+cryptos = 6
+
 [resource]
 script = ExtResource("1_v0q6b")
 faction = 0
@@ -94,4 +125,5 @@ languages = Array[int]([0, 3])
 saving_throws = SubResource("Resource_3ydn7")
 stats = SubResource("Resource_d3ge0")
 profs = SubResource("Resource_up0wd")
-misc_data = ["Implants", "Shield", "Hacks + RAM"]
+wallet = SubResource("Resource_87jae")
+misc_data = [SubResource("Resource_y1mqg"), "Shield", "Hacks + RAM", null]

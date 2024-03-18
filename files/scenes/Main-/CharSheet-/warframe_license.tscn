@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7r6ji6q302px"]
+[gd_scene load_steps=17 format=3 uid="uid://b7r6ji6q302px"]
 
 [ext_resource type="FontFile" uid="uid://bmqncstfid8gg" path="res://files/system/Themes/Fonts/nasalization-rg.otf" id="1_5qkhq"]
 [ext_resource type="Script" path="res://files/scenes/Main-/CharSheet-/warframe_license.gd" id="1_52b86"]
@@ -31,6 +31,52 @@ gradient = SubResource("Gradient_hcmtx")
 font_size = 32
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc5ql"]
+bg_color = Color(0.341176, 0.333333, 0.333333, 0.627451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnb3m"]
+bg_color = Color(0.341176, 0.333333, 0.333333, 0.313726)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jeqd"]
+bg_color = Color(0.341176, 0.333333, 0.333333, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jqpb"]
+content_margin_left = 29.0
+
+[sub_resource type="Theme" id="Theme_phm4l"]
+Button/styles/hover = SubResource("StyleBoxFlat_xc5ql")
+Button/styles/normal = SubResource("StyleBoxFlat_gnb3m")
+Button/styles/pressed = SubResource("StyleBoxFlat_0jeqd")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_8jqpb")
 
 [node name="Warframe License" type="TextureRect"]
 offset_right = 1280.0
@@ -135,15 +181,21 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_phm4l")
+
+[node name="Button3" type="Button" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.25
+text = "Main"
 
 [node name="Info" type="RichTextLabel" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[h]Main[/h]
-
-HP: 44/80
+text = "HP: 44/80
 SHP: 23/23
 AC: 14
 17 STR +4
@@ -153,127 +205,37 @@ AC: 14
 8 WIS -1
 5 CHR -3
 
-[h]Sub[/h]
+"
+fit_content = true
+scroll_active = false
 
-Speed: 25ft
-Initiative: +3
-Hit Die: d10+2
-Prof Bonus: +3
+[node name="Button2" type="Button" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.25
+text = "Resistances"
 
-[h]Resistances[/h]
-
-Saving Throws: CON, STR
-Weaknesses: Mental dmg
-Resistances: Fear, Charm, Deafness (can still use comms if op.'d), Sinking, Hope (these two are applied directly to the operator instead), Blunt dmg (-1dlvl total damage at the end of the turn, still min 1), Internal dmg, Grappled, Proned (these two have disadvantage when being inflicted on Ceros, and attacks that automatically inflict this must instead roll against CON save), indirect Necrotic dmg (can only harm op, not warframe), Spasms, Paralysis
-
-Immunities: Possession (disincluding op. control), Blindness (min 3ft visible), Poison+, Exhaustion, Bleed, Burn, Afterburn   while inactive: anything that tries to control the warframe (i.e. charm, fear, etc.)  (disincluding op. control), Mental dmg, Necrotic dmg, Sinking, Hope
-
-
-[h]Proficiencies[/h]
-
-Languages: That which op. knows; can only speak through speaker (comms if op.'d)
-
-Proficiency: Weapons, Fists (expert)
-Tools: 
-Skills: (see below)        (seems to be a good learner in terms of Gunmanship)
-Deprof: (see below)
-
-
-[h]Profile[/h]
-
-Profile: 
-• 5'10
-• 1000+lbs (HEAVY!!!!)
-• Metallic beast of black-painted metal with red lights and highlights
-
-
-Personality:
-• (roar)
-
-
-
-[h]Stat Profs[/h]
-
-STR
- Athletics +6
- Gunmanship +4
-
-DEX
- Acrobatics +3
- Sleight of Hand -1
- Stealth +1
- Mounting +2
- Piloting -5*
-
-CON
- Wellbeing +6
- Perception +3
- Repairs +2* (depends)
- Construction +2* (depends)
- Cooking +0*
-
-INT
- Arcana -3* (depends)
- Investigation -1
- Research -3*
- Hacking -1*
- Programming -3*
-
-WIS
- Nature -3*
- History -1*
- Insight +1
- Medicine -1*
- Survival +1*
-
-CHR
- Deception -3* (difficult)
- Intimidation +4
- Performance -3*
- Persuasion -3* (difficult)
- Diplomacy -5* (slightly difficult)
- Speeches -3*
- Artistry -5* (difficult)
- Penmanship -5* (difficult)
- Economics -5*
- Animal Handling -4  (soft creatures, for rough/violent creatures, +3 instead)
-
-UNAFF.
- Religion -2*
- Zazacrafting +3 (equal to user's)
-
-Note: When making an active ability check, stats with an * cannot be higher than the user's, and are instead replaced by the user's if so. If user's stats are higher, they can use that stat instead if they act it out properly and effectively. If the check is instead a passive check/save, the stats shown are used. In other words, * is a ceiling.
-
-
-
-[h]Abilities[/h]
-
-Active Weapon: Fists
-
-
-Misc Abilities and Perks:
-• High Jump - up to (5+DEX)ft vertically at full strength. Makes a rough crack/dent in any surface it lands on - never enough to break the surface (unless fragile), but always enough to get complaints. If lands on an entity, it deals 3d3 blunt damage and causes 2d3:1d2 crushing and inflicts STRd2 [4d2] tremor. +(DEX~prof) to hit.
-• Darkvision - 25/25ft
-
-
-
-Ceros' Fists - STRd3 blunt damage, inflict 1+1dSTR crushing (+1d3 on crit) and (2dSTR+1) tremor (+1d4 and burst on crit); up to 3 (-1 per bDEX below 3; min 1) hits (min 1). On crit, gain ({1d2}*25):(1d2) Blunt Strengthen (up to once per turn). If you make 3 or more attacks in a turn, you cannot move. Otherwise, you can move 5ft per unspent attack. 2ft range. +5 to hit. 
-
-Ceros Charge - charge up for 2-6s, then start moving at an accelerating pace up to 60ft/s; you cannot stop moving until you hit something/get hit (besides a weak projectile, like arrows or bullets). Deals 2d(0.25*spd) blunt damage (+ {STRd2}); you accelerate at 5ft/s^2. When you impact someone, you send them flying back for (0.25* speed)ft. If it impacts a wall, deal an extra (STR)d(lvl) blunt damage and half that in SHP (RU). +1/2/3 to hit if moving at 15+/30+/45+ ft/s. If it impacts another entity, the target is hurt for an extra 1dSTR blunt damage and 1d2 SHP damage, and the entit(ies) struck take 2d(0.2*speed) blunt damage and half that in SHP damage (RU; min 6/9/12). After crashing, your movespeed is cut in half for the turn.   (30 global CD after the end of the charge)
-
-Stonewall Ceros - if at the beginning of your turn, you have not taken SHP damage since your last turn, you recover (CON/2) [RU] SHP (min 1). 
-
-
-Boltor - 2d4 piercing damage, up to 3 hits per turn. 30ft eff. range. +2 to hit in eff. range. -1 to hit per 10ft after. Mag of 12, reload of 4.5s.
-
-
-
-
+[node name="Info5" type="RichTextLabel" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "HP: 44/80
+SHP: 23/23
+AC: 14
+17 STR +4
+16 CON +4
+15 DEX +3
+8 INT -1
+8 WIS -1
+5 CHR -3
 
 "
+scroll_active = false
 
 [node name="Info2" type="RichTextLabel" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -408,6 +370,7 @@ Boltor - 2d4 piercing damage, up to 3 hits per turn. 30ft eff. range. +2 to hit 
 
 
 "
+fit_content = true
 scroll_active = false
 
 [node name="Info3" type="RichTextLabel" parent="Panel Cont/Marginizer/Back VBox/Scrollifier/VBox"]

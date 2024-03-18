@@ -1,11 +1,21 @@
-[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://0m8cuccef066"]
+[gd_resource type="Resource" script_class="CharData" load_steps=12 format=3 uid="uid://0m8cuccef066"]
 
 [ext_resource type="Texture2D" uid="uid://c077otxm8uox3" path="res://files/system/Images/Characters/Crew/Sol.png" id="1_lck3n"]
 [ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_lkm5m"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/wallet.gd" id="2_0xgqy"]
 [ext_resource type="Texture2D" uid="uid://c8frluilnjmyh" path="res://files/system/Images/Characters/Crew/Pfps/Sol_pfp.png" id="2_nysoq"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_3a3pi"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_uk8tf"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_086x2"]
+
+[sub_resource type="Resource" id="Resource_kxa2e"]
+script = ExtResource("2_0xgqy")
+credits = 2788
+platinum = -1
+nanites = -1
+corpsium = -1
+kfc = -1
+cryptos = -1
 
 [sub_resource type="Resource" id="Resource_5y5b0"]
 script = ExtResource("3_3a3pi")
@@ -94,4 +104,4 @@ languages = Array[int]([0, 4])
 saving_throws = SubResource("Resource_48fq3")
 stats = SubResource("Resource_p5slq")
 profs = SubResource("Resource_5y5b0")
-misc_data = []
+misc_data = [SubResource("Resource_kxa2e")]

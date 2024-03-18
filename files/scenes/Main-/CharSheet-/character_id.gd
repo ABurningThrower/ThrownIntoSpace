@@ -3,11 +3,12 @@ extends TextureRect
 
 
 func initData(btnData) -> void:
+#	print("btnData at start of Char ID: " + str(btnData))
 	var name: String
-	if btnData == ["TRANSITION_OVERRIDE"]:
-		name = Settings.masterDict.userDict["player"]
+	if btnData.has("OWN_CHARACTER"):  # if char sheet is clicked
+		name = Settings.getPlayer()
 	else:
-		name = btnData[0]
+			name = 	btnData[0]
 	var char: Resource = load("res://files/resources/Characters/Players/" + name + ".tres")
 	setDetails(char)
 

@@ -29,6 +29,6 @@ enum Radiance {
 ## The higher the tier, the higher the chances of higher-rarity loot.
 @export var radiance: Radiance
 
-@export var bronze: Array[PrimePart]
-@export var silver: Array[PrimePart]
-@export var gold: Array[PrimePart]
+@export var bronze: Array[RelicLoot]
+@export var silver: Array[RelicLoot]
+@export var gold: Array[RelicLoot]

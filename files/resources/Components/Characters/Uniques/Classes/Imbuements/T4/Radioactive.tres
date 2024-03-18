@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://d4nq3xly515ip"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_ri4mu"]
+
+[resource]
+script = ExtResource("1_ri4mu")
+tier = 3
+abreviation = "Rad"
+formula = "R+E"

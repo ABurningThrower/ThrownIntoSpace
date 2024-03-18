@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PrimePart" load_steps=2 format=3 uid="uid://cm70fv0ja05fl"]
+
+[ext_resource type="Script" path="res://files/resources/Items/Relics/Loot/PrimeParts/prime_part.gd" id="1_sk72n"]
+
+[resource]
+script = ExtResource("1_sk72n")
+rarity = 0

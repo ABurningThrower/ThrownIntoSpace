@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://0kdtp0xk8ypq"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_ntpm5"]
+
+[resource]
+script = ExtResource("1_ntpm5")
+tier = 0
+abreviation = "T"
+formula = ""

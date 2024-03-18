@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://y24fastxq7i4"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_qg2ga"]
+
+[resource]
+script = ExtResource("1_qg2ga")
+tier = 2
+abreviation = "Fr"
+formula = "C+C"

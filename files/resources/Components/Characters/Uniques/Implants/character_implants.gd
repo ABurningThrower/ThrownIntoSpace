@@ -19,3 +19,21 @@ extends Resource
 @export var hands: Array[Implant]
 @export var arms: Array[Implant]
 @export var legs: Array[Implant]
+
+
+@export var capacity: Dictionary = {
+	facial : 0,
+	frontal_cortex : 0,
+	ocular : 0,
+	circulatory : 0,
+	respiratory : 0,
+	immune : 0,
+	nervous : 0,
+	digestive : 0,
+	integumentary : 0,
+	os : 0,
+	skeletal : 0,
+	hands : 0,
+	arms : 0,
+	legs : 0
+}

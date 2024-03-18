@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://d2tq0dcd7va76"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_kqemu"]
+
+[resource]
+script = ExtResource("1_kqemu")
+tier = 3
+abreviation = "Ifst"
+formula = "Ifc+Ifc"

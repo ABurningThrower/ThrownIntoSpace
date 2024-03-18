@@ -4,15 +4,14 @@ var nextScene: PackedScene
 var btnData: Array
 @onready var defaultScene: PackedScene = load(Settings.masterDict["settingsDict"]["default_scene"])
 
-signal dataReady(data)
 
-func _ready():
+func _ready() -> void:
 	add_child(defaultScene.instantiate())
 	instantiateButtons(get_tree().root)
-	$"../Back Btn".append(defaultScene)
+	$"../Back Btn".append(defaultScene, null)
 
 
-func buttonPress(button):
+func buttonPress(button) -> void:
 	# if button has data, keeps it here to transfer to next scene
 	btnData = button.data
 	
@@ -25,18 +24,25 @@ func buttonPress(button):
 
 
 
-func transitionScene(scene = null):
+func transitionScene(scene = null, _btnData = null) -> void:
 	$"../Transition Fade".transition(scene)
 #	print($"../Back Btn".lastSceneList.map(func(scene): return scene.get_state().get_node_name(0)))
+		
+	if _btnData == btnData && _btnData != []:
+		$"../Back Btn".popBackData()
+	elif _btnData != null:
+		btnData = _btnData
+		$"../Back Btn".popBackData()
+	
 
 
-
-func _on_transition_fade_transitioned(scene = null):
-	# when transitioning forward, the back button gets an extra
+func _on_transition_fade_transitioned(scene = null) -> void:
+	# when transitioning forward, the back button gains a scene to it's list
 	if scene == null:
-		$"../Back Btn".append(nextScene)
+		$"../Back Btn".append(nextScene, btnData)
 		$"../Back Btn".show()
 	else:
+		$"../Back Btn".append(null, btnData)
 		nextScene = scene
 	if get_children().size() > 0:
 		get_child(0).queue_free()
@@ -49,6 +55,7 @@ func _on_transition_fade_transitioned(scene = null):
 	$"../Sidebar".visible = false
 	$"../Music Player".disappear()
 	$"../Transition Fade".fadein()
+	
 
 
 
@@ -64,6 +71,8 @@ func get_buttons(node) -> Array:
 	for child in node.get_children():
 		if child is TransitionButton:
 			buttons.append(child)
+#		elif child is BackButton:
+#			buttons.append(child)
 		buttons.append_array(get_buttons(child))
 
 	return buttons

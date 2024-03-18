@@ -42,6 +42,9 @@ extends Resource
 @export_group("CHR")
 @export var Deception: int = 0
 @export var Intimidation: int = 0
+#region
+@warning_ignore("unused_private_class_variable")
+#endregion
 @export var _Performance: int = 0
 @export var Persuasion: int = 0
 @export var Diplomacy: int = 0

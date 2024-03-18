@@ -1,11 +1,21 @@
-[gd_resource type="Resource" script_class="CharData" load_steps=10 format=3 uid="uid://dbirn0137upp0"]
+[gd_resource type="Resource" script_class="CharData" load_steps=12 format=3 uid="uid://dbirn0137upp0"]
 
 [ext_resource type="Texture2D" uid="uid://1vohn4knojsu" path="res://files/system/Images/Characters/Crew/Maxim.png" id="1_abaoy"]
 [ext_resource type="Script" path="res://files/scripts/Combat/character_data.gd" id="1_mn85c"]
 [ext_resource type="Texture2D" uid="uid://bv3ehfrdcasp4" path="res://files/system/Images/Characters/Crew/Pfps/Maxim_pfp.png" id="2_sd4e1"]
+[ext_resource type="Script" path="res://files/resources/Components/Characters/wallet.gd" id="2_wmsov"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/saves.gd" id="3_msda4"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/profs.gd" id="3_p1yvu"]
 [ext_resource type="Script" path="res://files/resources/Components/Characters/stats.gd" id="6_dhqn2"]
+
+[sub_resource type="Resource" id="Resource_lx04p"]
+script = ExtResource("2_wmsov")
+credits = 22000
+platinum = -1
+nanites = -1
+corpsium = -1
+kfc = -1
+cryptos = -1
 
 [sub_resource type="Resource" id="Resource_fe76c"]
 script = ExtResource("3_p1yvu")
@@ -94,4 +104,4 @@ languages = Array[int]([0])
 saving_throws = SubResource("Resource_wmy25")
 stats = SubResource("Resource_new8p")
 profs = SubResource("Resource_fe76c")
-misc_data = []
+misc_data = [SubResource("Resource_lx04p")]

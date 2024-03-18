@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="PrimePart" load_steps=2 format=3 uid="uid://bywr3yc5bdvhd"]
-
-[ext_resource type="Script" path="res://files/resources/Items/Relics/Loot/Prime Parts/prime_part.gd" id="1_61n37"]
-
-[resource]
-script = ExtResource("1_61n37")
-rarity = 0

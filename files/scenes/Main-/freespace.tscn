@@ -1,20 +1,243 @@
-[gd_scene load_steps=4 format=3 uid="uid://5r8147tr4bmi"]
+[gd_scene load_steps=26 format=3 uid="uid://5r8147tr4bmi"]
 
-[sub_resource type="Gradient" id="Gradient_7pxao"]
-offsets = PackedFloat32Array(0, 0.74026, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.519481, 0.519481, 0.519481, 1, 0.460938, 0.460938, 0.460938, 1)
+[ext_resource type="Script" path="res://files/scenes/Main-/freespace.gd" id="1_o7ow0"]
+[ext_resource type="Texture2D" uid="uid://ctft1aei3uq31" path="res://files/system/Images/System/Pencil.png" id="2_dwepa"]
+[ext_resource type="Texture2D" uid="uid://xlwch4bem25e" path="res://files/system/Images/System/upload.png" id="3_1wlgh"]
+[ext_resource type="Texture2D" uid="uid://duvs6etqwndrc" path="res://files/system/Images/System/Notepad.png" id="3_lsioy"]
+[ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="5_r505u"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ptp4"]
-gradient = SubResource("Gradient_7pxao")
-fill_from = Vector2(0.495413, 0)
-fill_to = Vector2(1, 1)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_pu1ls"]
 
 [sub_resource type="SystemFont" id="SystemFont_nr77e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itkvd"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+corner_radius_top_left = 830
+corner_radius_top_right = 810
+corner_radius_bottom_right = 960
+corner_radius_bottom_left = 1024
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjyf2"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.0431373, 0.0431373, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+shadow_color = Color(0.654902, 0.113725, 0.113725, 0.6)
+shadow_size = 25
+
+[sub_resource type="Theme" id="Theme_w3j3v"]
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_itkvd")
+Button/styles/normal = SubResource("StyleBoxFlat_mjyf2")
+Button/styles/pressed = null
+
+[sub_resource type="InputEventKey" id="InputEventKey_ijhxa"]
+device = -1
+ctrl_pressed = true
+keycode = 81
+unicode = 113
+
+[sub_resource type="Shortcut" id="Shortcut_eoend"]
+events = [SubResource("InputEventKey_ijhxa")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_41hp2"]
+device = -1
+ctrl_pressed = true
+keycode = 87
+unicode = 119
+
+[sub_resource type="Shortcut" id="Shortcut_2i5kg"]
+events = [SubResource("InputEventKey_41hp2")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_igxo7"]
+device = -1
+ctrl_pressed = true
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_oyntc"]
+events = [SubResource("InputEventKey_igxo7")]
+
+[sub_resource type="Animation" id="Animation_cxts7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Btn Margin Area/showBtns Arrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 170)]
+}
+
+[sub_resource type="Animation" id="Animation_1cvej"]
+resource_name = "flow_in"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Btn Margin Area/showBtns Arrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-163, 170), Vector2(0, 170)]
+}
+
+[sub_resource type="Animation" id="Animation_87pmd"]
+resource_name = "flow_out"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Btn Margin Area/showBtns Arrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 170), Vector2(-164, 170)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d4xwc"]
+_data = {
+"RESET": SubResource("Animation_cxts7"),
+"flow_in": SubResource("Animation_1cvej"),
+"flow_out": SubResource("Animation_87pmd")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21f2w"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujfyr"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+expand_margin_left = 10.0
+expand_margin_top = 32.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0.0509804, 0.282353, 0.32549, 0.368627)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1msad"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+expand_margin_left = 10.0
+expand_margin_top = 32.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0.0509804, 0.282353, 0.32549, 0.368627)
+shadow_size = 30
+
+[sub_resource type="Theme" id="Theme_tsdph"]
+TextEdit/styles/normal = SubResource("StyleBoxFlat_21f2w")
+Window/colors/title_color = Color(0, 0, 0, 1)
+Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
+Window/constants/resize_margin = 6
+Window/constants/title_height = 34
+Window/constants/title_outline_size = 1
+Window/font_sizes/title_font_size = 30
+Window/styles/embedded_border = SubResource("StyleBoxFlat_ujfyr")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_1msad")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nac1f"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Freespace" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = SubResource("GradientTexture2D_6ptp4")
+texture = SubResource("PortableCompressedTexture2D_pu1ls")
+script = ExtResource("1_o7ow0")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
@@ -29,3 +252,122 @@ text = "Whiteboard button? (should be able to draw in-app)
 Notepad button? (pop-up?)
 
 Import button for customs (including music?)"
+
+[node name="Btn VBox" type="VBoxContainer" parent="."]
+visible = false
+top_level = true
+layout_mode = 0
+offset_top = 170.0
+offset_right = 111.0
+offset_bottom = 550.0
+theme = SubResource("Theme_w3j3v")
+
+[node name="Whiteboard Btn" type="Button" parent="Btn VBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+toggle_mode = true
+shortcut = SubResource("Shortcut_eoend")
+icon = ExtResource("2_dwepa")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Notepad Btn" type="Button" parent="Btn VBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+toggle_mode = true
+shortcut = SubResource("Shortcut_2i5kg")
+icon = ExtResource("3_lsioy")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Customs Btn" type="Button" parent="Btn VBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+shortcut = SubResource("Shortcut_oyntc")
+icon = ExtResource("3_1wlgh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Anim" type="AnimationPlayer" parent="Btn VBox"]
+libraries = {
+"": SubResource("AnimationLibrary_d4xwc")
+}
+
+[node name="Btn Margin Area" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 170.0
+offset_right = 162.0
+offset_bottom = 550.0
+theme_override_constants/margin_left = 8
+metadata/_edit_lock_ = true
+
+[node name="showBtns Arrow" type="TextureRect" parent="Btn Margin Area"]
+self_modulate = Color(0.941176, 0.941176, 0.941176, 1)
+custom_minimum_size = Vector2(16, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture = ExtResource("5_r505u")
+expand_mode = 1
+flip_h = true
+
+[node name="Notepad" type="Window" parent="."]
+title = "SOLANO"
+initial_position = 1
+size = Vector2i(450, 550)
+visible = false
+transient = true
+min_size = Vector2i(275, 150)
+theme = SubResource("Theme_tsdph")
+
+[node name="Tab Cont" type="TabContainer" parent="Notepad"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tab 1" type="TextEdit" parent="Notepad/Tab Cont"]
+texture_repeat = 1
+layout_mode = 2
+placeholder_text = "..."
+context_menu_enabled = false
+deselect_on_focus_loss_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Tab 2" type="TextEdit" parent="Notepad/Tab Cont"]
+visible = false
+layout_mode = 2
+placeholder_text = "..."
+deselect_on_focus_loss_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="+" type="Button" parent="Notepad/Tab Cont"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+disabled = true
+button_mask = 0
+
+[node name="Toggle Backlight Btn" type="Button" parent="Notepad"]
+visible = false
+custom_minimum_size = Vector2(1, 20)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 20.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nac1f")
+
+[connection signal="toggled" from="Btn VBox/Whiteboard Btn" to="." method="_on_whiteboard_btn_toggled"]
+[connection signal="toggled" from="Btn VBox/Notepad Btn" to="." method="_on_notepad_btn_toggled"]
+[connection signal="pressed" from="Btn VBox/Customs Btn" to="." method="_on_customs_btn_pressed"]
+[connection signal="close_requested" from="Notepad" to="." method="_on_notepad_close_requested"]
+[connection signal="tab_clicked" from="Notepad/Tab Cont" to="." method="_on_tab_container_tab_clicked"]

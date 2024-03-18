@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cenovytyhmy3y"]
+[gd_scene load_steps=33 format=3 uid="uid://cenovytyhmy3y"]
 
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_7i8vd"]
 [ext_resource type="Script" path="res://files/scripts/transitionButton.gd" id="1_pugcn"]
@@ -8,7 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://jb1mh0r1inc4" path="res://files/scenes/music_player.tscn" id="3_vw7as"]
 [ext_resource type="Script" path="res://files/scenes/sidebar.gd" id="5_1gxuy"]
 [ext_resource type="PackedScene" uid="uid://c5mtc0vvmpkwc" path="res://files/scenes/transition_fade.tscn" id="5_g3apu"]
+[ext_resource type="Texture2D" uid="uid://b5ap21n1atvna" path="res://files/system/Images/System/Draw.png" id="6_2jkpd"]
+[ext_resource type="Texture2D" uid="uid://d02c5t80uctvf" path="res://files/system/Images/System/settings.png" id="8_iy4ae"]
+[ext_resource type="Texture2D" uid="uid://dkbbfclhrenls" path="res://files/system/Images/System/Person.png" id="8_nks83"]
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="9_gxc40"]
+[ext_resource type="Texture2D" uid="uid://dnirqw2eiueaq" path="res://files/system/Images/System/Grid.png" id="9_u44v5"]
+[ext_resource type="Texture2D" uid="uid://ukpycpqig3ww" path="res://files/system/Images/System/People.png" id="10_dmmmt"]
 [ext_resource type="Script" path="res://files/scenes/back_btn.gd" id="10_w026h"]
 [ext_resource type="PackedScene" uid="uid://d2gd3318i1kbu" path="res://files/scenes/sfx_player.tscn" id="12_3rwlw"]
 [ext_resource type="PackedScene" uid="uid://d1le7o12l6nct" path="res://files/scenes/Network/network_ui.tscn" id="13_6d3vb"]
@@ -98,47 +103,64 @@ offset_bottom = 717.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kujr6")
 script = ExtResource("5_1gxuy")
 
-[node name="VBox Btn Container" type="VBoxContainer" parent="Sidebar"]
+[node name="VBox" type="VBoxContainer" parent="Sidebar"]
 layout_mode = 2
 
-[node name="Freespace Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+[node name="Freespace Btn" type="Button" parent="Sidebar/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/icon_max_width = 64
 text = "Freespace"
+icon = ExtResource("6_2jkpd")
+expand_icon = true
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/freespace.tscn"
 
-[node name="CharSheet Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+[node name="CharSheet Btn" type="Button" parent="Sidebar/VBox"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/icon_max_width = 64
 text = "Character Sheet"
+icon = ExtResource("8_nks83")
+expand_icon = true
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/CharSheet-/character_id.tscn"
-data = ["TRANSITION_OVERRIDE"]
+data = ["OWN_CHARACTER", "TRANSITION_OVERRIDE"]
 
-[node name="Inventory Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+[node name="Inventory Btn" type="Button" parent="Sidebar/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/icon_max_width = 64
 text = "Inventory"
+icon = ExtResource("9_u44v5")
+expand_icon = true
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/inventory.tscn"
 
-[node name="Crew Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+[node name="Crew Btn" type="Button" parent="Sidebar/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/icon_max_width = 64
 text = "Crew"
+icon = ExtResource("10_dmmmt")
+expand_icon = true
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/crew.tscn"
 
-[node name="Settings Btn" type="Button" parent="Sidebar/VBox Btn Container"]
+[node name="Settings Btn" type="Button" parent="Sidebar/VBox"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/icon_max_width = 64
 text = "Settings"
+icon = ExtResource("8_iy4ae")
+expand_icon = true
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/settings.tscn"
 
-[node name="Elements Anim" type="AnimationPlayer" parent="Sidebar/VBox Btn Container"]
+[node name="Elements Anim" type="AnimationPlayer" parent="Sidebar/VBox"]
 root_node = NodePath("../../Sidebar Anim")
 libraries = {
 "": SubResource("AnimationLibrary_ly1nb")

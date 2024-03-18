@@ -24,3 +24,15 @@ static var defaultDict:= {
 		"res://files/resources/Items/wf_license.tres"
 	]
 }
+
+
+
+static func getSetting(dict: StringName, key: String) -> Variant:
+	return masterDict[dict][key]
+
+static func getPlayer() -> String:
+	return masterDict.userDict["player"]
+
+static func getPlayerResource() -> Resource:
+	return load("res://files/resources/Characters/Players/" + getPlayer() + ".tres")
+

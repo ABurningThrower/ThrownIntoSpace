@@ -466,6 +466,36 @@ layout_mode = 2
 size_flags_horizontal = 6
 color = Color(1, 0.984314, 0, 1)
 
+[node name="Fade Transitions" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Fade Transitions"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Fade Transitions/HBox"]
+layout_mode = 2
+text = "Fade Transition"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Fade Transitions/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+tooltip_text = "Toggles the fade-to-black and fade-to-scene transitions when switching scenes.
+Looks a lil ugly without it imo but you do you."
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+
+[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Fade Transitions"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+button_pressed = true
+
 [node name="Apply Btn" type="Button" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)

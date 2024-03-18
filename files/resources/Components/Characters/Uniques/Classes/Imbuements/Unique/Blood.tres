@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Imbuement" load_steps=2 format=3 uid="uid://bimiibck7ci4d"]
+
+[ext_resource type="Script" path="res://files/resources/Components/Characters/Uniques/Classes/Imbuements/imbuements.gd" id="1_5vt54"]
+
+[resource]
+script = ExtResource("1_5vt54")
+tier = 5
+abreviation = "Bld"
+formula = "Lf+P"
+metadata/Note = " Inspired to Sol upon defeating [heart-under-blade]"

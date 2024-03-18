@@ -15,17 +15,17 @@ func _ready() -> void:
 	
 
 
-func _make_custom_tooltip(_text):
+func _make_custom_tooltip(_text) -> Node:
 	var t: Array = _text.split("\n")
-	var tooltip = preload("res://files/scenes/inventory_tooltip.tscn").instantiate()
+	var tooltip: Node = preload("res://files/scenes/inventory_tooltip.tscn").instantiate()
 	tooltip.get_node("Header").text = t[0]
 	tooltip.get_node("Description").text = t[1]
 	return tooltip
 	
 	
 '''
-func _make_custom_tooltip(for_text):
-	var label = RichTextLabel.new()
+func _make_custom_tooltip(for_text) -> Node:
+	var label:= RichTextLabel.new()
 	label.bbcode_enabled = true
 	label.custom_minimum_size = Vector2(200,200)
 	label.push_bold()

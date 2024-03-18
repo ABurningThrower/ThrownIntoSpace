@@ -1,5 +1,5 @@
 extends TextureRect
 
 
-func _ready():
+func _ready() -> void:
 	$Popup.show()
