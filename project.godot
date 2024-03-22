@@ -13,9 +13,9 @@ config_version=5
 resources_spreadsheet_view/array_color_tint=100.0
 resources_spreadsheet_view/color_rows=true
 resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/dupe_arrays=true
 resources_spreadsheet_view/resource_preview_size=32.0
 resources_spreadsheet_view/clip_headers=false
-resources_spreadsheet_view/dupe_arrays=true
 resources_spreadsheet_view/context_menu_on_leftclick=false
 
 [application]
@@ -77,6 +77,13 @@ folder_colors={
 [filesystem]
 
 import/blender/enabled=false
+
+[network]
+
+limits/debugger/max_chars_per_second=16384
+limits/debugger/max_queued_messages=1024
+limits/debugger/max_errors_per_second=100
+limits/debugger/max_warnings_per_second=100
 
 [rendering]
 

@@ -63,16 +63,16 @@ Things to work on:
 
 
 	To touch on next:
-		#character_id + *back_btn - button data is not retained when using back button - furthermore, btnData somehow changes and prints twice in one print statement???
-		*character_implants - done
+		*inventory - look at this slop
 		#
 		#
-		#freespace - finnicky input/animation when trying to click in the VBox
+		#
 		#
 		#
 		*battle_actions + enemy_data - get reference on how this should look (Baldur's Gate); refactor later
 		#wf_license   - get reference
 		#character_id - get reference
+		#combat       - get reference
 		#
 		#
 		#

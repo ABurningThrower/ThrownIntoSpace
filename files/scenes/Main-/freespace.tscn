@@ -1,14 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://5r8147tr4bmi"]
+[gd_scene load_steps=32 format=3 uid="uid://5r8147tr4bmi"]
 
 [ext_resource type="Script" path="res://files/scenes/Main-/freespace.gd" id="1_o7ow0"]
 [ext_resource type="Texture2D" uid="uid://ctft1aei3uq31" path="res://files/system/Images/System/Pencil.png" id="2_dwepa"]
 [ext_resource type="Texture2D" uid="uid://xlwch4bem25e" path="res://files/system/Images/System/upload.png" id="3_1wlgh"]
 [ext_resource type="Texture2D" uid="uid://duvs6etqwndrc" path="res://files/system/Images/System/Notepad.png" id="3_lsioy"]
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="5_r505u"]
+[ext_resource type="Texture2D" uid="uid://c3rds8pwi4oj7" path="res://files/system/Images/System/CircleBorder.png" id="6_t4v81"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_pu1ls"]
-
-[sub_resource type="SystemFont" id="SystemFont_nr77e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itkvd"]
 content_margin_left = 12.0
@@ -71,7 +70,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Btn Margin Area/showBtns Arrow:visible")
+tracks/0/path = NodePath("../showBtns Arrow:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -112,7 +111,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Btn Margin Area/showBtns Arrow:visible")
+tracks/0/path = NodePath("../showBtns Arrow:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -153,7 +152,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Btn Margin Area/showBtns Arrow:visible")
+tracks/0/path = NodePath("../showBtns Arrow:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -233,6 +232,41 @@ Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_1msad")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nac1f"]
 bg_color = Color(1, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_c7i44"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.619608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fk71v"]
+gradient = SubResource("Gradient_c7i44")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k32sl"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("6_t4v81")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6koi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.458824, 0.458824, 0.458824, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+shadow_color = Color(1, 1, 1, 0.54902)
+anti_aliasing = false
+anti_aliasing_size = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx3jo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5h81"]
+font_size = 13
+
 [node name="Freespace" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -240,20 +274,7 @@ texture = SubResource("PortableCompressedTexture2D_pu1ls")
 script = ExtResource("1_o7ow0")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 302.0
-offset_top = 198.0
-offset_right = 685.0
-offset_bottom = 314.0
-theme_override_fonts/font = SubResource("SystemFont_nr77e")
-text = "Whiteboard button? (should be able to draw in-app)
-
-Notepad button? (pop-up?)
-
-Import button for customs (including music?)"
-
-[node name="Btn VBox" type="VBoxContainer" parent="."]
+[node name="HBox - Btns" type="VBoxContainer" parent="."]
 visible = false
 top_level = true
 layout_mode = 0
@@ -262,7 +283,7 @@ offset_right = 111.0
 offset_bottom = 550.0
 theme = SubResource("Theme_w3j3v")
 
-[node name="Whiteboard Btn" type="Button" parent="Btn VBox"]
+[node name="Whiteboard Btn" type="Button" parent="HBox - Btns"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -273,7 +294,7 @@ icon = ExtResource("2_dwepa")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Notepad Btn" type="Button" parent="Btn VBox"]
+[node name="Notepad Btn" type="Button" parent="HBox - Btns"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -284,7 +305,7 @@ icon = ExtResource("3_lsioy")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Customs Btn" type="Button" parent="Btn VBox"]
+[node name="Customs Btn" type="Button" parent="HBox - Btns"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -294,28 +315,26 @@ icon = ExtResource("3_1wlgh")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Anim" type="AnimationPlayer" parent="Btn VBox"]
+[node name="Anim" type="AnimationPlayer" parent="HBox - Btns"]
 libraries = {
 "": SubResource("AnimationLibrary_d4xwc")
 }
 
-[node name="Btn Margin Area" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_top = 170.0
-offset_right = 162.0
-offset_bottom = 550.0
-theme_override_constants/margin_left = 8
-metadata/_edit_lock_ = true
-
-[node name="showBtns Arrow" type="TextureRect" parent="Btn Margin Area"]
+[node name="showBtns Arrow" type="TextureRect" parent="."]
 self_modulate = Color(0.941176, 0.941176, 0.941176, 1)
 custom_minimum_size = Vector2(16, 32)
 layout_mode = 2
+offset_left = 8.0
+offset_top = 344.0
+offset_right = 24.0
+offset_bottom = 376.0
 size_flags_horizontal = 0
 size_flags_vertical = 6
 texture = ExtResource("5_r505u")
 expand_mode = 1
 flip_h = true
+
+[node name="Lines" type="Node2D" parent="."]
 
 [node name="Notepad" type="Window" parent="."]
 title = "SOLANO"
@@ -366,8 +385,84 @@ offset_bottom = 20.0
 grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_nac1f")
 
-[connection signal="toggled" from="Btn VBox/Whiteboard Btn" to="." method="_on_whiteboard_btn_toggled"]
-[connection signal="toggled" from="Btn VBox/Notepad Btn" to="." method="_on_notepad_btn_toggled"]
-[connection signal="pressed" from="Btn VBox/Customs Btn" to="." method="_on_customs_btn_pressed"]
+[node name="Dark Tint" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Color" type="TextureRect" parent="Dark Tint"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fk71v")
+
+[node name="HBox - Whiteboard" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_right = 375.0
+offset_bottom = 70.0
+grow_horizontal = 2
+metadata/_edit_lock_ = true
+
+[node name="Border" type="PanelContainer" parent="HBox - Whiteboard"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_k32sl")
+
+[node name="Marginizer" type="MarginContainer" parent="HBox - Whiteboard/Border"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pen Color Btn" type="ColorPickerButton" parent="HBox - Whiteboard/Border/Marginizer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_y6koi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y6koi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y6koi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hx3jo")
+color = Color(1, 1, 1, 1)
+
+[node name="DELETE ME" type="Label" parent="."]
+layout_mode = 2
+offset_left = 265.0
+offset_top = 58.0
+offset_right = 1015.0
+offset_bottom = 76.0
+size_flags_horizontal = 3
+text = "(capacity to change color), (size slider), (change between pen + eraser [+bucket, etc.?]), (clear everything btn)"
+label_settings = SubResource("LabelSettings_k5h81")
+horizontal_alignment = 1
+
+[node name="Whiteboard Vis Btn" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 1.0
+offset_right = 1065.0
+offset_bottom = 32.0
+toggle_mode = true
+text = "<0>"
+flat = true
+
+[connection signal="toggled" from="HBox - Btns/Whiteboard Btn" to="." method="_on_whiteboard_btn_toggled"]
+[connection signal="toggled" from="HBox - Btns/Notepad Btn" to="." method="_on_notepad_btn_toggled"]
+[connection signal="pressed" from="HBox - Btns/Customs Btn" to="." method="_on_customs_btn_pressed"]
 [connection signal="close_requested" from="Notepad" to="." method="_on_notepad_close_requested"]
 [connection signal="tab_clicked" from="Notepad/Tab Cont" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="mouse_entered" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_entered"]
+[connection signal="mouse_exited" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_exited"]
+[connection signal="color_changed" from="HBox - Whiteboard/Border/Marginizer/Pen Color Btn" to="." method="_on_pen_color_btn_color_changed"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Marginizer/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_entered"]
+[connection signal="mouse_exited" from="HBox - Whiteboard/Border/Marginizer/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_exited"]
+[connection signal="toggled" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_toggled"]

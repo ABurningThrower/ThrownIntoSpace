@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5jdkexk8t84o"]
+[gd_scene load_steps=15 format=3 uid="uid://b5jdkexk8t84o"]
 
 [ext_resource type="Texture2D" uid="uid://hniqutl21dda" path="res://files/system/Images/Characters/Crew/Pfps/Anuboid_pfp.png" id="1_85gi3"]
 [ext_resource type="Theme" uid="uid://dg5xcq81wf7wj" path="res://files/system/Themes/main_theme.tres" id="1_am6yk"]
@@ -16,6 +16,9 @@ fill_from = Vector2(0.495413, 0)
 fill_to = Vector2(1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m43s5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p80d0"]
+bg_color = Color(0, 0, 0, 0.25098)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqtd0"]
 
@@ -58,6 +61,7 @@ theme_override_constants/h_separation = 180
 columns = 2
 
 [node name="Ceros Btn" type="Button" parent="2x2 Grid"]
+custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -65,20 +69,6 @@ focus_neighbor_right = NodePath("../Valk Btn")
 focus_neighbor_bottom = NodePath("../Kusuo Btn")
 focus_next = NodePath("../Valk Btn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m43s5")
-text = "
-
-
-
-
-
-
-
-
-
-
-
-
-The Destroyer"
 icon = ExtResource("2_fmavo")
 flat = true
 icon_alignment = 1
@@ -87,7 +77,24 @@ script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
 data = ["Ceros"]
 
+[node name="Label" type="Label" parent="2x2 Grid/Ceros Btn"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.5
+offset_top = 5.0
+offset_right = 59.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_p80d0")
+text = "The Destroyer"
+
 [node name="Valk Btn" type="Button" parent="2x2 Grid"]
+custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -100,26 +107,28 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qq106")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_wqtd0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wqtd0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wqtd0")
-text = "
-
-
-
-
-
-
-
-
-
-
-
-
-The Bloodthirsty"
 icon = ExtResource("4_ymjqb")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
 data = ["Valk"]
+
+[node name="Label" type="Label" parent="2x2 Grid/Valk Btn"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_p80d0")
+text = "The Bloodthirsty"
 
 [node name="Glow" type="PanelContainer" parent="2x2 Grid/Valk Btn"]
 show_behind_parent = true
@@ -130,10 +139,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 0.0100098
+offset_bottom = 0.0100098
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vx03f")
@@ -141,6 +148,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vx03f")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="2x2 Grid/Valk Btn"]
 
 [node name="Kusuo Btn" type="Button" parent="2x2 Grid"]
+custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -149,20 +157,6 @@ focus_neighbor_right = NodePath("../Anuboid Btn")
 focus_next = NodePath("../Anuboid Btn")
 focus_previous = NodePath("../Valk Btn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m43s5")
-text = "
-
-
-
-
-
-
-
-
-
-
-
-
-The Thoughtful"
 icon = ExtResource("5_t5r13")
 flat = true
 icon_alignment = 1
@@ -171,7 +165,24 @@ script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/warframe_license.tscn"
 data = ["Kusuo"]
 
+[node name="Label" type="Label" parent="2x2 Grid/Kusuo Btn"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.5
+offset_top = 5.0
+offset_right = 59.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_p80d0")
+text = "The Thoughtful"
+
 [node name="Anuboid Btn" type="Button" parent="2x2 Grid"]
+custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -180,20 +191,6 @@ focus_neighbor_top = NodePath("../Valk Btn")
 focus_next = NodePath("../Ceros Btn")
 focus_previous = NodePath("../Kusuo Btn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m43s5")
-text = "
-
-
-
-
-
-
-
-
-
-
-
-
-The Electrician"
 icon = ExtResource("1_85gi3")
 flat = true
 icon_alignment = 1
@@ -201,3 +198,19 @@ expand_icon = true
 script = ExtResource("3_34vx3")
 scenePath = "res://files/scenes/Main-/CharSheet-/character_id.tscn"
 data = ["Anuboid"]
+
+[node name="Label" type="Label" parent="2x2 Grid/Anuboid Btn"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.5
+offset_top = 5.0
+offset_right = 59.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_p80d0")
+text = "The Electrician"

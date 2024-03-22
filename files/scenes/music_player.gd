@@ -26,15 +26,17 @@ func loadPref() -> void:
 
 
 func fadein() -> void:
+	%"Appear Btn".visible = false
 	$BG.visible = true
 	var fadeTween:= get_tree().create_tween()
-	fadeTween.tween_property(self, "modulate:a", 1.0, 3).from(0.0).set_trans(Tween.TRANS_QUINT)
+	fadeTween.tween_property(self, "modulate:a", 1.0, 3.0).from(0.0).set_trans(Tween.TRANS_QUINT)
 
 func fadeout() -> void:
 		# probably just before the function that calls this, but there should be some linger time before fading
 	var fadeTween:= get_tree().create_tween()
-	fadeTween.tween_property(self, "modulate:a", 0.0, 3).from(1.0).set_trans(Tween.TRANS_QUINT)
+	fadeTween.tween_property(self, "modulate:a", 0.0, 3.0).from(1.0).set_trans(Tween.TRANS_QUINT)
 	$BG.visible = false
+	%"Appear Btn".visible = true
 
 
 func appear() -> void:
