@@ -64,8 +64,8 @@ Things to work on:
 
 	To touch on next:
 		*inventory - look at this slop
-		#
-		#
+		*freespace/Whiteboard - signal optimization?
+		#freespace - improve eraser?
 		#
 		#
 		#

@@ -29,8 +29,13 @@ func _on_apply_button_pressed() -> void:
 
 
 func _on_color_picker_button_color_changed(color) -> void:
-	print("Color has been changed to: " + str(color))
-	%"ColorPickerButton".color = color  # this needs to change the color of the stylebox instead
+	var new_sb = %"ColorPickerButton".get_theme_stylebox("normal")
+	new_sb.bg_color = color
+	
+	new_sb = $"Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/Music Volume/ProgressBar".get_theme_stylebox("fill")
+	new_sb.bg_color = color
+	new_sb.border_color = color
+	
 	%"Apply Btn".disabled = false
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://5r8147tr4bmi"]
+[gd_scene load_steps=41 format=3 uid="uid://5r8147tr4bmi"]
 
 [ext_resource type="Script" path="res://files/scenes/Main-/freespace.gd" id="1_o7ow0"]
 [ext_resource type="Texture2D" uid="uid://ctft1aei3uq31" path="res://files/system/Images/System/Pencil.png" id="2_dwepa"]
@@ -6,20 +6,37 @@
 [ext_resource type="Texture2D" uid="uid://duvs6etqwndrc" path="res://files/system/Images/System/Notepad.png" id="3_lsioy"]
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="5_r505u"]
 [ext_resource type="Texture2D" uid="uid://c3rds8pwi4oj7" path="res://files/system/Images/System/CircleBorder.png" id="6_t4v81"]
+[ext_resource type="Texture2D" uid="uid://bqaklegjpkedf" path="res://files/system/Images/System/Placeholder Inventory.png" id="7_31e1f"]
+[ext_resource type="Texture2D" uid="uid://0i0rtnm1vavl" path="res://files/system/Images/System/close.png" id="8_ivyr0"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_pu1ls"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itkvd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeh45"]
 content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-corner_radius_top_left = 830
-corner_radius_top_right = 810
-corner_radius_bottom_right = 960
+bg_color = Color(1, 0.0431373, 0.0431373, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
 corner_radius_bottom_left = 1024
+shadow_color = Color(1, 0, 0, 0.6)
+shadow_size = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjyf2"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.0431373, 0.0431373, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+shadow_color = Color(0.654902, 0.113725, 0.113725, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbtqp"]
 content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
@@ -34,9 +51,9 @@ shadow_size = 25
 
 [sub_resource type="Theme" id="Theme_w3j3v"]
 Button/styles/focus = null
-Button/styles/hover = SubResource("StyleBoxFlat_itkvd")
+Button/styles/hover = SubResource("StyleBoxFlat_oeh45")
 Button/styles/normal = SubResource("StyleBoxFlat_mjyf2")
-Button/styles/pressed = null
+Button/styles/pressed = SubResource("StyleBoxFlat_dbtqp")
 
 [sub_resource type="InputEventKey" id="InputEventKey_ijhxa"]
 device = -1
@@ -264,8 +281,51 @@ anti_aliasing_size = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx3jo"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_k5h81"]
-font_size = 13
+[sub_resource type="Curve" id="Curve_4ulwl"]
+min_value = 0.1
+bake_resolution = 2
+_data = [Vector2(0, 0.198901), 0.0, 0.801099, 0, 1, Vector2(1, 1), 0.801099, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l0scr"]
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okw1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25c0f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nugc"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2grhj"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.333333, 0.333333, 0.333333, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rroxd"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
 
 [node name="Freespace" type="TextureRect"]
 offset_right = 1280.0
@@ -336,6 +396,12 @@ flip_h = true
 
 [node name="Lines" type="Node2D" parent="."]
 
+[node name="anticrash" type="Line2D" parent="Lines"]
+visible = false
+points = PackedVector2Array(624, 314, 609, 311)
+width = 0.0
+default_color = Color(1, 1, 1, 0)
+
 [node name="Notepad" type="Window" parent="."]
 title = "SOLANO"
 initial_position = 1
@@ -402,27 +468,29 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -375.0
-offset_right = 375.0
-offset_bottom = 70.0
+offset_left = -295.0
+offset_right = 335.0
+offset_bottom = 48.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
 metadata/_edit_lock_ = true
 
-[node name="Border" type="PanelContainer" parent="HBox - Whiteboard"]
-custom_minimum_size = Vector2(32, 32)
+[node name="Spacer" type="Control" parent="HBox - Whiteboard"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+
+[node name="Border" type="PanelContainer" parent="HBox - Whiteboard"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_k32sl")
 
-[node name="Marginizer" type="MarginContainer" parent="HBox - Whiteboard/Border"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Pen Color Btn" type="ColorPickerButton" parent="HBox - Whiteboard/Border/Marginizer"]
+[node name="Pen Color Btn" type="ColorPickerButton" parent="HBox - Whiteboard/Border"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(24, 24)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -431,17 +499,104 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_y6koi")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y6koi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hx3jo")
 color = Color(1, 1, 1, 1)
+edit_alpha = false
 
-[node name="DELETE ME" type="Label" parent="."]
+[node name="Cursor Size Backdrop" type="Line2D" parent="HBox - Whiteboard"]
+texture_filter = 3
+position = Vector2(39, 0)
+scale = Vector2(0.2, 0.2)
+points = PackedVector2Array(325, 120, 1830, 120)
+width = 128.0
+width_curve = SubResource("Curve_4ulwl")
+default_color = Color(0.235294, 0.235294, 0.235294, 1)
+texture_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+antialiased = true
+
+[node name="Size Slider" type="HSlider" parent="HBox - Whiteboard"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-offset_left = 265.0
-offset_top = 58.0
-offset_right = 1015.0
-offset_bottom = 76.0
+size_flags_horizontal = 6
+size_flags_vertical = 1
+size_flags_stretch_ratio = 4.34
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_l0scr")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_okw1q")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25c0f")
+min_value = 1.0
+max_value = 24.0
+step = 0.1
+value = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Spacer2" type="Control" parent="HBox - Whiteboard"]
+layout_mode = 2
 size_flags_horizontal = 3
-text = "(capacity to change color), (size slider), (change between pen + eraser [+bucket, etc.?]), (clear everything btn)"
-label_settings = SubResource("LabelSettings_k5h81")
-horizontal_alignment = 1
+size_flags_stretch_ratio = 0.1
+
+[node name="HBox" type="HBoxContainer" parent="HBox - Whiteboard"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.76
+theme_override_constants/separation = 5
+
+[node name="Pen Btn" type="Button" parent="HBox - Whiteboard/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("2_dwepa")
+expand_icon = true
+
+[node name="Eraser Btn" type="Button" parent="HBox - Whiteboard/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
+toggle_mode = true
+icon = ExtResource("7_31e1f")
+expand_icon = true
+
+[node name="Bucket Btn" type="Button" parent="HBox - Whiteboard/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
+toggle_mode = true
+icon = ExtResource("3_1wlgh")
+expand_icon = true
+
+[node name="Clear Btn" type="Button" parent="HBox - Whiteboard/HBox"]
+modulate = Color(0.894118, 0, 0, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 8.8
+icon = ExtResource("8_ivyr0")
+flat = true
+expand_icon = true
 
 [node name="Whiteboard Vis Btn" type="Button" parent="."]
 visible = false
@@ -460,9 +615,21 @@ flat = true
 [connection signal="pressed" from="HBox - Btns/Customs Btn" to="." method="_on_customs_btn_pressed"]
 [connection signal="close_requested" from="Notepad" to="." method="_on_notepad_close_requested"]
 [connection signal="tab_clicked" from="Notepad/Tab Cont" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="tab_selected" from="Notepad/Tab Cont" to="." method="_on_tab_cont_tab_selected"]
 [connection signal="mouse_entered" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_entered"]
 [connection signal="mouse_exited" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_exited"]
-[connection signal="color_changed" from="HBox - Whiteboard/Border/Marginizer/Pen Color Btn" to="." method="_on_pen_color_btn_color_changed"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Marginizer/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_entered"]
-[connection signal="mouse_exited" from="HBox - Whiteboard/Border/Marginizer/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_exited"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border" to="." method="_on_border_mouse_entered"]
+[connection signal="mouse_exited" from="HBox - Whiteboard/Border" to="." method="_on_border_mouse_exited"]
+[connection signal="color_changed" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_color_changed"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_entered"]
+[connection signal="mouse_exited" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_exited"]
+[connection signal="drag_ended" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_drag_ended"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_mouse_entered"]
+[connection signal="mouse_exited" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_mouse_exited"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_pen_btn_pressed"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_eraser_btn_pressed"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_bucket_btn_pressed"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_clear_btn_pressed"]
+[connection signal="mouse_entered" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_mouse_exited"]
 [connection signal="toggled" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_toggled"]
