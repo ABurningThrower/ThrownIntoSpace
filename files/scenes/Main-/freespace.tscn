@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://5r8147tr4bmi"]
+[gd_scene load_steps=42 format=3 uid="uid://5r8147tr4bmi"]
 
 [ext_resource type="Script" path="res://files/scenes/Main-/freespace.gd" id="1_o7ow0"]
 [ext_resource type="Texture2D" uid="uid://ctft1aei3uq31" path="res://files/system/Images/System/Pencil.png" id="2_dwepa"]
@@ -9,7 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bqaklegjpkedf" path="res://files/system/Images/System/Placeholder Inventory.png" id="7_31e1f"]
 [ext_resource type="Texture2D" uid="uid://0i0rtnm1vavl" path="res://files/system/Images/System/close.png" id="8_ivyr0"]
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_pu1ls"]
+[sub_resource type="Gradient" id="Gradient_o21ch"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0352941, 0.0352941, 0.0352941, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dcy10"]
+gradient = SubResource("Gradient_o21ch")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeh45"]
 content_margin_left = 12.0
@@ -330,9 +335,11 @@ corner_radius_bottom_left = 1024
 [node name="Freespace" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = SubResource("PortableCompressedTexture2D_pu1ls")
+texture = SubResource("GradientTexture1D_dcy10")
 script = ExtResource("1_o7ow0")
 metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="HBox - Btns" type="VBoxContainer" parent="."]
 visible = false
@@ -348,6 +355,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+tooltip_text = "Whiteboard"
 toggle_mode = true
 shortcut = SubResource("Shortcut_eoend")
 icon = ExtResource("2_dwepa")
@@ -359,6 +367,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+tooltip_text = "Notepad"
 toggle_mode = true
 shortcut = SubResource("Shortcut_2i5kg")
 icon = ExtResource("3_lsioy")
@@ -370,6 +379,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+tooltip_text = "Upload customs"
 shortcut = SubResource("Shortcut_oyntc")
 icon = ExtResource("3_1wlgh")
 icon_alignment = 1
@@ -395,12 +405,6 @@ expand_mode = 1
 flip_h = true
 
 [node name="Lines" type="Node2D" parent="."]
-
-[node name="anticrash" type="Line2D" parent="Lines"]
-visible = false
-points = PackedVector2Array(624, 314, 609, 311)
-width = 0.0
-default_color = Color(1, 1, 1, 0)
 
 [node name="Notepad" type="Window" parent="."]
 title = "SOLANO"
@@ -527,7 +531,7 @@ theme_override_styles/slider = SubResource("StyleBoxLine_l0scr")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_okw1q")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25c0f")
 min_value = 1.0
-max_value = 24.0
+max_value = 32.0
 step = 0.1
 value = 5.0
 metadata/_edit_lock_ = true
@@ -550,6 +554,8 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+tooltip_text = "(Q)
+Pen"
 theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
@@ -559,32 +565,36 @@ button_pressed = true
 icon = ExtResource("2_dwepa")
 expand_icon = true
 
-[node name="Eraser Btn" type="Button" parent="HBox - Whiteboard/HBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
-theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
-toggle_mode = true
-icon = ExtResource("7_31e1f")
-expand_icon = true
-
 [node name="Bucket Btn" type="Button" parent="HBox - Whiteboard/HBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+tooltip_text = "(W)
+Bucket"
 theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
 toggle_mode = true
 icon = ExtResource("3_1wlgh")
+expand_icon = true
+
+[node name="Eraser Btn" type="Button" parent="HBox - Whiteboard/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+tooltip_text = "(E)
+Eraser"
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
+toggle_mode = true
+icon = ExtResource("7_31e1f")
 expand_icon = true
 
 [node name="Clear Btn" type="Button" parent="HBox - Whiteboard/HBox"]
@@ -594,6 +604,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 8.8
+tooltip_text = "Clear all"
 icon = ExtResource("8_ivyr0")
 flat = true
 expand_icon = true
@@ -610,6 +621,7 @@ toggle_mode = true
 text = "<0>"
 flat = true
 
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="HBox - Btns/Whiteboard Btn" to="." method="_on_whiteboard_btn_toggled"]
 [connection signal="toggled" from="HBox - Btns/Notepad Btn" to="." method="_on_notepad_btn_toggled"]
 [connection signal="pressed" from="HBox - Btns/Customs Btn" to="." method="_on_customs_btn_pressed"]
@@ -617,19 +629,15 @@ flat = true
 [connection signal="tab_clicked" from="Notepad/Tab Cont" to="." method="_on_tab_container_tab_clicked"]
 [connection signal="tab_selected" from="Notepad/Tab Cont" to="." method="_on_tab_cont_tab_selected"]
 [connection signal="mouse_entered" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_entered"]
-[connection signal="mouse_exited" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_exited"]
 [connection signal="mouse_entered" from="HBox - Whiteboard/Border" to="." method="_on_border_mouse_entered"]
-[connection signal="mouse_exited" from="HBox - Whiteboard/Border" to="." method="_on_border_mouse_exited"]
 [connection signal="color_changed" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_color_changed"]
 [connection signal="mouse_entered" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_entered"]
-[connection signal="mouse_exited" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_exited"]
 [connection signal="drag_ended" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_drag_ended"]
+[connection signal="drag_started" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_drag_started"]
 [connection signal="mouse_entered" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_mouse_entered"]
-[connection signal="mouse_exited" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_mouse_exited"]
 [connection signal="pressed" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_pen_btn_pressed"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_eraser_btn_pressed"]
 [connection signal="pressed" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_bucket_btn_pressed"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_eraser_btn_pressed"]
 [connection signal="pressed" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_clear_btn_pressed"]
 [connection signal="mouse_entered" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_mouse_entered"]
-[connection signal="mouse_exited" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_mouse_exited"]
 [connection signal="toggled" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_toggled"]

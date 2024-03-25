@@ -63,9 +63,10 @@ Things to work on:
 
 
 	To touch on next:
-		*inventory - look at this slop
+		*inventory - look at this slop (wallet)
 		*freespace/Whiteboard - signal optimization?
 		#freespace - improve eraser?
+		#freespace f(_on_whiteboard_vis_btn_toggled) - signals here?
 		#
 		#
 		#
