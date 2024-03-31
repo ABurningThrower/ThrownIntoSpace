@@ -184,7 +184,7 @@ texture = ExtResource("3_fvd6h")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Credits"]
+[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Credits" groups=["Wallet Data"]]
 custom_minimum_size = Vector2(0.005, 0)
 layout_mode = 2
 text = "0"
@@ -201,7 +201,7 @@ texture = ExtResource("6_6djiv")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Platinum"]
+[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Platinum" groups=["Wallet Data"]]
 custom_minimum_size = Vector2(0.005, 0)
 layout_mode = 2
 text = "0"
@@ -218,7 +218,7 @@ texture = ExtResource("7_xmu0a")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Nanites"]
+[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Nanites" groups=["Wallet Data"]]
 custom_minimum_size = Vector2(0.005, 0)
 layout_mode = 2
 text = "0"
@@ -235,7 +235,7 @@ texture = ExtResource("8_vwdkx")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Corpsium"]
+[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Corpsium" groups=["Wallet Data"]]
 custom_minimum_size = Vector2(0.005, 0)
 layout_mode = 2
 text = "0"
@@ -252,7 +252,7 @@ texture = ExtResource("10_3ohhg")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/KFC"]
+[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/KFC" groups=["Wallet Data"]]
 custom_minimum_size = Vector2(0.005, 0)
 layout_mode = 2
 text = "0"
@@ -269,7 +269,7 @@ texture = ExtResource("9_h4qfk")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Cryptos"]
+[node name="Amount" type="Label" parent="Wallet Popup/Marginizer/VBox/Cryptos" groups=["Wallet Data"]]
 custom_minimum_size = Vector2(0.005, 0)
 layout_mode = 2
 text = "0"

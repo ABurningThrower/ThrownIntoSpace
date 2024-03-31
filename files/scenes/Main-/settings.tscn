@@ -238,7 +238,7 @@ expand_mode = 1
 script = ExtResource("3_d16au")
 tooltip = "First screen you see when you start up BDiaC."
 
-[node name="OptionBtn" type="OptionButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/Default Screen"]
+[node name="OptionBtn" type="OptionButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/Default Screen" groups=["data"]]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -273,7 +273,7 @@ expand_mode = 1
 script = ExtResource("3_d16au")
 tooltip = "Initial side seen when viewing a warframe license. "
 
-[node name="OptionBtn" type="OptionButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/WF License Default Side"]
+[node name="OptionBtn" type="OptionButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/General/Options/WF License Default Side" groups=["data"]]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -323,7 +323,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Music Volume"
 
-[node name="ProgressBar" type="ProgressBar" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/Music Volume"]
+[node name="ProgressBar" type="ProgressBar" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/Music Volume" groups=["data"]]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -342,7 +342,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "SFX Volume"
 
-[node name="ProgressBar" type="ProgressBar" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/SFX Volume"]
+[node name="ProgressBar" type="ProgressBar" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Audio/Options/SFX Volume" groups=["data"]]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -402,7 +402,7 @@ expand_mode = 1
 script = ExtResource("3_d16au")
 tooltip = "Automatically ends your turn when you get to 0 AP and can't move."
 
-[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options/Auto Turn End"]
+[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Combat/Options/Auto Turn End" groups=["data"]]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -459,7 +459,7 @@ expand_mode = 1
 script = ExtResource("3_d16au")
 tooltip = "Primary accent color used in the UI, sometimes glowing."
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Primary Theme Color" groups=["data"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -490,11 +490,40 @@ texture = ExtResource("2_ilmgu")
 expand_mode = 1
 script = ExtResource("3_d16au")
 
-[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Fade Transitions"]
+[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Fade Transitions" groups=["data"]]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 button_pressed = true
+
+[node name="Pre-enable Whiteboard" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Pre-enable Whiteboard"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Pre-enable Whiteboard/HBox"]
+layout_mode = 2
+text = "Pre-enable Whiteboard"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Pre-enable Whiteboard/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+tooltip_text = "Enables the whiteboard in Freespace
+without having to click anything."
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+
+[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Pre-enable Whiteboard" groups=["data"]]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="Apply Btn" type="Button" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~"]
 unique_name_in_owner = true

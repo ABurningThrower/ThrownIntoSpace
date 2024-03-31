@@ -11,12 +11,13 @@ func _ready() -> void:
 #		else:
 #			path.hide()
 
-	$"Wallet Popup/Marginizer/VBox/Credits/Amount".text = str(Settings.getPlayerResource().wallet["credits"])
-	$"Wallet Popup/Marginizer/VBox/Platinum/Amount".text = str(Settings.getPlayerResource().wallet["platinum"])
-	$"Wallet Popup/Marginizer/VBox/Nanites/Amount".text = str(Settings.getPlayerResource().wallet["nanites"])
-	$"Wallet Popup/Marginizer/VBox/Corpsium/Amount".text = str(Settings.getPlayerResource().wallet["corpsium"])
-	$"Wallet Popup/Marginizer/VBox/KFC/Amount".text = str(Settings.getPlayerResource().wallet["kfc"])
-	$"Wallet Popup/Marginizer/VBox/Cryptos/Amount".text = str(Settings.getPlayerResource().wallet["cryptos"])
+	for currency in get_tree().get_nodes_in_group("Wallet Data"):
+		currency.text = str(Settings.getPlayerResource().wallet["credits"])
+#		$"Wallet Popup/Marginizer/VBox/Platinum/Amount".text = str(Settings.getPlayerResource().wallet["platinum"])
+#		$"Wallet Popup/Marginizer/VBox/Nanites/Amount".text = str(Settings.getPlayerResource().wallet["nanites"])
+#		$"Wallet Popup/Marginizer/VBox/Corpsium/Amount".text = str(Settings.getPlayerResource().wallet["corpsium"])
+#		$"Wallet Popup/Marginizer/VBox/KFC/Amount".text = str(Settings.getPlayerResource().wallet["kfc"])
+#		$"Wallet Popup/Marginizer/VBox/Cryptos/Amount".text = str(Settings.getPlayerResource().wallet["cryptos"])
 
 
 

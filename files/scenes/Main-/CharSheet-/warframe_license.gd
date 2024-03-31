@@ -29,17 +29,13 @@ func _on_flip_btn_pressed() -> void:
 
 
 func toggleFlip() -> void:
-	# flip to back
-	if %"Front VBox".visible == true:
-		%"Front VBox".visible = false
-		%"Back VBox".visible = true
-		#SFX_Player._play("pageFlip")
-
-	# flip to front
+	if %"Front VBox".visible:
+		%"Front VBox".hide()
+		%"Back VBox".show()
 	else: 
-		%"Front VBox".visible = true
-		%"Back VBox".visible = false
-		#SFX_Player._play("pageFlip")
+		%"Front VBox".show()
+		%"Back VBox".hide()
+	#SFX_Player._play("pageFlip")
 #endregion
 
 

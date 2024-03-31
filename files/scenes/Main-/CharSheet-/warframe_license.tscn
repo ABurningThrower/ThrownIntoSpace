@@ -115,7 +115,6 @@ metadata/_edit_lock_ = true
 
 [node name="Front VBox" type="VBoxContainer" parent="Panel Cont/Marginizer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 alignment = 1
 
@@ -137,6 +136,7 @@ expand_mode = 3
 
 [node name="Back VBox" type="VBoxContainer" parent="Panel Cont/Marginizer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1

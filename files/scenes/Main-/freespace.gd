@@ -3,6 +3,8 @@ extends TextureRect
 
 
 
+
+
 #region Buttons
 func _on_whiteboard_btn_toggled(toggled_on) -> void:
 	if toggled_on == true:
@@ -33,32 +35,34 @@ func _on_whiteboard_vis_btn_toggled(toggled_on):
 func _on_notepad_btn_toggled(toggled_on) -> void:
 	if toggled_on == true:
 		$Notepad.show()
+		$"Notepad/Tab Cont".get_child(currentTab).grab_focus()
+		
 	else:
 		$Notepad.hide()
 
 
 func _on_customs_btn_pressed() -> void:
 	$"Dark Tint".show()
-	var test = DisplayServer.file_dialog_show("Open a file", "", "", false,DisplayServer.FILE_DIALOG_MODE_OPEN_FILES, [], _on_notepad_btn_toggled)
-
+	DisplayServer.file_dialog_show("Open a file", "", "", false,DisplayServer.FILE_DIALOG_MODE_OPEN_FILES, ["*.png, *.jpeg, *.jpg, *.jfif, *.webp ; Images", "*.gif ; GIFs"], customs_dialog_finished)
+	
 #endregion
 
 #region Btn Hover Area
 var btn_area_open:= false
 
 var updatable_statements:= true
-@onready var X_statement: bool = int(get_global_mouse_position().x) in range(0, 162)
+@onready var X_statement: bool = int(get_global_mouse_position().x) in range(0, 160)
 @onready var Y_statement: bool = int(get_global_mouse_position().y) in range(170, 550)
 
 
 func _process(_delta) -> void:
 	updateStatements()
 	
-	if X_statement && Y_statement:
+	if X_statement && Y_statement && !$"Dark Tint".visible:
 		if btn_area_open == false:
 			$"HBox - Btns/Anim".play("flow_in")
 			btn_area_open = true
-	elif btn_area_open:
+	elif btn_area_open && !$"Dark Tint".visible:
 		btn_area_open = false
 		$"HBox - Btns/Anim".play("flow_out")
 
@@ -82,39 +86,28 @@ func ensmallBtn(button: Button) -> void:
 #endregion
 
 #region Whiteboard
+
+
 var whiteboard_enabled:= false
 var bucketing:= false
 var pressed:= false
 var finished:= true 	# indicates if the line is finished and should end
 var undoable:= true 	# indicates if ctrl+z is available
-@onready var timer: Timer
 @onready var current_line: Line2D
 @onready var pen_color: Color = %"Pen Color Btn".color
 @onready var pen_size: float = 3.0
 @onready var temp_color: Color = pen_color
 
-@onready var bg_color: Color = Color("090909")  # self.texture.colors[0]
+const bg_color: Color = Color("090909")  # self.texture.colors[0]
 
 
 
 func _input(event: InputEvent) -> void:
-	print("Pen: " + str(%"Pen Btn".button_pressed) + "    Bucket: " + str(%"Bucket Btn".button_pressed) + "    Eraser: " + str(%"Eraser Btn".button_pressed))
-	if whiteboard_enabled:  	# keybinds
-		if Input.is_action_pressed("Pen"):
-			call("_on_pen_btn_pressed")
-			%"Pen Btn".queue_redraw()
-		elif Input.is_action_pressed("Bucket"):
-			call("_on_bucket_btn_pressed")
-			%"Bucket Btn".queue_redraw()
-		elif Input.is_action_pressed("Eraser"):
-			call("_on_eraser_btn_pressed")
-			%"Eraser Btn".queue_redraw()
-	
-	
 	if whiteboard_enabled && !bucketing: # pen + eraser tools
 		pressed = (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) or (event is InputEventScreenDrag)
 
 
+		# start of new line
 		if event is InputEventMouseButton && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && finished:
 			finished = false
 			current_line = Line2D.new()
@@ -131,15 +124,16 @@ func _input(event: InputEvent) -> void:
 			current_line.add_point(get_global_mouse_position())
 			$Lines.add_child(current_line)
 		
+		# dragging
 		elif pressed && !finished && (event is InputEventMouseMotion):
 			if $Lines.get_child_count() > 0:
 				current_line.add_point(get_global_mouse_position())
 		
+		# undo
 		elif !pressed && Input.is_action_pressed("Undo") && undoable:
 			if $Lines.get_child_count() > 0:
 				$Lines.get_child(-1).queue_free()
 				undoable = false
-		
 		elif !pressed && Input.is_action_just_released("Undo"):
 			undoable = true
 		
@@ -152,23 +146,22 @@ func _input(event: InputEvent) -> void:
 
 
 
-func _on_pen_color_btn_color_changed(color):
+func _on_pen_color_btn_color_changed(color) -> void:
 	pen_color = color
 	temp_color = color
-#	%"Pen Btn".button_pressed = true
 
 	var new_sb = %"Pen Color Btn".get_theme_stylebox("normal")
 	new_sb.bg_color = color
 
 
-func _on_size_slider_drag_ended(value_changed):
+func _on_size_slider_drag_ended(value_changed) -> void:
 	if value_changed:
 		pen_size = %"Size Slider".value
 		# update the slider's grabber size?
 
 
 
-func _on_pen_btn_pressed():
+func _on_pen_btn_pressed() -> void:
 	%"Pen Btn".button_pressed = true
 	%"Eraser Btn".button_pressed = false
 	%"Bucket Btn".button_pressed = false
@@ -176,7 +169,7 @@ func _on_pen_btn_pressed():
 	pen_color = temp_color
 
 
-func _on_eraser_btn_pressed():
+func _on_eraser_btn_pressed() -> void:
 	%"Eraser Btn".button_pressed = true
 	%"Pen Btn".button_pressed = false
 	%"Bucket Btn".button_pressed = false
@@ -186,14 +179,14 @@ func _on_eraser_btn_pressed():
 	pen_color = bg_color
 
 
-func _on_bucket_btn_pressed():
+func _on_bucket_btn_pressed() -> void:
 	%"Bucket Btn".button_pressed = true
 	%"Pen Btn".button_pressed = false
 	%"Eraser Btn".button_pressed = false
 	bucketing = true
 
 
-func _on_clear_btn_pressed():
+func _on_clear_btn_pressed() -> void:
 	current_line = $Lines/anticrash
 	for child in $Lines.get_child_count():
 		$Lines.get_child(child).queue_free()
@@ -202,57 +195,115 @@ func _on_clear_btn_pressed():
 
 #region Whiteboard Sub
 ### These signals are to deter drawing into the Whiteboard Utilities while it's visible
-func _on_whiteboard_hbox_mouse_entered():
-	finished = true
-func _on_pen_color_btn_mouse_entered():
-	finished = true
-func _on_border_mouse_entered():
-	finished = true
-func _on_size_slider_mouse_entered():
-	finished = true
-func _on_size_slider_drag_started():
-	finished = true
-func _on_whiteboard_vis_btn_mouse_entered():
+func _on_enter_ui() -> void:
 	finished = true
 
-func _on_mouse_exited():
-	finished = true 	 # except on 
+func _on_enter_ui_toggle(_toggled_on: bool) -> void:
+	finished = true
 #endregion
 
 #region Notepad
-@onready var currentTab: TextEdit = $"Notepad/Tab Cont/Tab 1"
-@onready var renamePopup: PackedScene = preload("res://files/scenes/line_edit_popup.tscn")
+@onready var currentTab: int = 0
 
-func _on_tab_container_tab_clicked(tab) -> void:
+func get_tab_node(tab_idx: int) -> Node:
+	return $"Notepad/Tab Cont".get_child(tab_idx)
+
+
+func _on_tab_container_tab_clicked(tab_idx: int) -> void:
 	var lastTab: int = $"Notepad/Tab Cont".get_child_count()-1
-	
-	if tab == lastTab:
+
+	if tab_idx == lastTab:
+		clear_LEPs()
 		$"Notepad/Tab Cont".add_child(TextEdit.new())
 		lastTab += 1
-		var newTab: TextEdit = $"Notepad/Tab Cont".get_child(lastTab) as TextEdit
-		newTab.name = "Tab " + str(lastTab)
+		var newTab: TextEdit = $"Notepad/Tab Cont".get_child(lastTab)
+		newTab.name = ("Tab " + str(lastTab))
 		$"Notepad/Tab Cont".move_child(%"+", lastTab)
+#		%"+".release_focus()
 		newTab.grab_focus()
-	elif tab == currentTab:
-#		var rP = tab.add_child(renamePopup.new())	# ?
-#		rP.text = tab.text
-#		(await signal, doing tab.text = rP.text on enter/click off [losing focus with edited text?], otherwise nothing?)
+#		newTab.show()
+		get_tab_node(lastTab).hide()
+	elif tab_idx == currentTab:
+		clear_LEPs()
+		var tab: TextEdit = get_tab_node(tab_idx)
+		$Notepad.add_child(LEPopup.new())
+		var LEP: LEPopup = $Notepad.get_child($Notepad.get_child_count()-1)
+		LEP.connect("text_submitted", _on_LEP_text_submitted)
+		print(LEP.text)
+		print(tab.text)
+		LEP.text = tab.text
+		print(tab.text)
+		print(LEP.text)
+		LEP.queue_redraw()
+		var new_label: String = await LEP.text_submitted
+		if new_label != "":
+			tab.name = new_label
+		LEP.queue_free()
+#		(await signal, doing tab.text = LEP.text on enter/click off [losing focus with edited text?], otherwise nothing?)
 
 			  # if double-tapped/if clicked when active tab:
 		pass  # allow user to change the tab (node) name, and maybe to set it's color? (is singular tab color setting even possible without making a custom tab cont?)
+	
+	get_tab_node(tab_idx).grab_focus()
+	currentTab = tab_idx
 
 
-func _on_tab_cont_tab_selected(tab):
-	currentTab = tab
+func clear_LEPs() -> void:
+	for child in $Notepad.get_children():
+			if child is LEPopup:
+				child.queue_free()
 
+func _on_LEP_text_submitted(new_text: String) -> String:
+	return new_text
+
+## FOR DEBUGGING. REMOVE IF UNUSED.
+func _on_plus_focus_entered():
+	print("focus enter")
+	%"+".release_focus()
+	%"+".hide()
 
 func _on_notepad_close_requested() -> void:
 	$Notepad.hide()
 #endregion
 
 #region Customs
+var offset:= Vector2(10,10)
+
+func customs_dialog_finished(status: bool, paths: PackedStringArray, selected_filter_index: int) -> void:
+	$"Dark Tint".hide()
+#	print("Status: " + str(status) + "  Paths: " + str(paths) + "  Index: " + str(selected_filter_index))
+	var file: Node
+	
+	if selected_filter_index == 0:  # images
+		for path in paths:
+			var cf:= CustomsFile.new()
+			$Customs.add_child(cf)
+			cf.makeImage(path)
+			cf.position += offset
+			offset += Vector2(15,15)
+
+
+	if selected_filter_index == 1:  # gifs
+		for path in paths:
+			var gr = GifReader.new()
+#			gr.read("res://files/system/Images/GIFs/kot.gif")
+			
+#			var image = Image.load_from_file(path)
+#			var texture = ImageTexture.create_from_image(image)
+			
+			
+
+	$Customs.add_child(file)
+	
+	# gifs might need special handling? if so, enum the index here
+
 
 #endregion
+
+
+
+
+
 
 
 

@@ -42,11 +42,13 @@ func fadeout() -> void:
 func appear() -> void:
 	%"Appear Btn".visible = false
 	$BG.visible = true
+	$BG.mouse_filter = MOUSE_FILTER_PASS
 	
 
 func disappear() -> void:
 	$BG.visible = false
 	%"Appear Btn".visible = true
+	$BG.mouse_filter = MOUSE_FILTER_IGNORE
 
 
 func pauseResume() -> void:

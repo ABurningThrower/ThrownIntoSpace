@@ -20,7 +20,7 @@ resources_spreadsheet_view/context_menu_on_leftclick=false
 
 [application]
 
-config/name="BDiS"
+config/name="Balls Deep in a Companion"
 run/main_scene="res://files/scenes/main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Balls Deep in a Companion"
@@ -49,10 +49,11 @@ window/size/viewport_height=720
 window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/gif-importer/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [file_customization]
 

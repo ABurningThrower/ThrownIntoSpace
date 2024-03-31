@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://c6oooajtuviaf"
+path="res://.godot/imported/kot.gif-7c89f66ddba12a713c8dec191ede2712.tres"
+
+[deps]
+
+source_file="res://files/system/Images/GIFs/kot.gif"
+dest_files=["res://.godot/imported/kot.gif-7c89f66ddba12a713c8dec191ede2712.tres"]
+
+[params]
+
+frames_per_second=30

@@ -116,13 +116,13 @@ expand_icon = true
 script = ExtResource("1_pugcn")
 scenePath = "res://files/scenes/Main-/freespace.tscn"
 
-[node name="CharSheet Btn" type="Button" parent="Sidebar/VBox"]
+[node name="ID Btn" type="Button" parent="Sidebar/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/icon_max_width = 64
-text = "Character Sheet"
+text = "ID"
 icon = ExtResource("8_nks83")
 expand_icon = true
 script = ExtResource("1_pugcn")

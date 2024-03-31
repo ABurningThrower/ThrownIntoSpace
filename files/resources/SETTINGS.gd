@@ -1,11 +1,13 @@
 ## Keeps track of dictionaries containing data to be used by the app and saved in save.tres.
 class_name Settings
-extends Node
+extends Resource
+
+
+static var playerInv
+
 
 
 static var masterDict:= {}
-
-
 
 static var defaultDict:= {
 	userDict = {
@@ -36,3 +38,5 @@ static func getPlayer() -> String:
 static func getPlayerResource() -> Resource:
 	return load("res://files/resources/Characters/Players/" + getPlayer() + ".tres")
 
+static func getInvResource() -> Resource:
+	return load("res://files/resources/Inventories" + getPlayer() + ".tres")

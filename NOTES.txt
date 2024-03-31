@@ -64,10 +64,12 @@ Things to work on:
 
 	To touch on next:
 		*inventory - look at this slop (wallet)
-		*freespace/Whiteboard - signal optimization?
-		#freespace - improve eraser?
 		#freespace f(_on_whiteboard_vis_btn_toggled) - signals here?
 		#
+		#freespace/Notepad - ?????? (goofy ahh focus???)
+		#
+		#
+		*SETTINGS - rewrite into resource
 		#
 		#
 		*battle_actions + enemy_data - get reference on how this should look (Baldur's Gate); refactor later
@@ -84,6 +86,8 @@ Things to work on:
 		#inventory - continue prettifying wallet
 		#settings  - visual improvements?
 		#warframes - visual improvements?
+		#
+		#freespace - visual artifacts when drawing slowly + weird erasing
 
 
 

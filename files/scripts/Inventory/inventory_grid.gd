@@ -11,15 +11,12 @@ var inventory: Array
 @export var inventoryType: Type
 
 func _ready() -> void:
-	# should check what scene user is in and set type based on that
 	if inventoryType == Type.CHARACTER:
 		inventory = Settings.masterDict.charInventoryDict
 	elif inventoryType == Type.SHIP:
 		inventory = Settings.masterDict.shipInventoryDict
-	# otherwise this is just an empty inventory, which does NOT crash
 	populate()
 
-# Settings.masterDict.charInventoryDict
 
 func populate(slots: int = 80) -> void:
 	for i in slots:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://c4ftlcipnnp4o"
+path="res://.godot/imported/blahaj-spin.gif-4596cf347ca854fdd99264dcd827f3a1.tres"
+
+[deps]
+
+source_file="res://files/system/Images/GIFs/blahaj-spin.gif"
+dest_files=["res://.godot/imported/blahaj-spin.gif-4596cf347ca854fdd99264dcd827f3a1.tres"]
+
+[params]
+
+frames_per_second=30

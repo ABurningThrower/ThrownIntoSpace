@@ -1,20 +1,24 @@
-[gd_scene load_steps=42 format=3 uid="uid://5r8147tr4bmi"]
+[gd_scene load_steps=55 format=3 uid="uid://5r8147tr4bmi"]
 
 [ext_resource type="Script" path="res://files/scenes/Main-/freespace.gd" id="1_o7ow0"]
 [ext_resource type="Texture2D" uid="uid://ctft1aei3uq31" path="res://files/system/Images/System/Pencil.png" id="2_dwepa"]
+[ext_resource type="Texture2D" uid="uid://bveu07cq5ao57" path="res://files/system/Images/System/Paint.png" id="2_nyoug"]
 [ext_resource type="Texture2D" uid="uid://xlwch4bem25e" path="res://files/system/Images/System/upload.png" id="3_1wlgh"]
 [ext_resource type="Texture2D" uid="uid://duvs6etqwndrc" path="res://files/system/Images/System/Notepad.png" id="3_lsioy"]
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="5_r505u"]
 [ext_resource type="Texture2D" uid="uid://c3rds8pwi4oj7" path="res://files/system/Images/System/CircleBorder.png" id="6_t4v81"]
-[ext_resource type="Texture2D" uid="uid://bqaklegjpkedf" path="res://files/system/Images/System/Placeholder Inventory.png" id="7_31e1f"]
+[ext_resource type="Texture2D" uid="uid://kbiyhaoeu1f8" path="res://files/system/Images/System/bucket.png" id="7_8snjd"]
 [ext_resource type="Texture2D" uid="uid://0i0rtnm1vavl" path="res://files/system/Images/System/close.png" id="8_ivyr0"]
+[ext_resource type="Texture2D" uid="uid://355rks8bn3oj" path="res://files/system/Images/System/eraser.png" id="8_ninai"]
 
-[sub_resource type="Gradient" id="Gradient_o21ch"]
+[sub_resource type="ImageTexture" id="ImageTexture_ku8qs"]
+
+[sub_resource type="Gradient" id="Gradient_c7i44"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.0352941, 0.0352941, 0.0352941, 1)
+colors = PackedColorArray(0, 0, 0, 0.619608)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dcy10"]
-gradient = SubResource("Gradient_o21ch")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fk71v"]
+gradient = SubResource("Gradient_c7i44")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeh45"]
 content_margin_left = 12.0
@@ -254,13 +258,6 @@ Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_1msad")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nac1f"]
 bg_color = Color(1, 0, 0, 1)
 
-[sub_resource type="Gradient" id="Gradient_c7i44"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 0.619608)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fk71v"]
-gradient = SubResource("Gradient_c7i44")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k32sl"]
 content_margin_left = 2.0
 content_margin_top = 2.0
@@ -286,6 +283,14 @@ anti_aliasing_size = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx3jo"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_stfsh"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="Shortcut" id="Shortcut_we5w1"]
+events = [SubResource("InputEventKey_stfsh")]
+
 [sub_resource type="Curve" id="Curve_4ulwl"]
 min_value = 0.1
 bake_resolution = 2
@@ -295,7 +300,7 @@ point_count = 2
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_l0scr"]
 color = Color(0.235294, 0.235294, 0.235294, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okw1q"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4ibw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25c0f"]
 
@@ -332,14 +337,63 @@ corner_radius_top_right = 1024
 corner_radius_bottom_right = 1024
 corner_radius_bottom_left = 1024
 
+[sub_resource type="InputEventKey" id="InputEventKey_ebmab"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="Shortcut" id="Shortcut_frl15"]
+events = [SubResource("InputEventKey_ebmab")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7k67l"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="Shortcut" id="Shortcut_ca5xp"]
+events = [SubResource("InputEventKey_7k67l")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_xykp7"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_ww86v"]
+events = [SubResource("InputEventKey_xykp7")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3fa5v"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="Shortcut" id="Shortcut_bvbgc"]
+events = [SubResource("InputEventKey_3fa5v")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_xp5p7"]
+device = -1
+keycode = 86
+unicode = 118
+
+[sub_resource type="Shortcut" id="Shortcut_hvwee"]
+events = [SubResource("InputEventKey_xp5p7")]
+
 [node name="Freespace" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = SubResource("GradientTexture1D_dcy10")
+texture = SubResource("ImageTexture_ku8qs")
 script = ExtResource("1_o7ow0")
 metadata/_edit_lock_ = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Dark Tint" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Color" type="TextureRect" parent="Dark Tint"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fk71v")
 
 [node name="HBox - Btns" type="VBoxContainer" parent="."]
 visible = false
@@ -358,7 +412,7 @@ size_flags_vertical = 6
 tooltip_text = "Whiteboard"
 toggle_mode = true
 shortcut = SubResource("Shortcut_eoend")
-icon = ExtResource("2_dwepa")
+icon = ExtResource("2_nyoug")
 icon_alignment = 1
 expand_icon = true
 
@@ -389,6 +443,7 @@ expand_icon = true
 libraries = {
 "": SubResource("AnimationLibrary_d4xwc")
 }
+autoplay = "flow_out"
 
 [node name="showBtns Arrow" type="TextureRect" parent="."]
 self_modulate = Color(0.941176, 0.941176, 0.941176, 1)
@@ -455,17 +510,6 @@ offset_bottom = 20.0
 grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_nac1f")
 
-[node name="Dark Tint" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="Color" type="TextureRect" parent="Dark Tint"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_fk71v")
-
 [node name="HBox - Whiteboard" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -502,6 +546,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_y6koi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y6koi")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y6koi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hx3jo")
+shortcut = SubResource("Shortcut_we5w1")
 color = Color(1, 1, 1, 1)
 edit_alpha = false
 
@@ -528,7 +573,7 @@ size_flags_vertical = 1
 size_flags_stretch_ratio = 4.34
 theme_override_constants/center_grabber = 1
 theme_override_styles/slider = SubResource("StyleBoxLine_l0scr")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_okw1q")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_v4ibw")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25c0f")
 min_value = 1.0
 max_value = 32.0
@@ -554,14 +599,14 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-tooltip_text = "(Q)
-Pen"
+tooltip_text = "Pen"
 theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
 toggle_mode = true
 button_pressed = true
+shortcut = SubResource("Shortcut_frl15")
 icon = ExtResource("2_dwepa")
 expand_icon = true
 
@@ -571,14 +616,14 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-tooltip_text = "(W)
-Bucket"
+tooltip_text = "Bucket"
 theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
 toggle_mode = true
-icon = ExtResource("3_1wlgh")
+shortcut = SubResource("Shortcut_ca5xp")
+icon = ExtResource("7_8snjd")
 expand_icon = true
 
 [node name="Eraser Btn" type="Button" parent="HBox - Whiteboard/HBox"]
@@ -587,14 +632,14 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-tooltip_text = "(E)
-Eraser"
+tooltip_text = "Eraser"
 theme_override_styles/normal = SubResource("StyleBoxFlat_0nugc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2grhj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rroxd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rroxd")
 toggle_mode = true
-icon = ExtResource("7_31e1f")
+shortcut = SubResource("Shortcut_ww86v")
+icon = ExtResource("8_ninai")
 expand_icon = true
 
 [node name="Clear Btn" type="Button" parent="HBox - Whiteboard/HBox"]
@@ -605,6 +650,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 8.8
 tooltip_text = "Clear all"
+shortcut = SubResource("Shortcut_bvbgc")
 icon = ExtResource("8_ivyr0")
 flat = true
 expand_icon = true
@@ -618,26 +664,51 @@ offset_top = 1.0
 offset_right = 1065.0
 offset_bottom = 32.0
 toggle_mode = true
+shortcut = SubResource("Shortcut_hvwee")
 text = "<0>"
 flat = true
 
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="Customs" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GIF Test" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 291.0
+offset_right = 360.0
+offset_bottom = 331.0
+
+[connection signal="mouse_exited" from="." to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Btns/Whiteboard Btn" to="." method="_on_enter_ui"]
 [connection signal="toggled" from="HBox - Btns/Whiteboard Btn" to="." method="_on_whiteboard_btn_toggled"]
+[connection signal="mouse_entered" from="HBox - Btns/Notepad Btn" to="." method="_on_enter_ui"]
 [connection signal="toggled" from="HBox - Btns/Notepad Btn" to="." method="_on_notepad_btn_toggled"]
+[connection signal="mouse_entered" from="HBox - Btns/Customs Btn" to="." method="_on_enter_ui"]
 [connection signal="pressed" from="HBox - Btns/Customs Btn" to="." method="_on_customs_btn_pressed"]
-[connection signal="close_requested" from="Notepad" to="." method="_on_notepad_close_requested"]
+[connection signal="close_requested" from="Notepad" to="." method="_on_enter_ui"]
 [connection signal="tab_clicked" from="Notepad/Tab Cont" to="." method="_on_tab_container_tab_clicked"]
-[connection signal="tab_selected" from="Notepad/Tab Cont" to="." method="_on_tab_cont_tab_selected"]
-[connection signal="mouse_entered" from="HBox - Whiteboard" to="." method="_on_whiteboard_hbox_mouse_entered"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Border" to="." method="_on_border_mouse_entered"]
-[connection signal="color_changed" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_color_changed"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_pen_color_btn_mouse_entered"]
+[connection signal="focus_entered" from="Notepad/Tab Cont/+" to="." method="_on_plus_focus_entered"]
+[connection signal="mouse_entered" from="HBox - Whiteboard" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border" to="." method="_on_enter_ui"]
+[connection signal="color_changed" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_enter_ui"]
 [connection signal="drag_ended" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_drag_ended"]
-[connection signal="drag_started" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_drag_started"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_mouse_entered"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_pen_btn_pressed"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_bucket_btn_pressed"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_eraser_btn_pressed"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_clear_btn_pressed"]
-[connection signal="mouse_entered" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_mouse_entered"]
+[connection signal="drag_started" from="HBox - Whiteboard/Size Slider" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Size Slider" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="Whiteboard Vis Btn" to="." method="_on_enter_ui"]
 [connection signal="toggled" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_toggled"]

@@ -22,6 +22,8 @@ func _on_apply_button_pressed() -> void:
 	
 	
 	
+	for setting in get_tree().get_nodes_in_group("data"):
+		pass
 #	for key, value in {}:
 #		Saver.updateData("settingsDict", key, value)
 
