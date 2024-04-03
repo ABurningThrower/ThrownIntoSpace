@@ -212,7 +212,7 @@ func get_tab_node(tab_idx: int) -> Node:
 func _on_tab_container_tab_clicked(tab_idx: int) -> void:
 	var lastTab: int = $"Notepad/Tab Cont".get_child_count()-1
 
-	if tab_idx == lastTab:
+	if tab_idx == lastTab:      	# "+"
 		clear_LEPs()
 		$"Notepad/Tab Cont".add_child(TextEdit.new())
 		lastTab += 1
@@ -223,21 +223,27 @@ func _on_tab_container_tab_clicked(tab_idx: int) -> void:
 		newTab.grab_focus()
 #		newTab.show()
 		get_tab_node(lastTab).hide()
-	elif tab_idx == currentTab:
+	elif tab_idx == currentTab: 	# 
 		clear_LEPs()
 		var tab: TextEdit = get_tab_node(tab_idx)
 		$Notepad.add_child(LEPopup.new())
 		var LEP: LEPopup = $Notepad.get_child($Notepad.get_child_count()-1)
 		LEP.connect("text_submitted", _on_LEP_text_submitted)
-		print(LEP.text)
-		print(tab.text)
-		LEP.text = tab.text
-		print(tab.text)
-		print(LEP.text)
-		LEP.queue_redraw()
-		var new_label: String = await LEP.text_submitted
-		if new_label != "":
-			tab.name = new_label
+		LEP.connect("focus_exited", _on_LEP_focus_lost)
+		LEP.text = tab.name
+		LEP.select_all_on_focus = true
+		LEP.grab_focus()
+		print(LEP.focus_mode)
+		while true:
+			if LEP.focus_mode != 2:
+				_on_LEP_focus_lost(LEP)
+			else:
+				var new_label: String = await LEP.text_submitted
+				if new_label != "":
+					tab.name = new_label
+				break
+		
+		
 		LEP.queue_free()
 #		(await signal, doing tab.text = LEP.text on enter/click off [losing focus with edited text?], otherwise nothing?)
 
@@ -256,8 +262,11 @@ func clear_LEPs() -> void:
 func _on_LEP_text_submitted(new_text: String) -> String:
 	return new_text
 
+func _on_LEP_focus_lost(_self: LEPopup) -> void:
+	_self.queue_free()
+
 ## FOR DEBUGGING. REMOVE IF UNUSED.
-func _on_plus_focus_entered():
+func _on_plus_focus_entered() -> void:
 	print("focus enter")
 	%"+".release_focus()
 	%"+".hide()

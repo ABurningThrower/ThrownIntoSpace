@@ -461,6 +461,16 @@ flip_h = true
 
 [node name="Lines" type="Node2D" parent="."]
 
+[node name="Customs" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Notepad" type="Window" parent="."]
 title = "SOLANO"
 initial_position = 1
@@ -492,12 +502,11 @@ placeholder_text = "..."
 deselect_on_focus_loss_enabled = false
 middle_mouse_paste_enabled = false
 
-[node name="+" type="Button" parent="Notepad/Tab Cont"]
+[node name="+" type="Control" parent="Notepad/Tab Cont"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-disabled = true
-button_mask = 0
+mouse_filter = 2
 
 [node name="Toggle Backlight Btn" type="Button" parent="Notepad"]
 visible = false
@@ -667,16 +676,6 @@ toggle_mode = true
 shortcut = SubResource("Shortcut_hvwee")
 text = "<0>"
 flat = true
-
-[node name="Customs" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="GIF Test" type="TextureRect" parent="."]
 layout_mode = 0

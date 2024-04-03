@@ -164,8 +164,9 @@ offset_left = 120.0
 offset_top = 45.0
 offset_right = 613.0
 offset_bottom = 661.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_scroll_mode = 0
-metadata/_edit_lock_ = true
 
 [node name="Panel Cont" type="PanelContainer" parent="Scrollifier"]
 layout_mode = 2
@@ -521,6 +522,33 @@ expand_mode = 1
 script = ExtResource("3_d16au")
 
 [node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Pre-enable Whiteboard" groups=["data"]]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Freespace Notepad Backlight Toggle" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBox" type="HBoxContainer" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Freespace Notepad Backlight Toggle"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Freespace Notepad Backlight Toggle/HBox"]
+layout_mode = 2
+text = "Notepad Backlight"
+
+[node name="Info TT" type="TextureRect" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Freespace Notepad Backlight Toggle/HBox"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_ilmgu")
+expand_mode = 1
+script = ExtResource("3_d16au")
+
+[node name="Checkbox" type="CheckBox" parent="Scrollifier/Panel Cont/Marginizer/~~~CONTENT~~~/Misc/Options/Freespace Notepad Backlight Toggle" groups=["data"]]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
