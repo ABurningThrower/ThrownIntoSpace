@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://5r8147tr4bmi"]
+[gd_scene load_steps=56 format=3 uid="uid://5r8147tr4bmi"]
 
 [ext_resource type="Script" path="res://files/scenes/Main-/freespace.gd" id="1_o7ow0"]
 [ext_resource type="Texture2D" uid="uid://ctft1aei3uq31" path="res://files/system/Images/System/Pencil.png" id="2_dwepa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xlwch4bem25e" path="res://files/system/Images/System/upload.png" id="3_1wlgh"]
 [ext_resource type="Texture2D" uid="uid://duvs6etqwndrc" path="res://files/system/Images/System/Notepad.png" id="3_lsioy"]
 [ext_resource type="Texture2D" uid="uid://lhpq4khquci4" path="res://files/system/Images/System/back_arrow.png" id="5_r505u"]
+[ext_resource type="Script" path="res://files/scenes/Main-/funky_SV.gd" id="6_3yjh2"]
 [ext_resource type="Texture2D" uid="uid://c3rds8pwi4oj7" path="res://files/system/Images/System/CircleBorder.png" id="6_t4v81"]
 [ext_resource type="Texture2D" uid="uid://kbiyhaoeu1f8" path="res://files/system/Images/System/bucket.png" id="7_8snjd"]
 [ext_resource type="Texture2D" uid="uid://0i0rtnm1vavl" path="res://files/system/Images/System/close.png" id="8_ivyr0"]
@@ -459,7 +460,24 @@ texture = ExtResource("5_r505u")
 expand_mode = 1
 flip_h = true
 
-[node name="Lines" type="Node2D" parent="."]
+[node name="Line SV Cont" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SV" type="SubViewport" parent="Line SV Cont"]
+unique_name_in_owner = true
+disable_3d = true
+render_target_update_mode = 4
+script = ExtResource("6_3yjh2")
+
+[node name="LinesSnap" type="TextureRect" parent="Line SV Cont/SV"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Customs" type="Control" parent="."]
 layout_mode = 1
@@ -677,37 +695,29 @@ shortcut = SubResource("Shortcut_hvwee")
 text = "<0>"
 flat = true
 
-[node name="GIF Test" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 291.0
-offset_right = 360.0
-offset_bottom = 331.0
-
-[connection signal="mouse_exited" from="." to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Btns/Whiteboard Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Btns/Whiteboard Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
 [connection signal="toggled" from="HBox - Btns/Whiteboard Btn" to="." method="_on_whiteboard_btn_toggled"]
-[connection signal="mouse_entered" from="HBox - Btns/Notepad Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Btns/Notepad Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
 [connection signal="toggled" from="HBox - Btns/Notepad Btn" to="." method="_on_notepad_btn_toggled"]
-[connection signal="mouse_entered" from="HBox - Btns/Customs Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Btns/Customs Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
 [connection signal="pressed" from="HBox - Btns/Customs Btn" to="." method="_on_customs_btn_pressed"]
 [connection signal="close_requested" from="Notepad" to="." method="_on_enter_ui"]
 [connection signal="tab_clicked" from="Notepad/Tab Cont" to="." method="_on_tab_container_tab_clicked"]
 [connection signal="focus_entered" from="Notepad/Tab Cont/+" to="." method="_on_plus_focus_entered"]
-[connection signal="mouse_entered" from="HBox - Whiteboard" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Border" to="." method="_on_enter_ui"]
-[connection signal="color_changed" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Pen Color Btn" to="." method="_on_enter_ui"]
-[connection signal="drag_ended" from="HBox - Whiteboard/Size Slider" to="." method="_on_size_slider_drag_ended"]
-[connection signal="drag_started" from="HBox - Whiteboard/Size Slider" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/Size Slider" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_enter_ui"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Pen Btn" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_enter_ui"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Bucket Btn" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_enter_ui"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_enter_ui"]
-[connection signal="pressed" from="HBox - Whiteboard/HBox/Clear Btn" to="." method="_on_enter_ui"]
-[connection signal="mouse_entered" from="Whiteboard Vis Btn" to="." method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="color_changed" from="HBox - Whiteboard/Border/Pen Color Btn" to="Line SV Cont/SV" method="_on_pen_color_btn_color_changed"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Border/Pen Color Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="drag_ended" from="HBox - Whiteboard/Size Slider" to="Line SV Cont/SV" method="_on_size_slider_drag_ended"]
+[connection signal="drag_started" from="HBox - Whiteboard/Size Slider" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/Size Slider" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Pen Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Pen Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Bucket Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Bucket Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Eraser Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Eraser Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="HBox - Whiteboard/HBox/Clear Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="pressed" from="HBox - Whiteboard/HBox/Clear Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
+[connection signal="mouse_entered" from="Whiteboard Vis Btn" to="Line SV Cont/SV" method="_on_enter_ui"]
 [connection signal="toggled" from="Whiteboard Vis Btn" to="." method="_on_whiteboard_vis_btn_toggled"]

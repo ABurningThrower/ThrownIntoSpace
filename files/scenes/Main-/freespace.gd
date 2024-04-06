@@ -2,17 +2,18 @@ extends TextureRect
 
 
 
-
+func _ready():
+	%SV.size = get_parent().size
 
 
 #region Buttons
 func _on_whiteboard_btn_toggled(toggled_on) -> void:
 	if toggled_on == true:
-		whiteboard_enabled = true
+		%SV.whiteboard_enabled = true
 		$"HBox - Whiteboard".show()
 		$"Whiteboard Vis Btn".show()
 	else:
-		whiteboard_enabled = false
+		%SV.whiteboard_enabled = false
 		$"HBox - Whiteboard".hide()
 		$"Whiteboard Vis Btn".hide()
 
@@ -87,7 +88,7 @@ func ensmallBtn(button: Button) -> void:
 
 #region Whiteboard
 
-
+'''
 var whiteboard_enabled:= false
 var bucketing:= false
 var pressed:= false
@@ -99,16 +100,16 @@ var undoable:= true 	# indicates if ctrl+z is available
 @onready var temp_color: Color = pen_color
 
 const bg_color: Color = Color("090909")  # self.texture.colors[0]
+'''
 
-
-
+'''
 func _input(event: InputEvent) -> void:
 	if whiteboard_enabled && !bucketing: # pen + eraser tools
 		pressed = (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) or (event is InputEventScreenDrag)
 
-
 		# start of new line
-		if event is InputEventMouseButton && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && finished:
+		if event is InputEventMouseButton && pressed && finished:
+			%SV.cleanup_children()
 			finished = false
 			current_line = Line2D.new()
 			current_line.default_color = pen_color
@@ -122,18 +123,16 @@ func _input(event: InputEvent) -> void:
 			current_line.texture_mode = Line2D.LINE_TEXTURE_TILE
 			
 			current_line.add_point(get_global_mouse_position())
-			$Lines.add_child(current_line)
+			%SV.add_child(current_line)
 		
 		# dragging
 		elif pressed && !finished && (event is InputEventMouseMotion):
-			if $Lines.get_child_count() > 0:
-				current_line.add_point(get_global_mouse_position())
+			current_line.add_point(event.position)
+			%SV.update_texture()
 		
 		# undo
 		elif !pressed && Input.is_action_pressed("Undo") && undoable:
-			if $Lines.get_child_count() > 0:
-				$Lines.get_child(-1).queue_free()
-				undoable = false
+			%SV.cleanup_children()
 		elif !pressed && Input.is_action_just_released("Undo"):
 			undoable = true
 		
@@ -142,10 +141,9 @@ func _input(event: InputEvent) -> void:
 	
 	elif whiteboard_enabled && bucketing: # bucket tool
 		pass
+'''
 
-
-
-
+"""
 func _on_pen_color_btn_color_changed(color) -> void:
 	pen_color = color
 	temp_color = color
@@ -190,16 +188,11 @@ func _on_clear_btn_pressed() -> void:
 	current_line = $Lines/anticrash
 	for child in $Lines.get_child_count():
 		$Lines.get_child(child).queue_free()
-
+"""
 #endregion
 
 #region Whiteboard Sub
-### These signals are to deter drawing into the Whiteboard Utilities while it's visible
-func _on_enter_ui() -> void:
-	finished = true
 
-func _on_enter_ui_toggle(_toggled_on: bool) -> void:
-	finished = true
 #endregion
 
 #region Notepad
@@ -316,3 +309,7 @@ func customs_dialog_finished(status: bool, paths: PackedStringArray, selected_fi
 
 
 
+
+
+func _on_enter_ui():
+	pass # Replace with function body.

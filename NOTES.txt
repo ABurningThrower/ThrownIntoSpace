@@ -68,8 +68,15 @@ Things to work on:
 		#
 		#freespace/Notepad - ?????? (goofy ahh focus???)
 		#
-		#
 		*SETTINGS - rewrite into resource
+		#
+		#
+		# custom cursor?
+		#
+		#
+		#
+		#
+		#
 		#
 		#
 		*battle_actions + enemy_data - get reference on how this should look (Baldur's Gate); refactor later
